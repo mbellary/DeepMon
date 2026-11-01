@@ -1,0 +1,129 @@
+   Compiling aether-poc v0.1.0 (/home/mbellary/work/projects/DeepMon/prototypes/aether-poc)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.42s
+     Running unittests src/lib.rs (prototypes/aether-poc/target/debug/deps/aether_poc-41cff75b5fe6f3a8)
+
+running 4 tests
+test endpoint::tests::client_accepts_exact_framing ... ok
+test endpoint::tests::client_rejects_truncated_or_excess_body ... ok
+test endpoint::tests::client_rejects_redirect_status_and_malformed_headers ... ok
+test endpoint::tests::client_rejects_unsupported_or_oversized_framing ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/main.rs (prototypes/aether-poc/target/debug/deps/aether_poc-b37972fac3ee9a34)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/enrichment.rs (prototypes/aether-poc/target/debug/deps/enrichment-47f149873c6cfcc7)
+
+running 32 tests
+test ambiguous_distinct_evidence_remains_ambiguous_in_any_input_order ... ok
+test invalid_boundary_query_and_unknown_record_fields_are_rejected ... ok
+test dangling_references_and_cross_scope_targets_are_rejected ... ok
+test keyed_targets_must_cover_the_query_time ... ok
+test metadata_validation_rejects_invalid_bounds_identity_and_limits ... ok
+test duplicate_evidence_is_idempotent_and_conflicts_are_not_last_write_wins ... ok
+test half_open_lifetimes_and_crossing_intervals_are_enforced ... ok
+test boot_namespace_and_missing_incarnation_queries_do_not_merge ... ok
+test all_seven_boundary_cases_have_independent_matching_answers ... ok
+test new_membership_does_not_relabel_old_observation ... ok
+test historical_and_new_container_owners_use_distinct_incarnations ... ok
+test no_first_candidate_wins_and_reported_candidates_are_untimed ... ok
+test partial_membership_and_missing_capacity_remain_qualified ... ok
+test nic_capability_and_preference_are_not_joined_to_an_active_path ... ok
+test extension_authoring_is_repeatable_and_protects_manual_changes ... ok
+test timed_queries_require_compatible_explicit_clocks_and_validity ... ok
+test unrelated_measurement_cannot_receive_another_subjects_relationship ... ok
+test original_enrichment_variants_match_all_seventeen_assertions ... ok
+test denied_runtime_preserves_process_context_without_guessing_container ... ok
+test oracle_tampering_is_not_read_by_runtime_and_fails_integrity ... ok
+test m5_accounting_keeps_original_and_extension_totals_distinct ... ok
+test remote_subject_stays_distinct_from_frontend_host ... ok
+test extension_symlink_is_rejected_even_with_matching_bytes ... ok
+test replica_set_does_not_multiply_measurements_or_infer_participation ... ok
+test changed_m4_ledger_cannot_be_imported_as_prior_evidence ... ok
+test independent_oracle_mismatch_does_not_change_actual_resolution ... ok
+test tcp_control_peer_never_proves_collective_payload_transport ... ok
+test command_pairing_errors_and_summary_determinism ... ok
+test privacy_and_policy_paths_remain_safe_and_blocked ... ok
+test extension_hashes_missing_files_and_unindexed_files_fail ... ok
+test extension_oversized_truncated_and_unknown_schema_fail ... ok
+test extension_baseline_identity_duplicate_cases_and_unsafe_paths_fail ... ok
+
+test result: ok. 32 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.50s
+
+     Running tests/harness.rs (prototypes/aether-poc/target/debug/deps/harness-47ac35fd9e9c21f8)
+
+running 25 tests
+test all_nonlocal_binds_rejected_before_binding ... ok
+test invalid_cli_arguments_rejected_before_loading_or_network ... ok
+test future_commands_fail_with_no_success_output ... ok
+test failed_fetch_and_shutdown_release_listener ... ok
+test endpoint_selection_rejects_missing_and_json_only ... ok
+test lists_complete_sorted_bundle_and_preserves_provenance ... ok
+test idle_run_deadline_fails_and_releases_listener ... ok
+test occupied_port_fails_without_leaking_a_worker ... ok
+test bad_requests_are_counted_and_server_continues_within_bound ... ok
+test traversal_and_arbitrary_manifests_refused ... ok
+test oversized_headers_receive_431 ... ok
+test active_partial_request_cannot_extend_run_deadline ... ok
+test explicit_shutdown_interrupts_partial_header ... ok
+test cli_help_and_fixture_commands_work ... ok
+test intentionally_invalid_payloads_transfer_without_semantic_claim ... ok
+test standalone_binary_announces_real_url_and_terminates_after_request ... ok
+test explicit_shutdown_and_drop_release_listener ... ok
+test serves_exact_bytes_and_releases_listener ... ok
+test omitted_group_fails ... ok
+test changed_endpoint_after_loading_rejected ... ok
+test real_roundtrip_is_byte_exact_and_deterministic ... ok
+test symlink_endpoint_refused_even_with_identical_target_bytes ... ok
+test incomplete_peer_times_out_then_server_serves_next_connection ... ok
+test bad_hash_or_missing_payload_fails_before_exposing_bundle ... ok
+test oversized_or_truncated_manifest_fails ... ok
+
+test result: ok. 25 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.58s
+
+     Running tests/metrics.rs (prototypes/aether-poc/target/debug/deps/metrics-77e3109bd41346fa)
+
+running 30 tests
+test explicit_overlap_selects_one_boundary_and_rejects_missing_linkage ... ok
+test histograms_validate_each_label_population_independently ... ok
+test native_projection_removes_sensitive_label_values ... ok
+test parser_rejects_duplicate_labels_series_types_and_unsupported_syntax ... ok
+test parser_bounds_bytes_labels_samples_and_counter_precision ... ok
+test cli_outputs_and_errors_never_emit_sensitive_marker ... ok
+test memory_missing_invalid_denominators_and_units_do_not_create_capacity ... ok
+test rate_rejects_reset_bad_time_population_units_labels_and_clocks ... ok
+test overlap_does_not_infer_remote_worker_host ... ok
+test histogram_total_suffix_never_overrides_declared_type ... ok
+test all_seven_native_producers_preserve_independent_oracles ... ok
+test malformed_payloads_fail_runtime_and_verify_only_precise_rejection ... ok
+test memory_ratios_preserve_single_replica_count ... ok
+test unknown_families_retained_without_invented_unit_or_mapping ... ok
+test optional_absence_is_not_a_zero_or_network_acquisition ... ok
+test all_assertions_accounted_and_runtime_acceptance_stays_blocked ... ok
+test proof_verification_stays_separate_from_runtime ... ok
+test rate_uses_supplied_snapshot_population_and_time ... ok
+test independent_comparison_rejects_value_unit_state_and_large_integer_mismatch ... ok
+test aggregate_runtime_cannot_see_oracle_worlds ... ok
+test privacy_denial_and_readiness_are_independent_states ... ok
+test latest_gauges_and_missing_stage_times_cannot_prove_freshness ... ok
+test proof_metadata_corruption_is_a_failure_not_a_runtime_value ... ok
+test oracle_changes_cannot_feed_runtime_and_are_rejected_by_loader ... ok
+test reset_and_raw_tgi_semantics_remain_unknown ... ok
+test server_pool_scope_and_backend_labels_stay_native ... ok
+test wrong_expected_rejection_never_matches_a_different_parser_error ... ok
+test scenario_pairing_and_cli_errors_fail_without_success ... ok
+test metric_summary_and_run_commands_are_deterministic ... ok
+test record_unknown_fields_ids_and_clocks_are_rejected ... ok
+
+test result: ok. 30 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.41s
+
+   Doc-tests aether_poc
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

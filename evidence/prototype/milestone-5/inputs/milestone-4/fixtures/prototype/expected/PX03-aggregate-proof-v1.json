@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX03-aggregate-proof-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "proof",
+      "target": "counterexamples",
+      "expected_value": {
+        "goodput_a": 0.1,
+        "goodput_b": 0,
+        "variance_a": 0.0625,
+        "variance_b": 0
+      },
+      "unit": "mixed_explicit_proof_units",
+      "state": "known",
+      "record_ids": [
+        "hist"
+      ],
+      "reason": "Hypothetical oracle-only worlds have equal aggregates and different answers; no hidden events are supplied as runtime input."
+    }
+  ],
+  "proof": {
+    "goodput": {
+      "latencies_seconds": [
+        0.2,
+        2.0
+      ],
+      "slo_seconds": 1,
+      "success_a": [
+        true,
+        false
+      ],
+      "success_b": [
+        false,
+        true
+      ],
+      "unit": "requests/second",
+      "window_seconds": 10
+    },
+    "variance": {
+      "a": [
+        0.25,
+        0.75
+      ],
+      "b": [
+        0.5,
+        0.5
+      ],
+      "buckets_seconds": [
+        1,
+        "+Inf"
+      ],
+      "population": true,
+      "unit": "seconds_squared"
+    }
+  }
+}

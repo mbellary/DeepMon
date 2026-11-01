@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX09-overlapping-streams-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "clock_domain": "fixture",
+      "end_us": 10,
+      "id": "A0",
+      "kind": "interval",
+      "start_us": 0,
+      "stream": "A"
+    },
+    {
+      "clock_domain": "fixture",
+      "end_us": 30,
+      "id": "A1",
+      "kind": "interval",
+      "start_us": 20,
+      "stream": "A"
+    },
+    {
+      "clock_domain": "fixture",
+      "end_us": 20,
+      "id": "B0",
+      "kind": "interval",
+      "start_us": 10,
+      "stream": "B"
+    },
+    {
+      "complete_stream_coverage": true,
+      "id": "coverage",
+      "kind": "link",
+      "window_us": [
+        0,
+        30
+      ]
+    }
+  ]
+}

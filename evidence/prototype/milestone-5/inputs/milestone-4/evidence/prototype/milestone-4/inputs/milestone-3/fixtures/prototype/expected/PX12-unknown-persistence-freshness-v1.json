@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX12-unknown-persistence-freshness-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "unknown",
+      "target": "source_and_query_freshness",
+      "expected_value": null,
+      "unit": "not_available",
+      "state": "unknown",
+      "record_ids": [],
+      "reason": "Missing source, persistence and visibility times cannot be filled from poll interval."
+    }
+  ],
+  "proof": null
+}

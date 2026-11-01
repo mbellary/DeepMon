@@ -1,0 +1,6 @@
+# HELP vllm:iteration_tokens_total Synthetic test values; not a captured export
+# TYPE vllm:iteration_tokens_total histogram
+vllm:iteration_tokens_total_bucket{le="1",model_name="fixture-model"} 1
+vllm:iteration_tokens_total_bucket{le="+Inf",model_name="fixture-model"} 2
+vllm:iteration_tokens_total_count{model_name="fixture-model"} 2
+vllm:iteration_tokens_total_sum{model_name="fixture-model"} 3

@@ -1,0 +1,4 @@
+   Compiling aether-poc v0.1.0 (/home/mbellary/work/projects/DeepMon/prototypes/aether-poc)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.29s
+     Running `prototypes/aether-poc/target/debug/examples/record_enrichment_evidence`
+original_assertions_indexed=49 boundary_cases=7 associations_retained=58 runtime_acceptance_readiness=false

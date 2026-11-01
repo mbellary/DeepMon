@@ -1,0 +1,16 @@
+    Blocking waiting for file lock on build directory
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running `tools/aether-validation/target/debug/aether-validate traceability --root .`
+metric_requirements=250
+metadata_associations=58
+experiment_specifications=12
+selected_metrics=23
+unselected_metrics=227
+selected_associations=42
+unselected_associations=16
+missing_original_ids=0
+duplicate_ids=0
+synthetic_experiments_executed=0
+deployed_schemas_and_capabilities=not_verified
+runtime_acceptance_readiness=false
+milestone_1_traceability=pass

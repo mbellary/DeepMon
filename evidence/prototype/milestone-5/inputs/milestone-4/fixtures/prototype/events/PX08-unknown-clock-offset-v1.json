@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX08-unknown-clock-offset-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    },
+    {
+      "domain": "remote",
+      "unit": "microseconds",
+      "uncertainty_us": 5,
+      "offset_bounds_us": null
+    }
+  ],
+  "records": [
+    {
+      "arrival_us": 100,
+      "clock_domain": "fixture",
+      "completion_us": 150,
+      "generation": "one",
+      "group": "group-A",
+      "id": "rank0",
+      "kind": "rank_event",
+      "rank": 0
+    },
+    {
+      "arrival_us": 130,
+      "clock_domain": "remote",
+      "completion_us": 190,
+      "generation": "one",
+      "group": "group-A",
+      "id": "rank1",
+      "kind": "rank_event",
+      "rank": 1
+    },
+    {
+      "complete": true,
+      "expected_ranks": [
+        0,
+        1
+      ],
+      "id": "group",
+      "kind": "link"
+    }
+  ]
+}

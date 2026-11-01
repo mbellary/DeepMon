@@ -1,0 +1,2 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s
+     Running `prototypes/aether-poc/target/debug/aether-poc verify-scenario --scenario native-parse --variant PX01-malformed-type-v1 --root .`

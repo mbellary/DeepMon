@@ -1,4 +1,4 @@
-//! Synthetic fixture harness; no real collectors or metric semantics.
+//! Synthetic metric and association experiments; no real collectors.
 pub mod config;
 pub mod endpoint;
 pub mod fixture;
@@ -40,6 +40,10 @@ impl From<std::io::Error> for PrototypeError {
 }
 pub type Result<T> = std::result::Result<T, PrototypeError>;
 pub mod derive;
+pub mod enrichment_data;
+pub mod enrichment_fixture;
+pub mod enrichment_scenario;
+pub mod identity;
 pub mod metric_input;
 pub mod metric_text;
 pub mod observation;

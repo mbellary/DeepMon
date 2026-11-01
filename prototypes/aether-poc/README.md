@@ -34,3 +34,18 @@ The harness now implements finite native parsing and selected calculations. Run 
 Other named metric scenarios are aggregate-evidence, count-boundary, memory-occupancy, visibility-policy and freshness-evidence. Select variants in the corresponding PX03/PX04/PX05/PX11/PX12 groups. Expected negative parsing passes verification only for the precise actual error; direct run still exits nonzero. Unknown inputs yield explicit unknown results, not zero. The summary accounts for all twelve groups, including later-stage assertions, and leaves runtime acceptance blocked/unagreed. Query, collect, replay and token-rate remain not_prototyped.
 
 The rate command calculates from supplied timed JSON records; the paired endpoint contains only one counter sample. It is not a demonstrated polling rate or token rate. Detailed semantics and limits: [metric semantics](../../docs/prototype-metric-semantics.md). Accepted M3 source/lock/report bytes are preserved under the verified M4 predecessor root; current hashes/evidence are separate.
+
+## Metadata functions added in Milestone 5
+
+    cargo run --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml -- run-scenario --root . --scenario publisher-identity --variant PX04-ambiguous-publisher-v1
+    cargo run --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml -- verify-scenario --root . --scenario process-lifecycle --variant PX06-pid-reuse-v1
+    cargo run --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml -- run-scenario --root . --scenario resource-membership --variant PX05-replica-set-v1
+    cargo run --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml -- run-scenario --root . --scenario fabric-context --variant PX07-inventory-only-v1
+    cargo run --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml -- verify-scenario --root . --scenario enrichment-boundaries --case E5-01
+    cargo run --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml -- verify-milestone --root . --milestone 5
+
+The five original metadata scenarios are publisher-identity, process-lifecycle, resource-membership, fabric-context and visibility-enrichment (PX04/PX06/PX05/PX07/PX11 respectively). Boundary cases E5-01 through E5-07 use the separate hashed enrichment bundle. Runtime/expected inputs remain separate. Every measurement stays one measurement; ambiguous/partial/unknown facts do not become guessed ownership or active fabric use. Query times and all values are explicitly invented.
+
+The original M4 summary and historical metric ledger stay unchanged. Stage-5 tracking imports prior-only evidence without rerunning or double-counting it; runtime acceptance remains blocked. Details: [enrichment contract](../../docs/prototype-enrichment-contract.md), [Milestone 5 plan](../../milestone-execution-plans/milestone-05-execplan.md).
+
+Fixture/evidence authoring uses Rust examples `author_enrichment_fixtures` and `record_enrichment_evidence`. The first writes the fixed extension bundle; identical reruns write zero files and conflicting files are protected. The second indexes `evidence/prototype/milestone-5/verify-milestone-1.json` and writes separate coverage/current-ledger files without resetting M4 history. These helpers do not acquire real metadata or establish agreed runtime budgets.

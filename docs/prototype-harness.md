@@ -19,3 +19,7 @@ No accepted requirements, research routes, M1/M2 ledgers or proposed budgets are
 ## Milestone 4 extension
 
 The original byte-roundtrip command retains its transport-only semantics and not_run semantic field. The package now also implements seven named metric functions plus independent scenario/milestone verification. These produce separate current functional-execution reports and a new ledger; they do not alter historical M1/M2 planning states or budget agreements. Native parsing uses the owned local HTTP exchange; rates and other calculations use supplied typed synthetic records. See [metric semantics](prototype-metric-semantics.md) for exact stage/variant accounting, finite grammar, privacy projection, unknown states and source limitations. Query, collection, event replay, relationship resolution and storage remain later-stage work.
+
+## Milestone 5 extension
+
+The package now also implements five synthetic enrichment adapters and seven additive boundary cases. Scoped identity, explicit evidence/validity and immutable set-valued relationships keep PID reuse and resource membership from relabeling or duplicating measurements. Untimed links and unresolved physical/transport identity stay qualified. The original M4 output/ledger is preserved; current association evidence and all 58 association facets are tracked separately. See [enrichment contract](prototype-enrichment-contract.md). No real discovery or production identity service is implemented.

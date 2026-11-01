@@ -1,0 +1,2 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s
+     Running `prototypes/aether-poc/target/debug/aether-poc run-scenario --scenario resource-membership --variant PX05-replica-set-v1 --root .`

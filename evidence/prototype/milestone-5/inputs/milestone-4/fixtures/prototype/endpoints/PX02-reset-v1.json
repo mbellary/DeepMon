@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX02-reset-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "clock_domain": "fixture",
+      "family": "nv_inference_request_success",
+      "id": "c0",
+      "incarnation": "one",
+      "kind": "counter",
+      "time_us": 0,
+      "unit": "requests",
+      "value": 100
+    },
+    {
+      "clock_domain": "fixture",
+      "family": "nv_inference_request_success",
+      "id": "c1",
+      "incarnation": "two",
+      "kind": "counter",
+      "time_us": 10000000,
+      "unit": "requests",
+      "value": 20
+    }
+  ]
+}

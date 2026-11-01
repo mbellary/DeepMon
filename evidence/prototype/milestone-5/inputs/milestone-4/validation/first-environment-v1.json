@@ -1,0 +1,72 @@
+{
+  "environment_id": "aether-validation-synthetic-local-v1",
+  "version": "1",
+  "kind": "synthetic_local_reference_environment",
+  "selection_basis": "Existing workspace inspected; user confirmed no existing cluster. No inference deployment is inferred.",
+  "observed_at_utc": "2026-11-01T15:27:46.249247+00:00",
+  "workspace": "/home/mbellary/work/projects/DeepMon",
+  "os": {
+    "id": "ubuntu",
+    "version_id": "26.04",
+    "pretty_name": "Ubuntu 26.04.1 LTS",
+    "kernel": "7.0.0-38-generic",
+    "architecture": "x86_64",
+    "libc": "glibc 2.43"
+  },
+  "toolchain": {
+    "rustc_verbose": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.0\nLLVM version: 23.1.1",
+    "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+    "observed_rustup_alias": "stable-x86_64-unknown-linux-gnu (default)",
+    "required_rust_version": "1.99.0",
+    "required_host_target": "x86_64-unknown-linux-gnu",
+    "selection_policy": "Use the exact observed 1.99.0 compiler identity for the first Rust harness; a moving stable alias is not a version pin. Verify again before execution; no toolchain was installed or switched.",
+    "python": "3.14.4"
+  },
+  "execution_boundary": {
+    "source_evidence_bundle": "aether-source-evidence-v1",
+    "source_metadata": "evidence/inputs/v1/source-metadata.json",
+    "inputs": "future synthetic fixtures referencing pinned inputs; none authored or executed in this task",
+    "http_binding": "loopback only when fixture service is later implemented",
+    "storage": "dedicated disposable local directory; remote object store simulated",
+    "privileged_access": false,
+    "real_engine_connections": false,
+    "gpu_nic_queries": false,
+    "kernel_or_process_probes": false,
+    "external_notifications": false
+  },
+  "readiness": {
+    "reference_environment_fingerprint_pinned": true,
+    "source_input_hashes_verified": true,
+    "rust_harness_implemented": false,
+    "fixture_manifest_pinned": false,
+    "cargo_lock_pinned": false,
+    "resource_and_acceptance_limits_agreed": false,
+    "ready_for_acceptance_run": false,
+    "real_deployment_available": false
+  },
+  "not_selected_or_unverified": {
+    "serving_engine_runtime_versions": null,
+    "engine_container_digests": null,
+    "cuda_nccl_versions": null,
+    "gpu_and_nic_models": null,
+    "fabric_type": null,
+    "device_driver_versions": null,
+    "host_image_digest": null,
+    "installed_package_lock": null
+  },
+  "real_validation": {
+    "environment_id": null,
+    "status": "pending_environment_or_authentic_captures",
+    "reason": "User reports no existing cluster.",
+    "capture_requirements": [
+      "producer build/version or image digest",
+      "sanitized raw exposition with HELP/TYPE and native labels",
+      "capture start/end and source identity/incarnation",
+      "enabled feature and permission evidence",
+      "field freshness/update evidence under known workload",
+      "hardware driver and link/partition capability inventory for claimed H paths"
+    ],
+    "acceptance": "A supplied capture may verify schema presence at its timestamp; it cannot by itself certify ongoing access, overhead, durability or hardware measurement accuracy."
+  },
+  "scope_limit": "This pins an observed local reference fingerprint, not a portable VM/container image or production compatibility range. No benchmark, compiler build, engine run or synthetic scenario was performed."
+}

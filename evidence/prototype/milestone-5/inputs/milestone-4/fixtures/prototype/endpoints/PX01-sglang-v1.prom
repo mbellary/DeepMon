@@ -1,0 +1,6 @@
+# HELP sglang:e2e_request_latency_seconds Synthetic test values; not a captured export
+# TYPE sglang:e2e_request_latency_seconds histogram
+sglang:e2e_request_latency_seconds_bucket{le="1",model_name="fixture-alias"} 1
+sglang:e2e_request_latency_seconds_bucket{le="+Inf",model_name="fixture-alias"} 2
+sglang:e2e_request_latency_seconds_count{model_name="fixture-alias"} 2
+sglang:e2e_request_latency_seconds_sum{model_name="fixture-alias"} 3

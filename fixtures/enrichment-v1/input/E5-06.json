@@ -1,0 +1,255 @@
+{
+  "after_queries": [],
+  "case_id": "E5-06",
+  "measurement_queries": {},
+  "measurements": [],
+  "queries": [
+    {
+      "from": {
+        "boot": null,
+        "host": null,
+        "incarnation": "link-one",
+        "kind": "nic",
+        "locator": "ifindex7",
+        "namespace": "netns-A",
+        "scope": "boundary-fixture"
+      },
+      "id": "capabilities",
+      "is_set": true,
+      "relation": "capabilities",
+      "selector": {
+        "mode": "unspecified"
+      }
+    },
+    {
+      "from": {
+        "boot": null,
+        "host": null,
+        "incarnation": "link-one",
+        "kind": "nic",
+        "locator": "ifindex7",
+        "namespace": "netns-A",
+        "scope": "boundary-fixture"
+      },
+      "id": "configuration",
+      "is_set": true,
+      "relation": "configured_preference",
+      "selector": {
+        "mode": "unspecified"
+      }
+    },
+    {
+      "from": {
+        "boot": null,
+        "host": null,
+        "incarnation": "link-one",
+        "kind": "nic",
+        "locator": "ifindex7",
+        "namespace": "netns-A",
+        "scope": "boundary-fixture"
+      },
+      "id": "active",
+      "is_set": true,
+      "relation": "active_transport",
+      "selector": {
+        "mode": "unspecified"
+      }
+    },
+    {
+      "from": {
+        "boot": null,
+        "host": null,
+        "incarnation": "link-one",
+        "kind": "nic",
+        "locator": "ifindex7",
+        "namespace": "netns-A",
+        "scope": "boundary-fixture"
+      },
+      "id": "operation",
+      "is_set": true,
+      "relation": "operation_to_nic",
+      "selector": {
+        "mode": "unspecified"
+      }
+    },
+    {
+      "from": {
+        "boot": null,
+        "host": null,
+        "incarnation": "link-one",
+        "kind": "nic",
+        "locator": "ifindex7",
+        "namespace": "netns-A",
+        "scope": "boundary-fixture"
+      },
+      "id": "libraries",
+      "is_set": true,
+      "relation": "loaded_cuda_nccl",
+      "selector": {
+        "mode": "unspecified"
+      }
+    },
+    {
+      "from": {
+        "boot": null,
+        "host": null,
+        "incarnation": "link-one",
+        "kind": "nic",
+        "locator": "ifindex7",
+        "namespace": "netns-B",
+        "scope": "boundary-fixture"
+      },
+      "id": "other-netns",
+      "is_set": true,
+      "relation": "capabilities",
+      "selector": {
+        "mode": "unspecified"
+      }
+    }
+  ],
+  "records": [
+    {
+      "node": {
+        "evidence": [
+          "nic-A"
+        ],
+        "id": "nic-A",
+        "key": {
+          "boot": null,
+          "host": null,
+          "incarnation": "link-one",
+          "kind": "nic",
+          "locator": "ifindex7",
+          "namespace": "netns-A",
+          "scope": "boundary-fixture"
+        },
+        "validity": {
+          "clock": "fixture",
+          "end_us": 20,
+          "start_us": 0,
+          "uncertainty_us": 0
+        }
+      },
+      "record_kind": "node"
+    },
+    {
+      "node": {
+        "evidence": [
+          "nic-B"
+        ],
+        "id": "nic-B",
+        "key": {
+          "boot": null,
+          "host": null,
+          "incarnation": "link-one",
+          "kind": "nic",
+          "locator": "ifindex7",
+          "namespace": "netns-B",
+          "scope": "boundary-fixture"
+        },
+        "validity": {
+          "clock": "fixture",
+          "end_us": 20,
+          "start_us": 0,
+          "uncertainty_us": 0
+        }
+      },
+      "record_kind": "node"
+    },
+    {
+      "record_kind": "relation",
+      "relation": {
+        "complete": true,
+        "denied": false,
+        "evidence": [
+          "capability"
+        ],
+        "from": {
+          "boot": null,
+          "host": null,
+          "incarnation": "link-one",
+          "kind": "nic",
+          "locator": "ifindex7",
+          "namespace": "netns-A",
+          "scope": "boundary-fixture"
+        },
+        "id": "capability",
+        "kind": "capabilities",
+        "to": [
+          {
+            "locator": "ethernet",
+            "reference": "symbolic",
+            "scope": "boundary-fixture"
+          },
+          {
+            "locator": "rdma",
+            "reference": "symbolic",
+            "scope": "boundary-fixture"
+          }
+        ],
+        "validity": null
+      }
+    },
+    {
+      "record_kind": "relation",
+      "relation": {
+        "complete": true,
+        "denied": false,
+        "evidence": [
+          "configuration"
+        ],
+        "from": {
+          "boot": null,
+          "host": null,
+          "incarnation": "link-one",
+          "kind": "nic",
+          "locator": "ifindex7",
+          "namespace": "netns-A",
+          "scope": "boundary-fixture"
+        },
+        "id": "configuration",
+        "kind": "configured_preference",
+        "to": [
+          {
+            "locator": "roce",
+            "reference": "symbolic",
+            "scope": "boundary-fixture"
+          }
+        ],
+        "validity": null
+      }
+    },
+    {
+      "record_kind": "relation",
+      "relation": {
+        "complete": true,
+        "denied": false,
+        "evidence": [
+          "control"
+        ],
+        "from": {
+          "boot": null,
+          "host": null,
+          "incarnation": "link-one",
+          "kind": "nic",
+          "locator": "ifindex7",
+          "namespace": "netns-A",
+          "scope": "boundary-fixture"
+        },
+        "id": "control",
+        "kind": "control_protocol",
+        "to": [
+          {
+            "locator": "tcp",
+            "reference": "symbolic",
+            "scope": "boundary-fixture"
+          }
+        ],
+        "validity": null
+      }
+    }
+  ],
+  "schema_version": 1,
+  "synthetic": true,
+  "updates": []
+}

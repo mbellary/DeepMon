@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX01-trt-backend-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "clock_domain": "fixture",
+      "family": "nv_trt_llm_runtime_memory_metrics",
+      "id": "snapshot",
+      "invented_fields": [
+        "values",
+        "model_alias",
+        "fixture_bucket_boundaries"
+      ],
+      "invented_labels": [],
+      "kind": "endpoint_snapshot",
+      "metric_type": "gauge",
+      "native_labels": [
+        "memory_type",
+        "model",
+        "version"
+      ],
+      "producer": "triton_trtllm",
+      "scope": "backend_runtime",
+      "source_input_ids": [
+        "E10"
+      ],
+      "time_us": 0,
+      "unit": "bytes"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX01-sglang-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "native",
+      "target": "sglang:e2e_request_latency_seconds",
+      "expected_value": {
+        "sample_values": [
+          1,
+          2,
+          2,
+          3
+        ],
+        "scope": "engine",
+        "type": "histogram"
+      },
+      "unit": "seconds",
+      "state": "reported_only",
+      "record_ids": [
+        "snapshot"
+      ],
+      "reason": "Retain the declared family/type/labels and producer scope; values and bucket boundaries are invented."
+    }
+  ],
+  "proof": null
+}

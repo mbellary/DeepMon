@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX12-gauge-and-queue-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "clock_domain": "fixture",
+      "family": "trtllm_iteration_latency_seconds",
+      "id": "g0",
+      "kind": "gauge",
+      "time_us": 0,
+      "unit": "seconds",
+      "value": 0.001
+    },
+    {
+      "clock_domain": "fixture",
+      "family": "trtllm_iteration_latency_seconds",
+      "id": "g1",
+      "kind": "gauge",
+      "time_us": 10000000,
+      "unit": "seconds",
+      "value": 0.001
+    },
+    {
+      "admitted_ids": [
+        "q0",
+        "q1"
+      ],
+      "capacity_records": 2,
+      "id": "q",
+      "kind": "queue",
+      "offered_ids": [
+        "q0",
+        "q1",
+        "q2"
+      ],
+      "policy": "reject_new",
+      "rejected_ids": [
+        "q2"
+      ]
+    }
+  ]
+}

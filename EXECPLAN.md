@@ -3,7 +3,7 @@
 
 This ExecPlan is a living document. Keep `Progress`, `Surprises & Discoveries`, `Decision Log`, and `Outcomes & Retrospective` current at every stopping point. Maintain it according to repository-root `PLANS.md`, which preserves the user's uploaded planning instructions. The workspace is `/home/mbellary/work/projects/DeepMon`.
 
-Milestones 1–4 are accepted within their specification, fixture, harness and synthetic functional scopes. Actual evidence is in `evidence/prototype/milestone-1.md` through `milestone-4.md`. The user authorized M4 execution; its eight detailed tasks are complete. The new functional ledger records executed Rust functions and independent comparisons; historical planning fields remain intact. Runtime acceptance is blocked by unagreed budgets and real capabilities remain unverified. M5–M8 implementation remains pending; next is M5 simulated metadata enrichment and lifecycle handling.
+Milestones 1–5 are accepted within their specification, fixture, harness and synthetic functional scopes, with evidence in `evidence/prototype/milestone-1.md` through `milestone-5.md`. The detailed M5 plan records all eight tasks complete. Milestone 6 is next: bounded buffering, local journal recovery and Arrow/Parquet/DataFusion with simulated storage faults. M6–M8 remain pending. Runtime budgets remain unagreed and real capabilities unverified; historical evidence/ledgers stay intact.
 
 ## Purpose / Big Picture
 
@@ -47,7 +47,9 @@ Times use Asia/Kolkata, UTC+05:30. Entries marked verified record an inspection 
 - [x] (2026-11-01 23:10 IST, Milestone 4 plan validation) Verified required sections/format, links, eight pending tasks and manifest-backed seven-group/23-variant references. Existing Rust evidence/traceability/fixture checks and accepted M3/M2/original hashes pass; no M4 implementation is claimed.
 - [x] (2026-11-01 23:34 IST, Milestone 4 accepted) Completed M4.1–M4.8: independent native parser/loopback acquisition, justified calculations, policy/privacy/unknown states and full per-assertion functional tracking. Passed 30 new tests plus all 99 regressions, strict static/integrity checks and five deterministic CLI pairs. Accounted for 49 assertions: 24 matches, two expected rejections, one proof, three in-scope deferrals and 19 later-stage assertions not run. Preserved M3 predecessor and original requirements/sources/fixtures/budgets. Evidence: `evidence/prototype/milestone-4.md`; M5 is next, runtime acceptance remains blocked.
 - [x] (2026-11-01 23:36 IST, Milestone 4 final verification) Verified plan/index links, completed task states, whitespace, 187 indexed predecessor file hashes and sanitized emitted JSON/logs/ledger. Current M4 artifact hashes are recorded separately from historical acceptance lists.
-- [ ] Milestone 5: prototype metadata enrichment using simulated identities and lifecycle changes; prevent duplicate counts and incorrect remote-worker attribution.
+- [x] (2026-11-01 23:46 IST, Milestone 5 planning) Created `milestone-execution-plans/milestone-05-execplan.md` with eight pending tasks, five original groups/ten variants/17 assertions, seven additive boundary cases, identity/time/evidence/cardinality rules, independent verification, full association tracking and M4 predecessor preservation. Existing M4 hashes/fixture/traceability checks pass; no M5 implementation is claimed.
+- [x] (2026-11-01 23:47 IST, Milestone 5 plan validation) Verified required sections/format, links, eight pending tasks and manifest-backed five-group/ten-variant/17-assertion references. Existing Rust evidence/traceability/fixture checks and accepted M4/M2/original hashes pass; no code, fixture or execution ledger changed.
+- [x] (2026-11-02 00:15 IST, Milestone 5 accepted) Completed M5.1–M5.8 in Rust: scoped temporal enrichment, immutable identity history, resource sets, strict seven-case extension, independent verification and separate all-58 facet tracking. All 161 tests pass (32 new, 129 prior); 17 original assertions and 69 boundary checks pass. Six report pairs and the prior M4 summary are byte-identical. Evidence: `evidence/prototype/milestone-5.md`; M6 is next.
 - [ ] Milestone 6: prototype bounded buffering, a local recovery journal, Arrow/Parquet output and DataFusion queries with simulated storage faults.
 - [ ] Milestone 7: prototype timing/correlation logic using synthetic event replay and an in-process demonstration alert.
 - [ ] Milestone 8: complete a repeatable local demonstration, compare results with expected answers and write the production-design handoff report.
@@ -55,6 +57,10 @@ Times use Asia/Kolkata, UTC+05:30. Entries marked verified record an inspection 
 
 ## Surprises & Discoveries
 
+
+Observation: some existing metadata links are untimed, and co-occurring NIC/capability records lack explicit join keys.
+
+Evidence: PX04's listener and PX05's membership link do not supply observation/link validity times; PX07's capability record has no device/port key. M5 must retain reported candidates/sets with unspecified temporal/physical identity and use additive explicit boundary fixtures for stronger tests. It cannot infer time or device ownership from co-occurrence.
 
 Observation: exact count-token validation and complete predecessor dependencies matter even when positive fixtures are small.
 
@@ -215,6 +221,18 @@ Decision: accept the authorized M4 implementation for functional prototype corre
 Rationale: actual parser acquisition, exact negative errors, independent calculations/unknowns, policy/privacy handling, full assertion accounting and 129 passing tests satisfy its defined scope. The new ledger reports current executed functions, while historical records remain preserved and budgets unagreed. The user requested completion plus a next-milestone suggestion, not automatic M5 execution.
 Date/Author: 2026-11-01 23:34 IST / Codex, applying user direction.
 
+Decision: deliver M5 planning only in this turn, using `milestone-execution-plans/milestone-05-execplan.md` for eight pending tasks.
+Rationale: explicit user request. Preserve accepted M4 source/ledger/results before future edits and keep M4 command semantics reproducible. M5 adds separate current association evidence rather than rewriting historical deferrals or double-counting repeated checks.
+Date/Author: 2026-11-01 23:46 IST / Codex, applying user direction.
+
+Decision: use a separate versioned `fixtures/enrichment-v1/` bundle for seven explicitly authored lifecycle/time boundary cases, while retaining original fixtures and all requirements.
+Rationale: original links lack some query/time/device facts and the original fixture index rejects extra unindexed files. Stronger tests need explicit invented inputs, not implicit timestamps, inferred host identities or fabricated active transport. All 58 associations remain visible with facet-level evidence and limitations.
+Date/Author: 2026-11-01 23:46 IST / Codex.
+
+Decision: accept M5 scoped synthetic enrichment and retain M6–M8 as pending.
+Rationale: the authorized implementation passes 32 new and 129 prior tests, independent comparisons and preservation checks. Separate ledgers retain original assertion identities and all 58 association definitions without claiming full physical support. The next work is storage/buffering experimentation, not production design.
+Date/Author: 2026-11-02 / Codex.
+
 ## Outcomes & Retrospective
 
 
@@ -226,7 +244,7 @@ M3 is now complete: its independent Rust package/lock, bounded loopback server/c
 
 M4's eight tasks are now complete for synthetic functional correctness. The package adds native parsing, supplied-record calculations, explicit missing/policy states and independent verification. All 30 new metric tests plus 99 regressions pass. Five CLI pairs produce identical reports. The separate `docs/prototype-metric-execution-status.json` retains all 49 original assertions with 24 matches, two expected rejections, one proof, three considered-group deferrals and 19 later-stage assertions not run. Actual evidence is `evidence/prototype/milestone-4.md`; M3 bytes verify against its original checksum list in the preserved predecessor root, including fixture validation.
 
-Current function execution is no longer described as universally not_run: the new ledger records what actually ran without modifying accepted historical planning fields. Whole-PX runtime acceptance remains blocked by unagreed budgets, readiness false and real verification not_run. No real schema, device capability, physical timing, inference overhead or production durability has been verified. M5 enrichment/lifecycle handling is next; M5–M8 implementation remains pending and production architecture remains unscoped.
+Current function execution is no longer described as universally not_run: the new ledger records what actually ran without modifying accepted historical planning fields. Whole-PX runtime acceptance remains blocked by unagreed budgets, readiness false and real verification not_run. No real schema, device capability, physical timing, inference overhead or production durability has been verified. M5 now delivers scoped identity/lifecycle enrichment, 17 current original comparisons and 69 independent boundary checks, with all 161 tests passing. All 58 original definitions remain visible in conservative facet tracking. The separate combined ledger retains 49 unique original assertions: 31 matches, two expected rejections, one proof, one queue deferral and 14 later-stage assertions not run. Evidence is `evidence/prototype/milestone-5.md`; M6–M8 implementation remains pending and production architecture remains unscoped.
 
 ## Context and Orientation
 
@@ -311,13 +329,17 @@ Acceptance is the assigned functional assertions, precise negative errors, unkno
 ### Milestone 5: prototype enrichment and lifecycle handling
 
 
+Use [the detailed Milestone 5 execution plan](milestone-execution-plans/milestone-05-execplan.md) for M5.1–M5.8, exact original/extension coverage, typed interfaces, CLI, tests and acceptance evidence. M5 implementation is complete; actual acceptance is recorded in `evidence/prototype/milestone-5.md`. Accepted M4 source/docs/ledger/report bytes are preserved in the verified M5 predecessor archive. Keep original requirements, mappings, sources, fixtures and budgets unchanged; update both plans/index at implementation stopping points.
+
 Implement joins over fixture metadata in `src/identity.rs`. A join connects a measurement with a context record using matching IDs and valid times. Keep emitter, subject, assigned resource set and observed participating resources separate. For a simulated replica-wide observation, store one value and link it to a set of simulated GPUs; do not copy it into independent values that would be summed twice.
 
 Replay process exit/PID reuse and resource membership changes. A current mapping must not relabel an old observation. A frontend gauge about a remote worker must retain the frontend as emitter and the worker as subject. When the worker-to-host relationship is missing, report it as unknown. A model name, rank number or device ordinal alone must not identify a global replica/device. Keep configured NIC capability separate from a selected operation path.
 
-Use the M01–M58 definitions to explain each tested association, but implement only the selected experimental joins. Untested associations remain in the status file. Do not implement actual runtime, Kubernetes, NVML, NIC or fabric discovery in this milestone.
+Cover PX04/PX05/PX06/PX07/PX11: five groups, ten variants and 17 original assertions (seven new to M5 and ten prior checks to reverify without inflating the original 49). Add a separately versioned `fixtures/enrichment-v1/` bundle with seven explicit lifecycle/time/scope/conflict/privacy boundary cases. Original untimed links remain temporally unspecified and symbolic/candidate resources do not become physically verified. Do not infer NIC capability ownership or active paths from co-occurrence/control sockets.
 
-Acceptance is a set of deterministic lifecycle/join tests and a report that shows both correct associations and honest unresolved ones. Two-GPU membership must not double a replica counter. Reused identifiers must not merge unrelated lifetimes. This validates the association logic against invented inputs, not the feasibility of obtaining those inputs on a real host.
+Use all M01–M58 definitions to explain tested facets and retain every untested remainder in `docs/prototype-enrichment-coverage.json`. Add `docs/prototype-enrichment-contract.md` and a separate `docs/prototype-enrichment-execution-status.json`. Preserve M4 commands/ledger/results; stage-5 verification records actual new results with unique original assertion IDs, separate extension counts and linked prior-only evidence. Unknown/partial/ambiguous/reported_only/resolved outcomes remain distinct. Do not implement actual runtime, Kubernetes, NVML, NIC or fabric discovery.
+
+Acceptance is the detailed plan's actual lifecycle/join comparisons, extension expectations, cardinality/history/privacy invariants, all 129 predecessor tests plus necessary new tests, static/integrity checks and `evidence/prototype/milestone-5.md`. Two-GPU membership must not double a replica counter; reused IDs cannot merge lifetimes, half-open validity boundaries must hold and absent clocks/times remain absent. Runtime acceptance stays blocked, readiness false and real verification not_run. This validates logic against invented inputs, not real acquisition feasibility.
 
 ### Milestone 6: prototype local buffering, recovery and analytical files
 
@@ -428,6 +450,8 @@ These Rust validation commands and 30 integration tests are now implemented and 
 ## Validation and Acceptance
 
 
+M5 implementation acceptance is supported by `evidence/prototype/milestone-5.md`: all eight tasks complete, 17 current original comparisons, 69 boundary checks, 161 passing tests, six deterministic report pairs, unchanged M4 output and verified predecessor/baseline hashes. Separate execution and facet ledgers retain 49 original assertion IDs and 58 complete association definitions. This is synthetic functional acceptance; budgets remain unagreed and real capabilities unverified.
+
 M4 implementation acceptance is now supported by `evidence/prototype/milestone-4.md`: actual native-parser/calculation/policy comparisons, precise negative/unknown/deferred accounting, 129 passing tests, five deterministic CLI pairs, unchanged original inputs and a verified M3 predecessor. The new ledger records current executed functions independently of preserved historical fields. This is scoped functional acceptance; runtime budgets remain unagreed, readiness false and real capabilities unverified.
 
 Milestone 3 acceptance is now supported by `evidence/prototype/milestone-3.md`: a separate locked Rust package, complete read-only listing/validation, bounded real loopback requests, deterministic byte identity reports, 29 new passing failure/lifecycle/client tests, 70 regressions and preserved inputs. All seven detailed tasks are complete. No semantic experiment, real source or budget agreement is accepted by harness transport checks.
@@ -514,7 +538,7 @@ In `src/fixture.rs`, expose:
     pub fn select_endpoint(bundle: &ValidatedBundle, variant_id: &str)
         -> Result<EndpointInput, PrototypeError>;
 
-These are implemented M3 interfaces, replacing the original single-path loader sketch so validation can resolve the repository evidence/traceability inputs. `ValidatedBundle` retains manifest identities, related requirement/association IDs, file roles and provenance. `EndpointInput` exposes only selected validated endpoint bytes and identities, with no semantic oracle. `PrototypeError` gives a stable code/context and optional fixture ID. Confined bounded reads recheck hashes. The detailed M3 plan specifies implemented configuration/server/report interfaces. The parsing, association, replay and query interfaces below remain future experimental targets; do not infer they exist because the harness is complete.
+These are implemented M3 interfaces, replacing the original single-path loader sketch so validation can resolve the repository evidence/traceability inputs. `ValidatedBundle` retains manifest identities, related requirement/association IDs, file roles and provenance. `EndpointInput` exposes only selected validated endpoint bytes and identities, with no semantic oracle. `PrototypeError` gives a stable code/context and optional fixture ID. Confined bounded reads recheck hashes. The detailed M3 plan specifies implemented configuration/server/report interfaces. Parsing and association interfaces below are implemented by M4 and M5; replay and query remain future experimental targets.
 
 In `src/endpoint.rs`, expose:
 
@@ -526,11 +550,12 @@ In `src/endpoint.rs`, expose:
 In `src/identity.rs`, expose:
 
     pub fn associate_observation(
-        observation: &NativeObservation,
-        metadata: &FixtureMetadata,
-    ) -> AssociationResult;
+        observation: &EnrichmentInputMeasurement,
+        graph: &IdentityGraph,
+        query: &AssociationQuery,
+    ) -> Result<EnrichedObservation>;
 
-`FixtureMetadata` contains invented time-bounded relationships. `AssociationResult` preserves one measurement plus known, partial or ambiguous relationships; it must not multiply measurements by resource membership. Native labels stay available even when a proposed canonical relationship is unknown.
+These are the detailed M5 plan's typed experimental interfaces, replacing the earlier unconstrained metadata sketch so scope, incarnation, evidence and time selection are explicit. `IdentityGraph` holds supplied historical facts; `AssociationQuery` selects a point, full interval or unspecified time. `EnrichedObservation` references one unchanged measurement plus resolved, reported-only, partial, unknown or ambiguous relationships and evidence. It must not multiply measurements by resource membership. Native labels stay available within the existing safe output boundary even when a proposed canonical relationship is unknown. These interfaces are implemented and tested in M5; the detailed plan and enrichment contract record the strict bounds and unknown-evidence rules.
 
 In `src/replay.rs`, expose:
 
@@ -594,3 +619,9 @@ Use Rust dependencies needed for these experiments. M3 locks fixture/configurati
 2026-11-01 23:34 IST: executed and accepted M4.1–M4.8 for synthetic functional correctness. Added native parser/owned-loopback acquisition, justified calculations, explicit unknown/policy/privacy states, independent verification and complete 49-assertion execution tracking. Passed 30 new tests plus 99 regressions, strict checks, five deterministic CLI pairs and preservation checks. M3 predecessor source hashes/fixture validation pass; original requirements/source/fixture/budget bytes remain unchanged. Master/detail/index synchronized. M5 is next; runtime acceptance remains blocked and real capabilities unverified.
 
 2026-11-01 23:36 IST: completed final plan/link/task-state/whitespace checks, verified all 187 archived predecessor input hashes and checked emitted runtime JSON/logs/ledger for the synthetic sensitive marker (none found). New current-source artifact hashes remain separate from unchanged historical acceptance; M5 remains pending.
+
+2026-11-01 23:46 IST: created the detailed M5 plan and synchronized master/index. Defined eight pending tasks, five original groups/ten variants/17 assertions, seven separate synthetic boundary cases, scoped temporal/evidence/cardinality rules, independent verification, preserved M4 behavior/ledger and complete 58-association tracking. Current M4 integrity/fixture/traceability checks pass. No enrichment implementation or runtime qualification is claimed; next action is M5.1 input verification/predecessor preservation.
+
+2026-11-01 23:47 IST: completed M5 plan-authoring verification and mirrored results in the detailed plan. Required sections/links/task state/original coverage and current Rust integrity/traceability/fixture checks pass; all eight M5 implementation tasks remain pending.
+
+2026-11-02 00:15 IST: executed and accepted M5.1–M5.8. Delivered Rust scoped temporal enrichment, strict original adapters, seven independent boundary cases and separate execution/coverage ledgers retaining 58 definitions. Passed 161 tests, static/integrity checks, six deterministic report pairs and exact M4 summary regression. Original requirements/sources/fixtures/budgets/M4 ledger remain unchanged; predecessor hashes pass. Detailed plan/index synchronized. M6 buffering, recovery and analytical files is next; real capabilities and budgets remain unverified.

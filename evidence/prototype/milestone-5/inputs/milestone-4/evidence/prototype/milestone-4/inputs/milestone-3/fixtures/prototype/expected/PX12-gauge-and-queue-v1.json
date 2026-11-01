@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX12-gauge-and-queue-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "queue_counts",
+      "target": "q",
+      "expected_value": {
+        "admitted": 2,
+        "offered": 3,
+        "rejected": 1
+      },
+      "unit": "records",
+      "state": "known",
+      "record_ids": [
+        "q"
+      ],
+      "reason": "Two-record reject-new queue explicitly rejects q2."
+    },
+    {
+      "kind": "unknown",
+      "target": "intervening_source_updates",
+      "expected_value": null,
+      "unit": "not_available",
+      "state": "unknown",
+      "record_ids": [],
+      "reason": "Equal latest gauges do not imply no source updates or complete iteration capture."
+    }
+  ],
+  "proof": null
+}

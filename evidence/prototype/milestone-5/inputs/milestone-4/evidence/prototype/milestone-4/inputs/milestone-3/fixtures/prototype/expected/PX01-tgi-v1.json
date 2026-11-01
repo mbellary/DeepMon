@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX01-tgi-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "native",
+      "target": "tgi_batch_current_size",
+      "expected_value": {
+        "sample_values": [
+          2
+        ],
+        "scope": "batch",
+        "type": "gauge"
+      },
+      "unit": "sequences",
+      "state": "reported_only",
+      "record_ids": [
+        "snapshot"
+      ],
+      "reason": "Retain the declared family/type/labels and producer scope; values and bucket boundaries are invented."
+    }
+  ],
+  "proof": null
+}

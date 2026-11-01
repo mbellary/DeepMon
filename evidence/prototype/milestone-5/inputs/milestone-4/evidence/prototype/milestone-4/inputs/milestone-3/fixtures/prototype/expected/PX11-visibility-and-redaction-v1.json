@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX11-visibility-and-redaction-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "sanitized",
+      "target": "retained_labels",
+      "expected_value": {
+        "fixture": "safe"
+      },
+      "unit": "label_map",
+      "state": "known",
+      "record_ids": [
+        "visibility"
+      ],
+      "reason": "No synthetic sensitive marker survives in expected retained labels."
+    },
+    {
+      "kind": "unknown",
+      "target": "identity",
+      "expected_value": null,
+      "unit": "not_available",
+      "state": "unknown",
+      "record_ids": [],
+      "reason": "Denied visibility and disabled family are not healthy zeros."
+    }
+  ],
+  "proof": null
+}

@@ -1,0 +1,31 @@
+{
+  "case_id": "E5-04",
+  "history_unchanged": true,
+  "measurement_values": {
+    "count-100": 100
+  },
+  "permutation_invariant": true,
+  "queries": {
+    "allocation": {
+      "candidates": [
+        "gpu-A",
+        "gpu-B"
+      ],
+      "state": "reported_only",
+      "temporal_status": "unspecified_input"
+    },
+    "other-replica": {
+      "candidates": [],
+      "state": "unknown",
+      "temporal_status": null
+    },
+    "participation": {
+      "candidates": [],
+      "state": "unknown",
+      "temporal_status": null
+    }
+  },
+  "schema_version": 1,
+  "synthetic": true,
+  "update_error": null
+}

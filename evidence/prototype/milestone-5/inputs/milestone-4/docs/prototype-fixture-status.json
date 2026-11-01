@@ -1,0 +1,310 @@
+{
+  "capability_verification": "not_run",
+  "deployed_schema_verification": "not_run",
+  "entries": [
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX01",
+      "files": [
+        "endpoints/PX01-vllm-v1.json",
+        "expected/PX01-vllm-v1.json",
+        "endpoints/PX01-vllm-v1.prom",
+        "endpoints/PX01-sglang-v1.json",
+        "expected/PX01-sglang-v1.json",
+        "endpoints/PX01-sglang-v1.prom",
+        "endpoints/PX01-dynamo-v1.json",
+        "expected/PX01-dynamo-v1.json",
+        "endpoints/PX01-dynamo-v1.prom",
+        "endpoints/PX01-tgi-v1.json",
+        "expected/PX01-tgi-v1.json",
+        "endpoints/PX01-tgi-v1.prom",
+        "endpoints/PX01-triton-v1.json",
+        "expected/PX01-triton-v1.json",
+        "endpoints/PX01-triton-v1.prom",
+        "endpoints/PX01-trt-native-v1.json",
+        "expected/PX01-trt-native-v1.json",
+        "endpoints/PX01-trt-native-v1.prom",
+        "endpoints/PX01-trt-backend-v1.json",
+        "expected/PX01-trt-backend-v1.json",
+        "endpoints/PX01-trt-backend-v1.prom",
+        "endpoints/PX01-malformed-type-v1.json",
+        "expected/PX01-malformed-type-v1.json",
+        "endpoints/PX01-malformed-type-v1.prom",
+        "endpoints/PX01-inconsistent-histogram-v1.json",
+        "expected/PX01-inconsistent-histogram-v1.json",
+        "endpoints/PX01-inconsistent-histogram-v1.prom",
+        "endpoints/PX01-optional-absent-v1.json",
+        "expected/PX01-optional-absent-v1.json"
+      ],
+      "fixture_id": "synthetic-PX01-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX01-vllm-v1",
+        "PX01-sglang-v1",
+        "PX01-dynamo-v1",
+        "PX01-tgi-v1",
+        "PX01-triton-v1",
+        "PX01-trt-native-v1",
+        "PX01-trt-backend-v1",
+        "PX01-malformed-type-v1",
+        "PX01-inconsistent-histogram-v1",
+        "PX01-optional-absent-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX02",
+      "files": [
+        "endpoints/PX02-success-rate-v1.json",
+        "expected/PX02-success-rate-v1.json",
+        "endpoints/PX02-success-rate-v1.prom",
+        "endpoints/PX02-reset-v1.json",
+        "expected/PX02-reset-v1.json",
+        "endpoints/PX02-raw-tgi-boundary-v1.json",
+        "expected/PX02-raw-tgi-boundary-v1.json"
+      ],
+      "fixture_id": "synthetic-PX02-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX02-success-rate-v1",
+        "PX02-reset-v1",
+        "PX02-raw-tgi-boundary-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX03",
+      "files": [
+        "endpoints/PX03-aggregate-proof-v1.json",
+        "expected/PX03-aggregate-proof-v1.json",
+        "endpoints/PX03-insufficient-joint-data-v1.json",
+        "expected/PX03-insufficient-joint-data-v1.json"
+      ],
+      "fixture_id": "synthetic-PX03-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX03-aggregate-proof-v1",
+        "PX03-insufficient-joint-data-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX04",
+      "files": [
+        "metadata/PX04-overlap-and-remote-v1.json",
+        "expected/PX04-overlap-and-remote-v1.json",
+        "metadata/PX04-ambiguous-publisher-v1.json",
+        "expected/PX04-ambiguous-publisher-v1.json"
+      ],
+      "fixture_id": "synthetic-PX04-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX04-overlap-and-remote-v1",
+        "PX04-ambiguous-publisher-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX05",
+      "files": [
+        "metadata/PX05-replica-set-v1.json",
+        "expected/PX05-replica-set-v1.json",
+        "metadata/PX05-partial-membership-v1.json",
+        "expected/PX05-partial-membership-v1.json"
+      ],
+      "fixture_id": "synthetic-PX05-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX05-replica-set-v1",
+        "PX05-partial-membership-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX06",
+      "files": [
+        "metadata/PX06-pid-reuse-v1.json",
+        "expected/PX06-pid-reuse-v1.json",
+        "metadata/PX06-runtime-denied-v1.json",
+        "expected/PX06-runtime-denied-v1.json"
+      ],
+      "fixture_id": "synthetic-PX06-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX06-pid-reuse-v1",
+        "PX06-runtime-denied-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX07",
+      "files": [
+        "metadata/PX07-inventory-only-v1.json",
+        "expected/PX07-inventory-only-v1.json",
+        "metadata/PX07-control-socket-only-v1.json",
+        "expected/PX07-control-socket-only-v1.json"
+      ],
+      "fixture_id": "synthetic-PX07-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX07-inventory-only-v1",
+        "PX07-control-socket-only-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX08",
+      "files": [
+        "events/PX08-complete-group-v1.json",
+        "expected/PX08-complete-group-v1.json",
+        "events/PX08-missing-rank-v1.json",
+        "expected/PX08-missing-rank-v1.json",
+        "events/PX08-group-mismatch-v1.json",
+        "expected/PX08-group-mismatch-v1.json",
+        "events/PX08-unknown-clock-offset-v1.json",
+        "expected/PX08-unknown-clock-offset-v1.json"
+      ],
+      "fixture_id": "synthetic-PX08-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX08-complete-group-v1",
+        "PX08-missing-rank-v1",
+        "PX08-group-mismatch-v1",
+        "PX08-unknown-clock-offset-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX09",
+      "files": [
+        "events/PX09-overlapping-streams-v1.json",
+        "expected/PX09-overlapping-streams-v1.json",
+        "events/PX09-incomplete-stream-coverage-v1.json",
+        "expected/PX09-incomplete-stream-coverage-v1.json"
+      ],
+      "fixture_id": "synthetic-PX09-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX09-overlapping-streams-v1",
+        "PX09-incomplete-stream-coverage-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX10",
+      "files": [
+        "faults/PX10-protected-replay-v1.json",
+        "expected/PX10-protected-replay-v1.json",
+        "faults/PX10-volatile-loss-v1.json",
+        "expected/PX10-volatile-loss-v1.json",
+        "faults/PX10-uncommitted-invisible-v1.json",
+        "expected/PX10-uncommitted-invisible-v1.json"
+      ],
+      "fixture_id": "synthetic-PX10-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX10-protected-replay-v1",
+        "PX10-volatile-loss-v1",
+        "PX10-uncommitted-invisible-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX11",
+      "files": [
+        "faults/PX11-visibility-and-redaction-v1.json",
+        "expected/PX11-visibility-and-redaction-v1.json",
+        "faults/PX11-forbidden-actions-v1.json",
+        "expected/PX11-forbidden-actions-v1.json"
+      ],
+      "fixture_id": "synthetic-PX11-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX11-visibility-and-redaction-v1",
+        "PX11-forbidden-actions-v1"
+      ]
+    },
+    {
+      "authoring_status": "authored",
+      "experiment_execution_status": "not_run",
+      "experiment_id": "PX12",
+      "files": [
+        "events/PX12-gauge-and-queue-v1.json",
+        "expected/PX12-gauge-and-queue-v1.json",
+        "events/PX12-unknown-persistence-freshness-v1.json",
+        "expected/PX12-unknown-persistence-freshness-v1.json"
+      ],
+      "fixture_id": "synthetic-PX12-v1",
+      "fixture_validation_evidence": {
+        "path": "evidence/prototype/milestone-2/fixtures-check.txt",
+        "sha256": "a4ecc6b8ee6c854437bc70002c9328d614406d1e166ae79a5187bf0e52d49cf1"
+      },
+      "fixture_validation_status": "passed",
+      "variant_ids": [
+        "PX12-gauge-and-queue-v1",
+        "PX12-unknown-persistence-freshness-v1"
+      ]
+    }
+  ],
+  "manifest_sha256": "8ead1d02053b16b719b82c782419dfd5af5aff717cb8c06d8f0e9b579e183d3c",
+  "registry_sha256": "83cd09565a0aba41d43fb7f6d76cb99551e2fd435e96b3611826114ead91f87c",
+  "runtime_acceptance_readiness": false,
+  "schema_version": 1,
+  "status_sha256": "cf2124084cc391904c8c2a2d42eed30b57e25611c2a30b7eb3763dcabae4e0be",
+  "synthetic": true
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX06-runtime-denied-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "unknown",
+      "target": "container",
+      "expected_value": null,
+      "unit": "not_available",
+      "state": "unknown",
+      "record_ids": [],
+      "reason": "Read denial is not proof of no container and cannot cause a guessed owner."
+    }
+  ],
+  "proof": null
+}

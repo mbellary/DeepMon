@@ -1,0 +1,1309 @@
+{
+  "association_count": 58,
+  "association_definition_path": "metadata-enrichment-matrix.md",
+  "association_definition_sha256": "f6140be6ddefbd056fabb974276a23d92a8a92c79b134898421166abb04253ec",
+  "entries": [
+    {
+      "association_id": "M01",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M01",
+          "Environment / cluster identity",
+          "C: explicit installation or verified scheduler cluster ID",
+          "Installation → many hosts/emitters",
+          "Configured scope; remote collectors remain in their own environment",
+          "Unknown cluster; never derive from hostname suffix"
+        ],
+        "id": "M01"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M02",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "publisher candidates and unresolved collection-time ownership",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M02",
+          "Emitter identity and location",
+          "H/C: discovered endpoint plus verified process/service registry",
+          "Emitter incarnation → local process, proxy or remote service",
+          "Listener ownership/registration at collection time; address alone insufficient",
+          "Record collection target; subject location unknown"
+        ],
+        "id": "M02"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M03",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M03",
+          "Emitting software family",
+          "N/C/H: native namespaces, version info, executable/package metadata",
+          "Emitter → one or several producers",
+          "Confirm metric producer; Dynamo can pass through engine families",
+          "Preserve separate producer claims; classify uncertain fingerprints as candidates"
+        ],
+        "id": "M03"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M04",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M04",
+          "Software version/build",
+          "C/H/N: manifest, package/build info or exposed version",
+          "Producer instance → version/build facts",
+          "Running artifact/build provenance, not image tag text alone",
+          "Version unverified; no release-support claim"
+        ],
+        "id": "M04"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M05",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M05",
+          "Served model name",
+          "N: `model_name` or `model` on relevant families",
+          "Observation → publisher-reported model name",
+          "Label definition and API alias behavior from matching build",
+          "Keep original spelling and source; no automatic cross-emitter merge"
+        ],
+        "id": "M05"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M06",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M06",
+          "Model revision / weights / quantization",
+          "C/N: explicit deployment/configuration facts",
+          "Engine instance → model artifact/config revision",
+          "Revision/checksum or verified configuration tied to the instance",
+          "Unknown revision; display name is insufficient"
+        ],
+        "id": "M06"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M07",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M07",
+          "Engine role",
+          "N/C: SGLang `engine_type`, Dynamo component/worker role, verified vLLM config",
+          "Instance/observation → role at valid time",
+          "Family-specific role semantics; frontend view may differ from worker topology role",
+          "Retain native role, canonical role unknown"
+        ],
+        "id": "M07"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M08",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M08",
+          "Engine index",
+          "N: vLLM `engine`",
+          "Emitter incarnation + native index → engine member",
+          "Explicit mapping to a running engine member",
+          "Store index; never reinterpret as GPU index or TP rank"
+        ],
+        "id": "M08"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M09",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "declared resource sets, partial composition and invariant measurement cardinality",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M09",
+          "Serving replica",
+          "C/I: engine group registration, scheduler assignment or explicit configured ID",
+          "Replica generation ↔ many engine processes/hosts",
+          "Exact serving-group membership; deployment owner is not enough",
+          "Replica unknown; do not group all same-model workers"
+        ],
+        "id": "M09"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M10",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M10",
+          "Deployment owner",
+          "C: runtime labels or optional orchestrator owner references",
+          "Workload instance → owner UID/generation",
+          "Verified container/task-to-workload association and owner chain",
+          "Retain labels as reported; owner relationship unknown"
+        ],
+        "id": "M10"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M11",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "remote subject retained without guessed publisher-local host",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M11",
+          "Framework worker identity",
+          "N/C: Dynamo worker/discovery ID",
+          "Framework scope + worker ID + incarnation → worker subject",
+          "Match publisher/family encoding and discovery registration",
+          "Keep raw ID and scope; no decimal/hex conversion without schema evidence"
+        ],
+        "id": "M11"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M12",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "remote subject retained without guessed publisher-local host",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M12",
+          "Remote worker location",
+          "C/I: framework discovery or scheduler inventory",
+          "Worker incarnation → endpoint → remote process/host",
+          "Valid discovery record and target-side identity evidence",
+          "Worker may remain known while host is unknown; do not use frontend host"
+        ],
+        "id": "M12"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M13",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M13",
+          "TP / PP / DP / EP / CP ranks",
+          "N/C/I: available labels and runtime group metadata",
+          "Group generation + rank kind/value → members",
+          "Rank scope and process/device mapping for that build",
+          "Keep native rank; physical mapping unknown"
+        ],
+        "id": "M13"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M14",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M14",
+          "Parallel-group membership/size",
+          "C/I: runtime or scheduler group records",
+          "Group generation → member set, many-to-many across groups",
+          "Explicit complete membership, including distinction between world and subgroups",
+          "Partial membership flagged; no missing-rank claim without expected set"
+        ],
+        "id": "M14"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M15",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M15",
+          "Communicator identity",
+          "I: existing communication-library registration/profiler records",
+          "Runtime/process scope + communicator generation",
+          "Identifier lifetime and cross-rank group matching",
+          "Unknown communicator; do not join by coincident timestamps"
+        ],
+        "id": "M15"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M16",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M16",
+          "Request/batch/iteration identity",
+          "N/I where existing events or exemplars provide identifiers",
+          "Source-scoped event IDs; requests ↔ batches can be many-to-many",
+          "Explicit semantic records and matching rules",
+          "Aggregate endpoint histogram cannot be expanded into request events"
+        ],
+        "id": "M16"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M17",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M17",
+          "Logical expert / physical placement",
+          "C/I: explicit router and placement records",
+          "Model layer + logical expert ↔ replicas/GPU over placement epochs",
+          "Expert identity and placement-change history",
+          "No generic expert attribution from PID or GPU activity"
+        ],
+        "id": "M17"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M18",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M18",
+          "Cache provider / tier / pool",
+          "N/C: native source/pool labels and verified connector config",
+          "Engine/cache-service instance → provider and local pool IDs",
+          "Preserve logical KV, host, storage, response and tokenizer-cache meanings",
+          "Provider/tier unknown; do not assume LMCache/KVBM/HiCache"
+        ],
+        "id": "M18"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M19",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M19",
+          "Cache service peer/storage target",
+          "C/I: connector/service registration or explicit transfer metadata",
+          "Transfer/cache service → peer set over time",
+          "Actual service/operation identity, not merely a configured URL",
+          "Configured target retained as intent; actual target unknown"
+        ],
+        "id": "M19"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M20",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M20",
+          "Tenant / team / service ownership",
+          "C: explicitly administered identity mapping",
+          "Workload/replica → approved ownership scope",
+          "User-selected authoritative metadata source and conflict rules",
+          "Unknown ownership; arbitrary labels are not authorization evidence"
+        ],
+        "id": "M20"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M21",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M21",
+          "Host / OS / CPU architecture",
+          "H: host inventory and OS interfaces",
+          "Host incarnation → inventory facts",
+          "Collector knows whether it observes the actual host or an isolated namespace",
+          "Record observed environment; do not call it host-wide if visibility is restricted"
+        ],
+        "id": "M21"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M22",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "explicit invented host/boot/namespace distinctions; no discovery",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M22",
+          "Boot identity",
+          "H: OS boot identity",
+          "Host → successive boot incarnations",
+          "Observed boot change invalidates local ephemeral identities",
+          "Do not join PIDs/interface IDs across unknown boot boundaries"
+        ],
+        "id": "M22"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M23",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "symbolic process incarnation/cgroup/container validity; parent/runtime qualification absent",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M23",
+          "Process and parent",
+          "H: procfs/process APIs",
+          "Process key → parent process incarnation",
+          "Start identity, host PID scope and race-aware reads",
+          "Parent exit/reparenting handled historically; ancestry alone does not prove engine membership"
+        ],
+        "id": "M23"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M24",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "explicit invented host/boot/namespace distinctions; no discovery",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M24",
+          "Linux namespaces",
+          "H: process namespace handles/mappings",
+          "Process → namespace identities over lifetime",
+          "Verify PID/net/mount namespace roles separately",
+          "Namespace identity unknown where inaccessible"
+        ],
+        "id": "M24"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M25",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "symbolic process incarnation/cgroup/container validity; parent/runtime qualification absent",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M25",
+          "Process-to-cgroup",
+          "H: procfs and supported cgroup interfaces",
+          "Process lifetime → cgroup memberships over time",
+          "Hierarchy/version and observed movement recorded",
+          "Do not resolve by substring match on a cgroup path"
+        ],
+        "id": "M25"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M26",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "symbolic process incarnation/cgroup/container validity; parent/runtime qualification absent",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M26",
+          "Container-to-process",
+          "H/C: runtime task/inspect API plus host PID/cgroup verification",
+          "Container task incarnation → many process incarnations",
+          "Runtime endpoint/namespace, full ID and live task mapping",
+          "Runtime inaccessible: retain verified process/cgroup context without inventing container"
+        ],
+        "id": "M26"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M27",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M27",
+          "Container image/build",
+          "C: runtime metadata and artifact digest",
+          "Container incarnation → image artifact",
+          "Digest identifies artifact; running files may differ through mounts/updates",
+          "Image tag is reported metadata, not proof of running library versions"
+        ],
+        "id": "M27"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M28",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M28",
+          "Kubernetes pod / namespace",
+          "C: optional runtime/CRI and Kubernetes metadata",
+          "Container full ID → pod UID + cluster scope",
+          "Verified object IDs; namespace name alone not unique across clusters",
+          "Not applicable without Kubernetes; no mandatory dependency"
+        ],
+        "id": "M28"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M29",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M29",
+          "Orchestrator owner chain",
+          "C: optional owner references",
+          "Pod UID → ReplicaSet/Deployment/StatefulSet or other owner UIDs",
+          "Explicit valid owner references and object generation",
+          "Owner known does not automatically resolve a distributed serving replica"
+        ],
+        "id": "M29"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M30",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "publisher candidates and unresolved collection-time ownership",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M30",
+          "Endpoint-to-publisher process",
+          "H/C: listener/socket ownership and service registration",
+          "Net namespace + endpoint/listener incarnation ↔ process set",
+          "Shared listeners, proxies and multiprocess collectors accounted for",
+          "Multiple candidates retained; no first-PID-wins rule"
+        ],
+        "id": "M30"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M31",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "remote subject retained without guessed publisher-local host",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M31",
+          "Publisher-to-execution workers",
+          "C/I: engine/framework registry or explicit process topology",
+          "Publisher instance → worker/process/host set",
+          "Group registration and remote-worker membership",
+          "API listener ownership does not establish worker ownership"
+        ],
+        "id": "M31"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M32",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "symbolic models retained; physical/partition/execution-use identity unverified",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M32",
+          "GPU model / vendor",
+          "H: supported device inventory",
+          "Physical GPU identity → model/vendor",
+          "Driver-reported inventory and host relation",
+          "Unknown/unsupported device; do not infer from model being served"
+        ],
+        "id": "M32"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M33",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M33",
+          "GPU UUID / PCI identity",
+          "H: device UUID and PCI inventory",
+          "Physical device ↔ current host PCI function",
+          "Both identities observed in same valid inventory generation",
+          "Keep ordinal only as a local display attribute"
+        ],
+        "id": "M33"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M34",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M34",
+          "Visible GPU ordinal mapping",
+          "C/H: process/container device exposure and driver inventory",
+          "Process view + ordinal → device identity set",
+          "Resolve remapping in that process view; environment ordering alone may be incomplete",
+          "Candidate allocation only; ordinal zero is not host GPU zero"
+        ],
+        "id": "M34"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M35",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M35",
+          "MIG GPU/compute instance",
+          "H: partition-capable driver API",
+          "Parent GPU → partition incarnation",
+          "Driver-reported parent/child relation and reconfiguration history",
+          "Parent known may coexist with unknown partition; never substitute silently"
+        ],
+        "id": "M35"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M36",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M36",
+          "MPS/shared-device mode",
+          "H/C/I: supported driver/service metadata",
+          "Device ↔ server/client process set",
+          "Explicit sharing-mode evidence and client mapping where available",
+          "Process attribution partial; server PID is not automatically every client's identity"
+        ],
+        "id": "M36"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M37",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "declared resource sets, partial composition and invariant measurement cardinality",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M37",
+          "Allocated GPU set",
+          "C/H: device allocation records and runtime exposure",
+          "Replica/process/container → many allocated devices",
+          "Verified allocation/exposure; preserve allocated versus visible distinction",
+          "Record scope and candidates; no execution claim"
+        ],
+        "id": "M37"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M38",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M38",
+          "Observed process-to-GPU use",
+          "H/I: supported process/device records",
+          "Process incarnation ↔ GPU/partition during observation",
+          "Reconcile PID namespace, process lifetime and sharing mode",
+          "Unknown or partial membership when driver records are unavailable"
+        ],
+        "id": "M38"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M39",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M39",
+          "Rank-to-GPU mapping",
+          "C/I plus M13/M38",
+          "Group generation + rank → process/device association",
+          "Rank identity and explicit worker device selection",
+          "Native rank retained; no mapping by rank modulo GPU count"
+        ],
+        "id": "M39"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M40",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "declared resource sets, partial composition and invariant measurement cardinality",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M40",
+          "Replica GPU composition",
+          "C/H/I from verified members",
+          "Replica generation → device set and hardware-model set",
+          "Complete member/allocation mapping",
+          "Partial composition retained; no single GPU-model label for heterogeneous group"
+        ],
+        "id": "M40"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M41",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M41",
+          "NUMA / PCIe locality",
+          "H: device/sysfs topology",
+          "Host device/function ↔ NUMA/PCI ancestry",
+          "Verified local topology in same host inventory",
+          "Unknown locality is not NUMA node zero"
+        ],
+        "id": "M41"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M42",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M42",
+          "NVLink / NVSwitch adjacency",
+          "H/I: supported device/fabric topology",
+          "Device/link/switch identities → time-bounded adjacency",
+          "Topology plus actual link state when queried",
+          "Physical adjacency does not prove selected communication path"
+        ],
+        "id": "M42"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M43",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "scoped symbolic NIC identity; model facts not joined without explicit evidence",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M43",
+          "Network interface identity",
+          "H: netlink/sysfs in relevant namespace",
+          "Net namespace + ifindex + lifetime → interface",
+          "Namespace, link creation/deletion and rename accounted for",
+          "Interface name alone insufficient"
+        ],
+        "id": "M43"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M44",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "scoped symbolic NIC identity; model facts not joined without explicit evidence",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M44",
+          "NIC model / vendor / function",
+          "H: PCI IDs, supported driver inventory and device database",
+          "Interface/RDMA function → hardware identity",
+          "Driver/device relation; distinguish physical function, virtual function and virtual interface",
+          "Raw IDs retained if model decoding unavailable"
+        ],
+        "id": "M44"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M45",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M45",
+          "NIC port / negotiated mode",
+          "H: supported port and RDMA inventory",
+          "NIC/function + port → link facts",
+          "Port-specific state/mode; do not generalize across all ports on a card",
+          "Unknown mode is not TCP fallback"
+        ],
+        "id": "M45"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M46",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M46",
+          "RDMA device-to-netdev",
+          "H: supported RDMA/netdev inventory",
+          "RDMA device/port ↔ netdev/function",
+          "Explicit association including VFs, representors and multiple ports",
+          "Keep separate inventories until link is verified"
+        ],
+        "id": "M46"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M47",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "capability/configuration distinct from unknown payload transport/operation attribution",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M47",
+          "Fabric capability",
+          "H/C: supported adapter/port capability",
+          "Port → capability set",
+          "Reported support, separate from configuration and use",
+          "Capability only; no traffic-path conclusion"
+        ],
+        "id": "M47"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M48",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M48",
+          "Port link layer",
+          "H: RDMA `link_layer` and netdev type",
+          "RDMA port → Ethernet/InfiniBand link-layer fact",
+          "Per-port source and observation time",
+          "Ethernet RDMA capability alone is not proof this workload uses RoCE"
+        ],
+        "id": "M48"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M49",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "capability/configuration distinct from unknown payload transport/operation attribution",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M49",
+          "Workload-configured NIC/fabric",
+          "C: targeted documented transport configuration",
+          "Workload/group → allowed/preferred interfaces/transport",
+          "Versioned interpretation of settings",
+          "Retain as intent, not active use"
+        ],
+        "id": "M49"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M50",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "capability/configuration distinct from unknown payload transport/operation attribution",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M50",
+          "Observed selected transport",
+          "I/H: existing library/connection records that identify the operation path",
+          "Communicator/connection/operation → selected transport",
+          "Evidence distinguishes bootstrap, control and payload paths; supports direction/phase changes",
+          "Active data transport unknown; do not infer from one open TCP socket"
+        ],
+        "id": "M50"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M51",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M51",
+          "GPU-to-NIC topology",
+          "H: shared host PCI/NUMA/device topology",
+          "GPU ↔ candidate NIC/port set",
+          "Hardware locality relationship",
+          "Candidate adjacency only; not NIC actually used by collective"
+        ],
+        "id": "M51"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M52",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "capability/configuration distinct from unknown payload transport/operation attribution",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M52",
+          "Operation-to-NIC attribution",
+          "I: transport records with explicit endpoint/device identifiers",
+          "Operation/connection → NIC port/function set",
+          "Runtime identifiers plus verified device mapping",
+          "Leave operation unattributed; do not attach all NICs on host"
+        ],
+        "id": "M52"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M53",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M53",
+          "Remote peer identity",
+          "C/I/H: verified peer registry and connection metadata",
+          "Connection/path → remote endpoint incarnation",
+          "NAT, proxies, namespace and endpoint reuse handled",
+          "Peer address retained separately from remote host/workload identity"
+        ],
+        "id": "M53"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M54",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M54",
+          "Switch / path / rail identity",
+          "C/I: optional fabric controller or switch topology",
+          "Port/path generation → switch/rail relations",
+          "External topology and routing evidence; active paths may change",
+          "Unknown fabric path; host cannot generically recover switch queues/topology"
+        ],
+        "id": "M54"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M55",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "unattached reported driver and unknown loaded communication/runtime versions",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M55",
+          "Driver / firmware versions",
+          "H: device and driver inventory",
+          "Device/function incarnation → reported versions",
+          "Actual loaded driver and device firmware facts",
+          "Package installed on disk is not proof of loaded version"
+        ],
+        "id": "M55"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M56",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "unattached reported driver and unknown loaded communication/runtime versions",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M56",
+          "CUDA / communication-library versions",
+          "C/H/I: running artifact metadata and existing runtime version reports",
+          "Workload process/library instance → version/build",
+          "Distinguish host driver capability from loaded runtime, and multiple libraries/processes",
+          "Unknown workload version; `nvidia-smi` CUDA display is not proof of installed runtime"
+        ],
+        "id": "M56"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M57",
+      "evidence": [],
+      "facet": null,
+      "facet_status": "not_exercised_in_m5",
+      "original_definition": {
+        "cells": [
+          "M57",
+          "Cache connector/library version",
+          "C/H/I: artifact and existing component registration",
+          "Engine/cache instance → connector build/config",
+          "Bind version evidence to actual loaded/deployed component",
+          "Do not infer connector from metric prefix or image tag alone"
+        ],
+        "id": "M57"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    },
+    {
+      "association_id": "M58",
+      "evidence": [
+        {
+          "claim": "synthetic association function evidence; runtime budgets blocked and real qualification not run",
+          "path": "evidence/prototype/milestone-5/verify-milestone-1.json",
+          "sha256": "f14e61a5403f63e4490bdb0e44b00cd48412cb83e49f2a49ff678d247d4922ce"
+        }
+      ],
+      "facet": "denied/disabled/unknown visibility and safe simulated policy outcomes",
+      "facet_status": "synthetic_facet_exercised",
+      "original_definition": {
+        "cells": [
+          "M58",
+          "Collector visibility/capability",
+          "H: discovery attempt result",
+          "Source/collector + host/process scope → status",
+          "Report source access and version/capability limitations",
+          "Partial visibility explicit; never equate access denial with no workload/device"
+        ],
+        "id": "M58"
+      },
+      "physical_identity_status": "unverified_synthetic",
+      "remaining": "Full association/source acquisition and production qualification remain unverified; fixture facet evidence is not complete support.",
+      "temporal_limits": "Only explicit compatible validity is resolved; untimed facts stay unspecified."
+    }
+  ],
+  "real_verification": "not_run",
+  "runtime_acceptance_readiness": false,
+  "schema_version": 1,
+  "synthetic": true
+}

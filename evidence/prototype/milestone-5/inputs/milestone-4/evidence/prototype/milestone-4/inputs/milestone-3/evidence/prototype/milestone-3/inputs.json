@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-01T22:48:20+05:30",
+  "git_base": "734bfc6d87b8b04dbd3336d97dbf52215dfa76ae",
+  "starting_changes": [
+    "M EXECPLAN.md",
+    "M milestone-execution-plans/README.md",
+    "untracked milestone-execution-plans/milestone-03-execplan.md"
+  ],
+  "environment": {
+    "os": "Ubuntu 26.04.1 LTS",
+    "kernel": "7.0.0-38-generic",
+    "glibc": "2.43",
+    "rustc": "1.99.0 b940084d7eb6a299eb4bfeb8e34901bc051e7ac4",
+    "cargo": "1.99.0 5f94df4789f005f9a352888e8355ffc645b7ed0e",
+    "target": "x86_64-unknown-linux-gnu",
+    "observed_drift": "none in recorded reference identities"
+  },
+  "accepted_m2_hash_verification": "passed",
+  "original_baseline_hash_verification": "passed",
+  "claim": "input integrity only; functional harness limits are not agreed PX runtime budgets",
+  "immutable_inputs": [
+    {
+      "sha256": "34de61b68f51e6e77246debddfd68fbbcc2bb608aadd26c262598f5c9d3ae143",
+      "path": "evidence/prototype/milestone-2/artifacts.sha256"
+    },
+    {
+      "sha256": "8ead1d02053b16b719b82c782419dfd5af5aff717cb8c06d8f0e9b579e183d3c",
+      "path": "fixtures/prototype/manifest.json"
+    },
+    {
+      "sha256": "cca76c0efce58804625acbd06fccd2384adcd23cfc9a3b9f71c01cdde58df2e9",
+      "path": "docs/prototype-fixture-status.json"
+    },
+    {
+      "sha256": "83cd09565a0aba41d43fb7f6d76cb99551e2fd435e96b3611826114ead91f87c",
+      "path": "docs/prototype-experiments.json"
+    },
+    {
+      "sha256": "cf2124084cc391904c8c2a2d42eed30b57e25611c2a30b7eb3763dcabae4e0be",
+      "path": "docs/prototype-status.json"
+    },
+    {
+      "sha256": "bb6406e467ee546a8dee232315d1a81ab226fe784fe9d7ae7889513737b9f38d",
+      "path": "docs/prototype-budgets/PX01.json"
+    },
+    {
+      "sha256": "bf8e2c778b85eefda4df3d582d07abd5bab5a616303d0e4c97fd516621a6135d",
+      "path": "docs/prototype-budgets/PX02.json"
+    },
+    {
+      "sha256": "17462627e0f49f1e3c7d2b1422a1cf63686efec9d8d9e71b5d38b86d90b7f5de",
+      "path": "docs/prototype-budgets/PX03.json"
+    },
+    {
+      "sha256": "7a262386320bfb741b70f711064f8a5a293996fc59573e0b4cf4746bb6872f33",
+      "path": "docs/prototype-budgets/PX04.json"
+    },
+    {
+      "sha256": "229fae339e50015b547c0a4fe8a2662002057ab7994555ac845a4ef0e73e5e7e",
+      "path": "docs/prototype-budgets/PX05.json"
+    },
+    {
+      "sha256": "9757580edef9d486a789a185eda078f05837e3f023492e5bfe54e879f77189c2",
+      "path": "docs/prototype-budgets/PX06.json"
+    },
+    {
+      "sha256": "76d4288214b48afe3dfb435d83ef483652b893ee1719d0116e8359f3af9bbced",
+      "path": "docs/prototype-budgets/PX07.json"
+    },
+    {
+      "sha256": "411bea398986f3653a66760999e7ec52e28a0a6cff9573c18396c1d8a4ca0c1b",
+      "path": "docs/prototype-budgets/PX08.json"
+    },
+    {
+      "sha256": "f0bfd6038896603abdddc656f61101d108d6c753a6e9944e8b72893190e98521",
+      "path": "docs/prototype-budgets/PX09.json"
+    },
+    {
+      "sha256": "cbe4999de76059c65e7da083b667bdff1b0957e321b672a815805d84e9e7b7d8",
+      "path": "docs/prototype-budgets/PX10.json"
+    },
+    {
+      "sha256": "4218c3f78a3a62b4d88140e4aa478b89b6b9f11d222fbbbde84dea8069eb23b4",
+      "path": "docs/prototype-budgets/PX11.json"
+    },
+    {
+      "sha256": "5b5c9792c77fc3498816d083083d21d54c13fa78579c6c209a98d2468364f9a6",
+      "path": "docs/prototype-budgets/PX12.json"
+    },
+    {
+      "sha256": "8665c3faea21e857a0a5c838b7152a2fc69ffc88630f3f36e5a0bdcb186ccd81",
+      "path": "validation/first-environment-v1.json"
+    },
+    {
+      "sha256": "34a851173ed8f93fd23a7781bd978295567165832c36dc5e80ee470200c0bbec",
+      "path": "tools/aether-validation/Cargo.toml"
+    },
+    {
+      "sha256": "c180882a417c772f28bc3e4a9e172b4b84e3c1a9c9fad673434362c7b3173e74",
+      "path": "tools/aether-validation/Cargo.lock"
+    },
+    {
+      "sha256": "e7ff97b1960466f67fe3069c9fa38296deb0eda2f72756d154a7a0f52e9a49ff",
+      "path": "tools/aether-validation/src/evidence.rs"
+    },
+    {
+      "sha256": "714d3a3a2aac3e283b81af6e797284c7fcc30865eef65e1a6ec8852d69c1b6e7",
+      "path": "tools/aether-validation/src/fixture_data.rs"
+    },
+    {
+      "sha256": "94513891af77903a95e842c13a405f2b00bf2b84b3de3a3f725f54bd812dac27",
+      "path": "tools/aether-validation/src/fixture_prom.rs"
+    },
+    {
+      "sha256": "b1b671280269a48cf1da1ad3650a224a3d4ebce5d02f43aafb06dfef3881c587",
+      "path": "tools/aether-validation/src/fixtures.rs"
+    },
+    {
+      "sha256": "4d5ec2bdc7da43bfa92494ab7d399fe692de095b0ab9d2ac437d736bb4c097ee",
+      "path": "tools/aether-validation/src/generate.rs"
+    },
+    {
+      "sha256": "676802e33908596505a862114df5fdc618b4428f8fee5f99fe7a7200a5e51db0",
+      "path": "tools/aether-validation/src/lib.rs"
+    },
+    {
+      "sha256": "25229619ab0f56b9216f376368ce8da877e9a426b079da334c60d4c472697695",
+      "path": "tools/aether-validation/src/main.rs"
+    },
+    {
+      "sha256": "d2f26fef94b1a5a636ff43716c90e2ccb4473af2de23cc1fa54860e4de3934d2",
+      "path": "tools/aether-validation/src/trace.rs"
+    },
+    {
+      "sha256": "43f7657b827b3bc604081f2840b46dfc5db95db37ee7a2158185c3c5cef8b1fc",
+      "path": "tools/aether-validation/tests/fixtures.rs"
+    },
+    {
+      "sha256": "a7cd7e5c48d6b773abe94b3efb394e925173596014d7fde70803997df87d1ad8",
+      "path": "tools/aether-validation/tests/validation.rs"
+    }
+  ]
+}

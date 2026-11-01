@@ -1,0 +1,40 @@
+   Compiling aether-poc v0.1.0 (/home/mbellary/work/projects/DeepMon/prototypes/aether-poc)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.86s
+     Running tests/enrichment.rs (prototypes/aether-poc/target/debug/deps/enrichment-47f149873c6cfcc7)
+
+running 32 tests
+test ambiguous_distinct_evidence_remains_ambiguous_in_any_input_order ... ok
+test dangling_references_and_cross_scope_targets_are_rejected ... ok
+test keyed_targets_must_cover_the_query_time ... ok
+test invalid_boundary_query_and_unknown_record_fields_are_rejected ... ok
+test metadata_validation_rejects_invalid_bounds_identity_and_limits ... ok
+test duplicate_evidence_is_idempotent_and_conflicts_are_not_last_write_wins ... ok
+test half_open_lifetimes_and_crossing_intervals_are_enforced ... ok
+test new_membership_does_not_relabel_old_observation ... ok
+test boot_namespace_and_missing_incarnation_queries_do_not_merge ... ok
+test all_seven_boundary_cases_have_independent_matching_answers ... ok
+test denied_runtime_preserves_process_context_without_guessing_container ... ok
+test historical_and_new_container_owners_use_distinct_incarnations ... ok
+test partial_membership_and_missing_capacity_remain_qualified ... ok
+test no_first_candidate_wins_and_reported_candidates_are_untimed ... ok
+test nic_capability_and_preference_are_not_joined_to_an_active_path ... ok
+test timed_queries_require_compatible_explicit_clocks_and_validity ... ok
+test unrelated_measurement_cannot_receive_another_subjects_relationship ... ok
+test original_enrichment_variants_match_all_seventeen_assertions ... ok
+test m5_accounting_keeps_original_and_extension_totals_distinct ... ok
+test extension_authoring_is_repeatable_and_protects_manual_changes ... ok
+test independent_oracle_mismatch_does_not_change_actual_resolution ... ok
+test extension_symlink_is_rejected_even_with_matching_bytes ... ok
+test remote_subject_stays_distinct_from_frontend_host ... ok
+test tcp_control_peer_never_proves_collective_payload_transport ... ok
+test oracle_tampering_is_not_read_by_runtime_and_fails_integrity ... ok
+test replica_set_does_not_multiply_measurements_or_infer_participation ... ok
+test changed_m4_ledger_cannot_be_imported_as_prior_evidence ... ok
+test command_pairing_errors_and_summary_determinism ... ok
+test privacy_and_policy_paths_remain_safe_and_blocked ... ok
+test extension_oversized_truncated_and_unknown_schema_fail ... ok
+test extension_hashes_missing_files_and_unindexed_files_fail ... ok
+test extension_baseline_identity_duplicate_cases_and_unsafe_paths_fail ... ok
+
+test result: ok. 32 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.85s
+

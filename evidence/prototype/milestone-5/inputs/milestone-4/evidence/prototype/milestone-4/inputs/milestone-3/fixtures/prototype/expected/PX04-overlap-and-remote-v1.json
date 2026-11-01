@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX04-overlap-and-remote-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "logical_count",
+      "target": "selected_boundary",
+      "expected_value": 10,
+      "unit": "requests",
+      "state": "known",
+      "record_ids": [
+        "front",
+        "back"
+      ],
+      "reason": "Both invented lists describe the same ten logical IDs, not twenty requests."
+    },
+    {
+      "kind": "unknown",
+      "target": "worker_host",
+      "expected_value": null,
+      "unit": "not_available",
+      "state": "unknown",
+      "record_ids": [],
+      "reason": "Frontend location is not remote-worker location."
+    }
+  ],
+  "proof": null
+}

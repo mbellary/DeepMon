@@ -80,7 +80,7 @@ impl EndpointInput {
         &self.variant_id
     }
 }
-fn confined(root: &Path, relative: &Path) -> Result<PathBuf> {
+pub(crate) fn confined(root: &Path, relative: &Path) -> Result<PathBuf> {
     let base = root.canonicalize()?;
     if relative.as_os_str().is_empty()
         || !relative
@@ -107,7 +107,7 @@ fn confined(root: &Path, relative: &Path) -> Result<PathBuf> {
     }
     Ok(path)
 }
-fn bounded_read(path: &Path, limit: u64) -> Result<Vec<u8>> {
+pub(crate) fn bounded_read(path: &Path, limit: u64) -> Result<Vec<u8>> {
     if limit > MAX_BYTES || fs::metadata(path)?.len() > limit {
         return Err(PrototypeError::new("size_limit", path.display()));
     }

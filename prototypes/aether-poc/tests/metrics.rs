@@ -564,7 +564,7 @@ fn scenario_pairing_and_cli_errors_fail_without_success() {
             "--variant",
             "PX02-success-rate-v1",
         ],
-        vec!["verify-milestone", "--milestone", "5"],
+        vec!["verify-milestone", "--milestone", "6"],
         vec![
             "run-scenario",
             "--scenario",

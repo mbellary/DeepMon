@@ -2,7 +2,7 @@ use crate::{PrototypeError, Result, endpoint::ServerConfig};
 use std::{collections::BTreeMap, path::PathBuf, time::Duration};
 
 pub const MANIFEST: &str = "fixtures/prototype/manifest.json";
-pub const HELP: &str = "aether-poc <validate-fixtures|list-fixtures|serve-fixture|run-scenario|verify-scenario|verify-milestone> [--root PATH] [--manifest fixtures/prototype/manifest.json]\nserve-fixture: --variant ID [--bind 127.0.0.1] [--port 0] [--max-requests 1] [--max-run-ms 5000]\nrun-scenario: --scenario NAME --variant ID\nverify-scenario: --scenario NAME --variant ID; verify-milestone: --milestone 4\nScenarios: endpoint-roundtrip, native-parse, counter-rate, aggregate-evidence, count-boundary, memory-occupancy, visibility-policy, freshness-evidence. Verification applies to metric scenarios only.\nOnly owned loopback endpoints and synthetic records are used. Expected rejections and deferred stages remain explicit. Functional checks do not grant runtime acceptance.";
+pub const HELP: &str = "aether-poc <validate-fixtures|list-fixtures|serve-fixture|run-scenario|verify-scenario|verify-milestone> [--root PATH] [--manifest fixtures/prototype/manifest.json]\nserve-fixture: --variant ID [--bind 127.0.0.1] [--port 0] [--max-requests 1] [--max-run-ms 5000]\nrun-scenario: --scenario NAME --variant ID\nverify-scenario: --scenario NAME --variant ID; verify-milestone: --milestone 4|5\nScenarios: endpoint-roundtrip, native-parse, counter-rate, aggregate-evidence, count-boundary, memory-occupancy, visibility-policy, freshness-evidence. M5 scenarios: publisher-identity, process-lifecycle, resource-membership, fabric-context, visibility-enrichment. Boundary queries use --scenario enrichment-boundaries --case E5-01 through E5-07.\nOnly owned loopback endpoints and synthetic records are used. Expected rejections and deferred stages remain explicit. Functional checks do not grant runtime acceptance.";
 #[derive(Debug)]
 pub enum Action {
     Help,
@@ -21,6 +21,15 @@ pub enum Action {
         scenario: crate::scenario::MetricScenario,
     },
     VerifyMilestone,
+    VerifyEnrichmentMilestone,
+    VerifyEnrichment {
+        variant: String,
+        scenario: crate::enrichment_scenario::EnrichmentScenario,
+    },
+    Boundary {
+        case_id: String,
+        verify: bool,
+    },
 }
 #[derive(Debug)]
 pub struct Command {
@@ -67,7 +76,7 @@ pub fn parse_args(args: &[String]) -> Result<Command> {
                     "--variant" | "--bind" | "--port" | "--max-requests" | "--max-run-ms"
                 ))
             || (["run-scenario", "verify-scenario"].contains(&name.as_str())
-                && matches!(flag.as_str(), "--variant" | "--scenario"))
+                && matches!(flag.as_str(), "--variant" | "--scenario" | "--case"))
             || (name == "verify-milestone" && flag == "--milestone");
         if !allowed {
             return Err(usage(format!("unknown flag {flag}")));
@@ -116,29 +125,61 @@ pub fn parse_args(args: &[String]) -> Result<Command> {
         }
         "run-scenario" | "verify-scenario" => {
             let scenario = required("--scenario")?;
-            if scenario != "endpoint-roundtrip" {
-                let _: crate::scenario::MetricScenario = scenario.parse()?;
-            }
-            if name == "verify-scenario" {
-                Action::Verify {
-                    variant: required("--variant")?,
-                    scenario: scenario.parse()?,
+            if scenario == "enrichment-boundaries" {
+                if get("--variant").is_some() {
+                    return Err(usage("boundary scenarios require --case only"));
+                }
+                let case_id = required("--case")?;
+                if !(1..=7).any(|i| case_id == format!("E5-{i:02}")) {
+                    return Err(usage("unknown boundary case"));
+                }
+                Action::Boundary {
+                    case_id,
+                    verify: name == "verify-scenario",
                 }
             } else {
-                Action::Run {
-                    variant: required("--variant")?,
-                    scenario,
+                if get("--case").is_some() {
+                    return Err(usage("only boundary scenarios accept --case"));
+                }
+                let enrichment = scenario
+                    .parse::<crate::enrichment_scenario::EnrichmentScenario>()
+                    .ok();
+                if scenario != "endpoint-roundtrip" && enrichment.is_none() {
+                    let _: crate::scenario::MetricScenario = scenario.parse()?;
+                }
+                if name == "verify-scenario" {
+                    if let Some(scenario) = enrichment {
+                        Action::VerifyEnrichment {
+                            variant: required("--variant")?,
+                            scenario,
+                        }
+                    } else {
+                        Action::Verify {
+                            variant: required("--variant")?,
+                            scenario: scenario.parse()?,
+                        }
+                    }
+                } else {
+                    Action::Run {
+                        variant: required("--variant")?,
+                        scenario,
+                    }
                 }
             }
         }
         "verify-milestone" => {
-            if required("--milestone")? != "4" {
+            let milestone = required("--milestone")?;
+            if milestone != "4" && milestone != "5" {
                 return Err(PrototypeError::new(
                     "not_prototyped",
-                    "only milestone 4 verification is implemented",
+                    "only milestones 4 and 5 verification are implemented",
                 ));
             }
-            Action::VerifyMilestone
+            if milestone == "5" {
+                Action::VerifyEnrichmentMilestone
+            } else {
+                Action::VerifyMilestone
+            }
         }
         _ => unreachable!(),
     };

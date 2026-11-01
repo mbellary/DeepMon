@@ -1,0 +1,18 @@
+{
+  "case_id": "E5-07",
+  "history_unchanged": true,
+  "measurement_values": {
+    "safe-measurement": 1
+  },
+  "permutation_invariant": true,
+  "queries": {
+    "denied": {
+      "candidates": [],
+      "state": "unknown",
+      "temporal_status": null
+    }
+  },
+  "schema_version": 1,
+  "synthetic": true,
+  "update_error": "identity_conflict"
+}

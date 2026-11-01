@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX09-overlapping-streams-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "stream_gap",
+      "target": "A",
+      "expected_value": 10,
+      "unit": "microseconds",
+      "state": "known",
+      "record_ids": [
+        "A0",
+        "A1"
+      ],
+      "reason": "Half-open A intervals have a ten-microsecond gap."
+    },
+    {
+      "kind": "device_idle",
+      "target": "device",
+      "expected_value": 0,
+      "unit": "microseconds",
+      "state": "known",
+      "record_ids": [
+        "A0",
+        "A1",
+        "B0",
+        "coverage"
+      ],
+      "reason": "The supplied union covers [0,30); this proves only invented coverage."
+    }
+  ],
+  "proof": null
+}

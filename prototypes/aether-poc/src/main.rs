@@ -33,6 +33,17 @@ fn run() -> Result<()> {
         Action::Run { variant, scenario } if scenario == "endpoint-roundtrip" => emit(
             &endpoint::run_endpoint_roundtrip(fixture::select_endpoint(&bundle, &variant)?)?,
         ),
+        Action::Run { variant, scenario }
+            if scenario
+                .parse::<aether_poc::enrichment_scenario::EnrichmentScenario>()
+                .is_ok() =>
+        {
+            emit(&aether_poc::enrichment_scenario::run_enrichment_scenario(
+                &bundle,
+                scenario.parse()?,
+                &variant,
+            )?)
+        }
         Action::Run { variant, scenario } => emit(&aether_poc::scenario::run_metric_scenario(
             &bundle,
             scenario.parse()?,
@@ -59,6 +70,54 @@ fn run() -> Result<()> {
                 Err(PrototypeError::new(
                     "verification_mismatch",
                     "required milestone check failed",
+                ))
+            }
+        }
+        Action::VerifyEnrichment { variant, scenario } => {
+            let report = aether_poc::enrichment_scenario::verify_enrichment_scenario(
+                &bundle, scenario, &variant,
+            )?;
+            emit(&report)?;
+            if report.passed {
+                Ok(())
+            } else {
+                Err(PrototypeError::new(
+                    "verification_mismatch",
+                    "enrichment comparison failed",
+                ))
+            }
+        }
+        Action::Boundary { case_id, verify } => {
+            let extension = aether_poc::enrichment_fixture::load_enrichment_bundle(&command.root)?;
+            if verify {
+                let report =
+                    aether_poc::enrichment_scenario::verify_boundary_case(&extension, &case_id)?;
+                emit(&report)?;
+                if report.passed {
+                    Ok(())
+                } else {
+                    Err(PrototypeError::new(
+                        "verification_mismatch",
+                        "boundary comparison failed",
+                    ))
+                }
+            } else {
+                emit(&aether_poc::enrichment_scenario::run_boundary_case(
+                    &extension, &case_id,
+                )?)
+            }
+        }
+        Action::VerifyEnrichmentMilestone => {
+            let extension = aether_poc::enrichment_fixture::load_enrichment_bundle(&command.root)?;
+            let report =
+                aether_poc::enrichment_scenario::verify_enrichment_milestone(&bundle, &extension)?;
+            emit(&report)?;
+            if report["functional_checks_passed"] == true {
+                Ok(())
+            } else {
+                Err(PrototypeError::new(
+                    "verification_mismatch",
+                    "enrichment milestone failed",
                 ))
             }
         }

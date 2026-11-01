@@ -1,0 +1,190 @@
+{
+  "after_queries": [],
+  "case_id": "E5-04",
+  "measurement_queries": {
+    "count-100": "allocation"
+  },
+  "measurements": [
+    {
+      "emitter": {
+        "key": {
+          "boot": null,
+          "host": null,
+          "incarnation": "generation-one",
+          "kind": "replica",
+          "locator": "replica-A",
+          "namespace": null,
+          "scope": "boundary-fixture"
+        },
+        "reference": "key"
+      },
+      "id": "count-100",
+      "native": {
+        "declared_models": [
+          "symbolic-A",
+          "symbolic-B"
+        ],
+        "family": "fixture_requests",
+        "labels": {
+          "model": "same-model"
+        },
+        "type": "counter"
+      },
+      "scope": "replica",
+      "subject": {
+        "key": {
+          "boot": null,
+          "host": null,
+          "incarnation": "generation-one",
+          "kind": "replica",
+          "locator": "replica-A",
+          "namespace": null,
+          "scope": "boundary-fixture"
+        },
+        "reference": "key"
+      },
+      "unit": "requests",
+      "value": 100
+    }
+  ],
+  "queries": [
+    {
+      "from": {
+        "boot": null,
+        "host": null,
+        "incarnation": "generation-one",
+        "kind": "replica",
+        "locator": "replica-A",
+        "namespace": null,
+        "scope": "boundary-fixture"
+      },
+      "id": "allocation",
+      "is_set": true,
+      "relation": "allocated_resources",
+      "selector": {
+        "mode": "unspecified"
+      }
+    },
+    {
+      "from": {
+        "boot": null,
+        "host": null,
+        "incarnation": "generation-one",
+        "kind": "replica",
+        "locator": "replica-A",
+        "namespace": null,
+        "scope": "boundary-fixture"
+      },
+      "id": "participation",
+      "is_set": true,
+      "relation": "observed_participants",
+      "selector": {
+        "mode": "unspecified"
+      }
+    },
+    {
+      "from": {
+        "boot": null,
+        "host": null,
+        "incarnation": "generation-one",
+        "kind": "replica",
+        "locator": "replica-B",
+        "namespace": null,
+        "scope": "boundary-fixture"
+      },
+      "id": "other-replica",
+      "is_set": true,
+      "relation": "allocated_resources",
+      "selector": {
+        "mode": "unspecified"
+      }
+    }
+  ],
+  "records": [
+    {
+      "node": {
+        "evidence": [
+          "replica-A"
+        ],
+        "id": "replica-A",
+        "key": {
+          "boot": null,
+          "host": null,
+          "incarnation": "generation-one",
+          "kind": "replica",
+          "locator": "replica-A",
+          "namespace": null,
+          "scope": "boundary-fixture"
+        },
+        "validity": {
+          "clock": "fixture",
+          "end_us": 20,
+          "start_us": 0,
+          "uncertainty_us": 0
+        }
+      },
+      "record_kind": "node"
+    },
+    {
+      "node": {
+        "evidence": [
+          "replica-B"
+        ],
+        "id": "replica-B",
+        "key": {
+          "boot": null,
+          "host": null,
+          "incarnation": "generation-one",
+          "kind": "replica",
+          "locator": "replica-B",
+          "namespace": null,
+          "scope": "boundary-fixture"
+        },
+        "validity": {
+          "clock": "fixture",
+          "end_us": 20,
+          "start_us": 0,
+          "uncertainty_us": 0
+        }
+      },
+      "record_kind": "node"
+    },
+    {
+      "record_kind": "relation",
+      "relation": {
+        "complete": true,
+        "denied": false,
+        "evidence": [
+          "allocation"
+        ],
+        "from": {
+          "boot": null,
+          "host": null,
+          "incarnation": "generation-one",
+          "kind": "replica",
+          "locator": "replica-A",
+          "namespace": null,
+          "scope": "boundary-fixture"
+        },
+        "id": "allocation",
+        "kind": "allocated_resources",
+        "to": [
+          {
+            "locator": "gpu-A",
+            "reference": "symbolic",
+            "scope": "boundary-fixture"
+          },
+          {
+            "locator": "gpu-B",
+            "reference": "symbolic",
+            "scope": "boundary-fixture"
+          }
+        ],
+        "validity": null
+      }
+    }
+  ],
+  "schema_version": 1,
+  "synthetic": true,
+  "updates": []
+}

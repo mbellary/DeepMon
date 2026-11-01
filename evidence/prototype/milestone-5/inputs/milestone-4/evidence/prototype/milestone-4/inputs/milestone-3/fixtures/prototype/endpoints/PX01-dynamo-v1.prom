@@ -1,0 +1,6 @@
+# HELP dynamo_frontend_request_duration_seconds Synthetic test values; not a captured export
+# TYPE dynamo_frontend_request_duration_seconds histogram
+dynamo_frontend_request_duration_seconds_bucket{le="1",model="fixture-model"} 1
+dynamo_frontend_request_duration_seconds_bucket{le="+Inf",model="fixture-model"} 2
+dynamo_frontend_request_duration_seconds_count{model="fixture-model"} 2
+dynamo_frontend_request_duration_seconds_sum{model="fixture-model"} 3

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX02-success-rate-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "rate",
+      "target": "source_success_rate",
+      "expected_value": 5,
+      "unit": "requests/second",
+      "state": "known",
+      "record_ids": [
+        "c0",
+        "c1"
+      ],
+      "reason": "(150-100)/(10,000,000/1,000,000) = 5; this is request-success rate, not tokens."
+    }
+  ],
+  "proof": null
+}
