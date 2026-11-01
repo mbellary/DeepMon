@@ -3,7 +3,7 @@
 
 This ExecPlan is a living document. Keep `Progress`, `Surprises & Discoveries`, `Decision Log`, and `Outcomes & Retrospective` current at every stopping point. Maintain it according to repository-root `PLANS.md`, which preserves the user's uploaded planning instructions. The workspace is `/home/mbellary/work/projects/DeepMon`.
 
-The user authorized Milestone 2 execution and requested the next implementation milestone. Milestones 1 and 2 are now accepted for specification/traceability and synthetic fixture construction respectively, with evidence in `evidence/prototype/milestone-1.md` and `evidence/prototype/milestone-2.md`. Milestones 3–8 remain pending. Next is the separate Rust engine prototype harness and loopback fixture server; no real engine/hardware acquisition or production work has occurred.
+Milestones 1–3 are accepted for specification/traceability, fixture construction and the synthetic Rust harness respectively. Evidence is in `evidence/prototype/milestone-1.md`, `milestone-2.md` and `milestone-3.md`. The user authorized M3 execution; its detailed plan records all seven completed tasks. Milestones 4–8 remain pending. Next is M4 native endpoint parsing and selected calculations. All twelve PX semantic experiments remain not_run; no real engine/hardware acquisition or production work has occurred.
 
 ## Purpose / Big Picture
 
@@ -40,7 +40,9 @@ Times use Asia/Kolkata, UTC+05:30. Entries marked verified record an inspection 
 - [x] (2026-11-01 21:51 IST, Milestone 2 planning) Created `milestone-execution-plans/milestone-02-execplan.md` under PLANS.md with M2.1–M2.7, bundle/record/oracle formats, twelve-group fixture coverage, Rust validation and tests, predecessor preservation, separate fixture-status tracking and acceptance/handoff. No execution tasks are marked complete.
 - [x] (2026-11-01 21:52 IST, Milestone 2 plan validation) Checked required plan sections/format, links, twelve fixture-group IDs and master/detail pending states. Existing Rust evidence/traceability checks pass; M1 artifacts and original baseline hashes remain unchanged. Fixture execution is not claimed.
 - [x] (2026-11-01 22:13 IST, Milestone 2 accepted) Completed M2.1–M2.7: twelve groups, 36 variants, 82 indexed payload files, independent expected answers, format/status records, verified M1 predecessor and Rust fixture validation/authoring. All 70 integration tests (40 new plus 30 regressions), Clippy, formatting, source/traceability and preservation checks pass. Evidence: `evidence/prototype/milestone-2.md`. Runtime experiments remain unexecuted; next is Milestone 3.
-- [ ] Milestone 3: create the isolated Rust engine prototype harness and fixture server. Milestones 1–2 delivered validation tooling and fixture files; no engine harness exists.
+- [x] (2026-11-01 22:41 IST, Milestone 3 planning) Created `milestone-execution-plans/milestone-03-execplan.md` with M3.1–M3.7, exact Rust CLI/interfaces, bounded loopback serving, deterministic byte-roundtrip acceptance, input/oracle separation, regression/evidence requirements and synchronized tracking. Existing fixture construction and accepted artifact checks pass. No harness implementation is claimed.
+- [x] (2026-11-01 22:46 IST, Milestone 3 plan validation) Verified required plan sections/format, current links and seven pending implementation tasks. Rust evidence/traceability/fixture checks, accepted M2/original baseline checksums and whitespace checks pass. All 250/58 IDs remain, with zero executed experiments; no engine implementation is claimed.
+- [x] (2026-11-01 22:58 IST, Milestone 3 accepted) Completed M3.1–M3.7: separate locked Rust harness, complete listing/validation, bounded loopback server/client and deterministic 398-byte roundtrip. Passed 29 new tests plus 70 regressions, strict Clippy/format/checks and accepted-input preservation. Actual socket checks used approved execution after sandbox denial. Evidence: `evidence/prototype/milestone-3.md`; all PX semantic experiments remain not_run. Next is M4.
 - [ ] Milestone 4: prototype native metric parsing and selected calculations against the fixture endpoints; preserve source meanings and unsupported cases.
 - [ ] Milestone 5: prototype metadata enrichment using simulated identities and lifecycle changes; prevent duplicate counts and incorrect remote-worker attribution.
 - [ ] Milestone 6: prototype bounded buffering, a local recovery journal, Arrow/Parquet output and DataFusion queries with simulated storage faults.
@@ -50,6 +52,14 @@ Times use Asia/Kolkata, UTC+05:30. Entries marked verified record an inspection 
 
 ## Surprises & Discoveries
 
+
+Observation: a real loopback demonstration needs socket permission, and timeout/connection-close details affect bounded local behavior.
+
+Evidence: sandbox socket denial was recorded and final socket tests used approved execution. M3 now passes 29 new tests plus 70 regressions, including partial peers, active/idle deadlines, rejected bodies and cleanup. Two CLI reports contain the same 398 bytes/hash. This proves local harness behavior only; no semantic/runtime acceptance is inferred.
+
+Observation: the existing validation library can check the complete fixture bundle without exposing its private manifest structures.
+
+Evidence: `check_fixtures`, `FixtureSummary` and `sha256` are public exports. M3 can reuse this checker through a local path dependency and load its own small manifest view without changing accepted M2 source bytes. A transferred malformed payload is transport evidence only, not semantic experiment execution.
 
 Observation: Milestone 2 can pass construction validation while engine behavior remains untested.
 
@@ -170,6 +180,18 @@ Decision: accept Milestone 2 construction/validation deliverables and retain Mil
 Rationale: the user authorized execution followed by a next-milestone suggestion. The Rust fixture commands, independent data/oracles and 70 passing tests provide the planned evidence. Verified predecessor bytes preserve M1 reproducibility; neither authored expectations nor construction checks count as engine execution.
 Date/Author: 2026-11-01 22:13 IST / Codex, applying user direction.
 
+Decision: use `milestone-execution-plans/milestone-03-execplan.md` for M3.1–M3.7 tracking; this turn delivers planning only. Reuse the validation library, implement bounded standard-library loopback HTTP and a deterministic byte round trip, and retain all PX experiments as not_run.
+Rationale: the user requested a detailed milestone plan and synchronized tracking. Observable harness behavior does not establish metric interpretation, real collection or budget acceptance. Preserve accepted M1/M2 records and hashes.
+Date/Author: 2026-11-01 / Codex, applying user direction.
+
+Decision: move Arrow/Parquet/DataFusion version selection and compatibility testing from M3 to M6.
+Rationale: those libraries have no executable storage/query behavior in M3. Selecting and testing them together in M6 provides meaningful evidence without unused dependencies; the Rust/open-storage/query requirement and M6 scope are unchanged.
+Date/Author: 2026-11-01 / Codex.
+
+Decision: accept the authorized M3 harness implementation and retain M4–M8 as pending.
+Rationale: complete fixture listing/validation, actual bounded HTTP requests, deterministic reports, 29 new tests plus 70 regressions and preserved accepted-input hashes satisfy its scope. All twelve semantic experiments remain unexecuted, budgets unagreed and real capabilities unverified. The user requested completion and a next-milestone suggestion, not automatic M4 execution.
+Date/Author: 2026-11-01 22:58 IST / Codex, applying user direction.
+
 ## Outcomes & Retrospective
 
 
@@ -177,12 +199,14 @@ Milestones 1 and 2 are complete within the prototype preparation scope. Mileston
 
 Rust evidence/traceability/fixture commands pass, along with 70 integration tests, strict Clippy, formatting and preservation checks. M1's accepted source/input bytes are preserved under `evidence/prototype/milestone-2/inputs/milestone-1/`; current M2 code/data hashes and logs are in `evidence/prototype/milestone-2.md`. Original requirements, source routes, M1 planning records and frozen v1 sources remain unchanged. No Python was required and no new dependency was added.
 
-All twelve engine experiments remain unexecuted; no real source schema, device capability, physical timing, inference overhead or production durability has been verified. Proposed budgets remain unagreed. The next implementation milestone is Milestone 3: the isolated Rust prototype harness and loopback fixture server that consume this bundle. Milestones 3–8 remain pending; production architecture remains unscoped.
+M3 is now complete: its independent Rust package/lock, bounded loopback server/client, complete fixture listing/validation and deterministic roundtrip exist. Four new unit and 25 integration tests plus all 70 prior validation integration tests pass, with strict Clippy/format/checks and preserved accepted bytes. Two CLI reports match 398 received bytes/hash exactly. Evidence is `evidence/prototype/milestone-3.md`. Real socket checks required approved execution after sandbox denial; no network test was replaced or skipped.
+
+All twelve PX semantic experiments remain unexecuted; no real source schema, device capability, physical timing, inference overhead or production durability has been verified. Proposed budgets remain unagreed. M3's seven detailed tasks are complete; M4 native endpoint parsing and selected calculations is next. Milestones 4–8 remain pending; production architecture remains unscoped.
 
 ## Context and Orientation
 
 
-The repository is `/home/mbellary/work/projects/DeepMon`. `README.md` currently contains the heading `DeepMon`. Product research uses the name Aether. The current deliverables are `aether-metrics-catalog.md` and `.json`, `engine-native-metrics-baseline.md`, `metadata-enrichment-matrix.md`, and `metric-to-source-coverage-matrix.md` and `.json`. `source-mapping-recheck.md` records the completed scope-error audit and remaining source-validation limits. `zero-application-change-collection-contract.md` defines the initial source/action boundary, and `collection-acceptance-budget-template.json` records the unset run-specific limits and decision process. `validation-evidence-baseline.md` explains the pinned source bundle, historical-U ledger and first synthetic environment. `scripts/check-evidence-inputs.py` is the historical evidence verifier. The revised executable path replaces it with `aether-validate evidence` from `tools/aether-validation/`, implemented in Rust in the completed M1.1; no Python subprocess is permitted. `milestone-execution-plans/README.md` indexes per-milestone plans; `milestone-execution-plans/milestone-01-execplan.md` contains accepted Milestone 1 tracking; `milestone-execution-plans/milestone-02-execplan.md` records accepted fixture tasks, interfaces, commands and handoff; `fixtures/prototype/manifest.json`, `docs/prototype-fixture-format.md` and `docs/prototype-fixture-status.json` are the delivered construction artifacts. `PLANS.md` contains the plan-writing rules. `EXECPLAN.md` is this plan. Before milestone execution no Rust package existed. Milestone 1 now adds the isolated validation package and Cargo.lock under `tools/aether-validation/`; the engine package at `prototypes/aether-poc/` remains future Milestone 3 work. Inspect the checkout before future execution; do not overwrite new user work if this changes.
+The repository is `/home/mbellary/work/projects/DeepMon`. `README.md` currently contains the heading `DeepMon`. Product research uses the name Aether. The current deliverables are `aether-metrics-catalog.md` and `.json`, `engine-native-metrics-baseline.md`, `metadata-enrichment-matrix.md`, and `metric-to-source-coverage-matrix.md` and `.json`. `source-mapping-recheck.md` records the completed scope-error audit and remaining source-validation limits. `zero-application-change-collection-contract.md` defines the initial source/action boundary, and `collection-acceptance-budget-template.json` records the unset run-specific limits and decision process. `validation-evidence-baseline.md` explains the pinned source bundle, historical-U ledger and first synthetic environment. `scripts/check-evidence-inputs.py` is the historical evidence verifier. The revised executable path replaces it with `aether-validate evidence` from `tools/aether-validation/`, implemented in Rust in the completed M1.1; no Python subprocess is permitted. `milestone-execution-plans/README.md` indexes per-milestone plans; `milestone-execution-plans/milestone-01-execplan.md` contains accepted Milestone 1 tracking; `milestone-execution-plans/milestone-02-execplan.md` records accepted fixture tasks, interfaces, commands and handoff; `fixtures/prototype/manifest.json`, `docs/prototype-fixture-format.md` and `docs/prototype-fixture-status.json` are the delivered construction artifacts. `PLANS.md` contains the plan-writing rules. `EXECPLAN.md` is this plan. Before milestone execution no Rust package existed. Milestone 1 now adds the isolated validation package and Cargo.lock under `tools/aether-validation/`; the separate synthetic harness package at `prototypes/aether-poc/` is now delivered by Milestone 3 with its own Cargo.lock. Inspect the checkout before future execution; do not overwrite new user work if this changes.
 
 The four metric layers describe request/generation behavior, serving-engine/cache behavior, distributed execution/fabric behavior, and host/GPU infrastructure. Requirement IDs such as `L1-001` are stable references into the 250-family catalog. Association IDs `M01` through `M58` describe context relationships such as process-to-container or replica-to-GPU. All must remain represented in the prototype tracking file, even when not tested.
 
@@ -234,13 +258,15 @@ Acceptance is that expected answers can be checked by hand from small inputs. Fo
 ### Milestone 3: build the isolated Rust test harness
 
 
-Create one experimental Rust package at `prototypes/aether-poc/Cargo.toml`, with source under `prototypes/aether-poc/src` and integration tests under `prototypes/aether-poc/tests`. Do not create or prescribe a production workspace. Use a small command interface for validating fixtures, serving a loopback-only synthetic endpoint and running named scenarios. Record chosen dependency versions in the prototype's `Cargo.lock` and `docs/prototype-dependencies.md`. Check that the chosen Arrow/Parquet/DataFusion versions work together in this package; selecting them does not finalize production dependency versions.
+Use [the detailed Milestone 3 execution plan](milestone-execution-plans/milestone-03-execplan.md) for M3.1–M3.7 progress, exact commands, interfaces, test limits and acceptance evidence. All seven tasks are complete for the synthetic harness; actual evidence is in `evidence/prototype/milestone-3.md`. Accepted M1/M2 artifacts and all PX experiment/status/budget records remain unchanged. Continue updating both plans and the index at implementation stopping points.
 
-Use experimental modules `fixture`, `observation`, `endpoint`, `identity`, `derive`, `journal`, `store`, `query`, `replay` and `report`. These are local organization aids, not production engine boundaries. Define observation values that preserve native names/types/labels, emitter, optional subject, virtual interval and quality state. Define metadata relationships with validity times and evidence, allowing unknown and ambiguous values.
+Create one experimental Rust package at `prototypes/aether-poc/Cargo.toml`, with source under `prototypes/aether-poc/src` and integration tests under `prototypes/aether-poc/tests`. Do not create or prescribe a production workspace. Provide `validate-fixtures`, `list-fixtures`, `serve-fixture` and `run-scenario --scenario endpoint-roundtrip` to validate/list inputs, serve one endpoint on 127.0.0.1 and compare actual response bytes with indexed input identity. Reuse the validation library through a local path dependency and bounded standard-library networking. Record chosen dependency versions in the prototype's `Cargo.lock` and `docs/prototype-dependencies.md`. Arrow/Parquet/DataFusion selection and compatibility execution move to M6, where storage/query behavior is exercised; production dependency versions remain undecided.
 
-Implement configuration validation and fixture validation before demonstrations. The prototype accepts only named fixtures and explicitly configured loopback fixture URLs. It must not scan host ports, discover live workloads, connect to cloud accounts, read container sockets or attach kernel/device probes. Missing dependencies produce a clear failure rather than a successful no-op. An optional feature not implemented reports `not_prototyped`.
+M3 implements experimental `config`, `fixture`, `endpoint` and `report` modules. Future `observation`, `identity`, `derive`, `journal`, `store`, `query` and `replay` modules are local organization options, not production engine boundaries or successful placeholders. Document future observation shapes preserving native names/types/labels, emitter, optional subject, virtual interval and quality state, and metadata relationships with validity times/evidence and unknown/ambiguous states in `docs/prototype-harness.md`. Actual semantic implementations remain M4–M7 work.
 
-Acceptance is that the harness can list/validate fixtures, reject an invalid manifest and run a trivial deterministic scenario through structured output. No real serving engine, GPU, NIC, root permission or storage service is required.
+Implement configuration/fixture validation before demonstrations. M3 accepts named fixtures and a numeric 127.0.0.1 bind address; its client connects only to the listener owned by the harness, with no arbitrary URL option. It must not scan host ports, discover live workloads, connect to cloud accounts, read container sockets or attach kernel/device probes. Missing dependencies fail clearly; unimplemented commands return nonzero `not_prototyped` errors.
+
+Acceptance is complete fixture listing/validation, rejection of bad manifests/hashes/configurations, bounded real loopback requests returning indexed bytes and two identical deterministic round-trip reports. Test lifecycle/failure handling and retain semantic execution not_run/readiness false. No real serving engine, GPU, NIC, root permission or storage service is required.
 
 ### Milestone 4: prototype endpoint parsing and selected calculations
 
@@ -267,7 +293,7 @@ Acceptance is a set of deterministic lifecycle/join tests and a report that show
 ### Milestone 6: prototype local buffering, recovery and analytical files
 
 
-Implement a bounded in-memory queue and experimental local journal. Every queued item has a stable batch ID, and the queue has a fixture-specified capacity/full behavior. Record accepted, rejected and replayed counts. Write Arrow batches to Parquet and expose committed files through a small local manifest. Read them with embedded DataFusion. The user should be able to query the fixture observations without a central database.
+Select and lock compatible Arrow/Parquet/DataFusion versions in the prototype package, document them in `docs/prototype-dependencies.md` and test their actual write/read/query behavior together. This dependency compatibility check was deferred from M3 to this executable experiment; it does not select production versions. Implement a bounded in-memory queue and experimental local journal. Every queued item has a stable batch ID, and the queue has a fixture-specified capacity/full behavior. Record accepted, rejected and replayed counts. Write Arrow batches to Parquet and expose committed files through a small local manifest. Read them with embedded DataFusion. The user should be able to query the fixture observations without a central database.
 
 Use `src/store.rs` as a simulated object-store boundary backed by a dedicated temporary directory. Inject failures before/after data-file write and before/after manifest visibility. Write files into a temporary area before publishing their committed membership. Replay by stable batch ID and checksum so retrying a committed batch does not create a second logical copy. Queries must exclude temporary/uncommitted files. Prototype a small-file rewrite as an optional experiment only if its old/new membership can be checked without counting both versions.
 
@@ -321,18 +347,19 @@ If implementation appears after this plan revision, inspect it and update the pl
 After Milestone 3 creates the package, run its portable checks:
 
     cargo fmt --manifest-path prototypes/aether-poc/Cargo.toml -- --check
-    cargo check --manifest-path prototypes/aether-poc/Cargo.toml
-    cargo test --manifest-path prototypes/aether-poc/Cargo.toml
-    cargo clippy --manifest-path prototypes/aether-poc/Cargo.toml --all-targets -- -D warnings
+    cargo check --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml
+    cargo test --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml
+    cargo clippy --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml --all-targets -- -D warnings
 
 Expect all configured checks to succeed. Record the actual test count; none is invented here. These commands must not require special hardware, privileges or access to production services. Dependency downloads may need the environment's normal network authorization; do not bypass it.
 
 Implement these prototype commands:
 
-    cargo run --manifest-path prototypes/aether-poc/Cargo.toml -- validate-fixtures --manifest fixtures/prototype/manifest.json
-    cargo run --manifest-path prototypes/aether-poc/Cargo.toml -- run-scenario --manifest fixtures/prototype/manifest.json --scenario counter-rate --output /tmp/aether-poc-example
+    cargo run --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml -- validate-fixtures --root . --manifest fixtures/prototype/manifest.json
+    cargo run --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml -- list-fixtures --root . --manifest fixtures/prototype/manifest.json
+    cargo run --locked --offline --manifest-path prototypes/aether-poc/Cargo.toml -- run-scenario --root . --manifest fixtures/prototype/manifest.json --scenario endpoint-roundtrip --variant PX01-vllm-v1
 
-The first checks manifests, input references and expected-result declarations. The second runs only a named synthetic scenario. It must refuse to overwrite unrelated existing output; tests should use fresh temporary roots. A source name such as vLLM identifies the fixture format, not a real deployment.
+These M3 commands check fixture construction, list all groups/variants and run only the named byte-roundtrip scenario. They write reports to stdout and do not create a persistent output store. The detailed M3 plan also specifies `serve-fixture` and finite server limits. Semantic scenarios such as counter-rate remain pending until M4 and must return nonzero `not_prototyped` errors in M3. Later output-producing commands must refuse to overwrite unrelated existing files; tests use fresh temporary roots. A source name such as vLLM identifies invented fixture format, not a real deployment.
 
 By Milestone 8 the repeatable entry point is:
 
@@ -345,7 +372,7 @@ The script owns its server process and stops it on exit. It must bind only to lo
 The eventual success report should contain values such as:
 
     input_kind=synthetic
-    logical_output_rate_tokens_per_second=5
+    source_success_rate_requests_per_second=5
     replica_count_duplicated=false
     remote_worker_host_inferred_from_frontend=false
     missing_evidence=reported_unknown
@@ -371,6 +398,8 @@ These Rust validation commands and 30 integration tests are now implemented and 
 
 ## Validation and Acceptance
 
+
+Milestone 3 acceptance is now supported by `evidence/prototype/milestone-3.md`: a separate locked Rust package, complete read-only listing/validation, bounded real loopback requests, deterministic byte identity reports, 29 new passing failure/lifecycle/client tests, 70 regressions and preserved inputs. All seven detailed tasks are complete. No semantic experiment, real source or budget agreement is accepted by harness transport checks.
 
 Milestone 2 plan-authoring acceptance is a complete PLANS.md-compliant detailed plan, valid prerequisite links, synchronized master/index progress, explicit future fixture/validator outputs and unchanged M1/v1 artifacts. That authoring check alone did not complete M2.1–M2.7. Their execution acceptance is now supported by the twelve-group bundle, 70 passing Rust integration tests, unchanged-input checks and `evidence/prototype/milestone-2.md`. Actual fixture acceptance additionally requires the defined bundle/oracles/ledger, preserved predecessor, Rust fixture checks and negative tests, regressions and an evidence report. No construction check can mark a telemetry experiment or deployed capability verified.
 
@@ -449,10 +478,12 @@ The following interfaces are experimental and local to `prototypes/aether-poc`. 
 
 In `src/fixture.rs`, expose:
 
-    pub fn load_fixture_manifest(path: &std::path::Path)
-        -> Result<FixtureManifest, PrototypeError>;
+    pub fn load_bundle(root: &std::path::Path, manifest: &std::path::Path)
+        -> Result<ValidatedBundle, PrototypeError>;
+    pub fn select_endpoint(bundle: &ValidatedBundle, variant_id: &str)
+        -> Result<EndpointInput, PrototypeError>;
 
-`FixtureManifest` identifies invented inputs, scenario names, related requirement/association IDs, expected outputs and provenance. `PrototypeError` gives a useful failure reason. Validate paths so a fixture cannot silently read unrelated host data.
+These are implemented M3 interfaces, replacing the original single-path loader sketch so validation can resolve the repository evidence/traceability inputs. `ValidatedBundle` retains manifest identities, related requirement/association IDs, file roles and provenance. `EndpointInput` exposes only selected validated endpoint bytes and identities, with no semantic oracle. `PrototypeError` gives a stable code/context and optional fixture ID. Confined bounded reads recheck hashes. The detailed M3 plan specifies implemented configuration/server/report interfaces. The parsing, association, replay and query interfaces below remain future experimental targets; do not infer they exist because the harness is complete.
 
 In `src/endpoint.rs`, expose:
 
@@ -488,7 +519,7 @@ In `src/query.rs`, expose:
 
 Use DataFusion with Arrow/Parquet data and only the local committed-file view. `QueryReport` contains results and which fixture snapshot/files were read. This does not prescribe a production query service, distributed scheduler or access-control system.
 
-Use Rust dependencies needed for these experiments: structured fixture/configuration handling, endpoint text parsing, local HTTP serving, Arrow/Parquet and DataFusion. Select and lock compatible versions during the harness milestone. Optional asynchronous orchestration is a prototype choice, not a finalized production concurrency model. Real NVML/DCGM, eBPF, CUPTI, NCCL-plugin, runtime-socket and switch dependencies are not required or exercised; simulate their proposed record shapes and keep actual collection feasibility pending.
+Use Rust dependencies needed for these experiments. M3 locks fixture/configuration handling and the local validation-library dependency, with standard-library local HTTP. M4 adds parsing dependencies only if needed. M6 selects/locks compatible Arrow/Parquet/DataFusion versions and tests them together against actual prototype storage/query behavior. Optional asynchronous orchestration is a later prototype choice, not a finalized production concurrency model. Real NVML/DCGM, eBPF, CUPTI, NCCL-plugin, runtime-socket and switch dependencies are not required or exercised; simulate their proposed record shapes and keep actual collection feasibility pending.
 
 ## Revision Notes
 
@@ -518,3 +549,9 @@ Use Rust dependencies needed for these experiments: structured fixture/configura
 2026-11-01 21:52 IST: completed Milestone 2 plan-authoring validation and synchronized the detailed/master progress records. Existing evidence and M1 delivered artifacts remain intact. All M2 execution tasks remain pending; no fixture, runtime result or validator implementation is delivered by this update.
 
 2026-11-01 22:13 IST: executed and accepted Milestone 2. Delivered twelve groups/36 variants/82 payloads, independent oracles, format/status records and Rust construction checks; preserved M1 predecessor bytes and all original research/planning inputs. Passed 70 tests, Clippy, formatting, evidence/traceability and integrity checks. Detailed plan/index and evidence synchronized. Milestone 3 isolated Rust harness/loopback server is next and has not started; all runtime/real capability/budget claims remain unverified.
+
+2026-11-01 22:45 IST: created the detailed M3 execution plan and synchronized master/index tracking. Defined seven pending tasks, Rust package/CLI/interfaces, bounded loopback server, deterministic byte-roundtrip acceptance, preservation and evidence requirements. Deferred unused Arrow/Parquet/DataFusion selection/compatibility to M6's executable storage/query experiment. Updated current commands and corrected the remaining illustrative five-per-second field to successful requests, consistent with the accepted PX02 counter. All requirements/source mappings and accepted artifacts remain unchanged; only planning/prerequisite checks are complete.
+
+2026-11-01 22:46 IST: completed M3 plan-authoring verification and mirrored results in its detailed plan. Plan structure/links/pending tasks and existing Rust prerequisite/integrity checks pass. M3.1–M3.7 implementation and all later milestones remain pending.
+
+2026-11-01 22:58 IST: completed and accepted M3 implementation. Added independent Rust harness/lock, complete fixture listing/validation, bounded owned loopback HTTP and deterministic reports, plus dependency/handoff docs and actual evidence. Passed 29 new tests and 70 regressions, strict Clippy/format/checks and unchanged-input verification. Approved socket access was used after sandbox denial. Master/detail/index synchronized; M4 is next, while all PX semantic execution/real capability/budget states remain unverified.
