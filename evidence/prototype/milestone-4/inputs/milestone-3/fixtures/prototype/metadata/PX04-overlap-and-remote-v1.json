@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX04-overlap-and-remote-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "count": 10,
+      "id": "front",
+      "kind": "aggregate",
+      "logical_ids": [
+        "r0",
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9"
+      ],
+      "producer": "frontend"
+    },
+    {
+      "count": 10,
+      "id": "back",
+      "kind": "aggregate",
+      "logical_ids": [
+        "r0",
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9"
+      ],
+      "producer": "backend"
+    },
+    {
+      "entity": "frontend-host",
+      "evidence": "invented_explicit_membership",
+      "id": "front-host",
+      "incarnation": "boot-one",
+      "kind": "identity",
+      "valid_from_us": 0,
+      "valid_to_us": 20000000
+    },
+    {
+      "emitter": "frontend",
+      "evidence": "location_missing",
+      "id": "worker",
+      "kind": "link",
+      "subject": "remote-worker",
+      "subject_host": null
+    }
+  ]
+}

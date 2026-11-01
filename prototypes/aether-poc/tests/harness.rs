@@ -236,7 +236,7 @@ fn future_commands_fail_with_no_success_output() {
         vec![
             "run-scenario",
             "--scenario",
-            "counter-rate",
+            "token-rate",
             "--variant",
             "PX02-success-rate-v1",
         ],

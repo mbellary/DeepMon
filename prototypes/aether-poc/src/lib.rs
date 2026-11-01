@@ -39,3 +39,8 @@ impl From<std::io::Error> for PrototypeError {
     }
 }
 pub type Result<T> = std::result::Result<T, PrototypeError>;
+pub mod derive;
+pub mod metric_input;
+pub mod metric_text;
+pub mod observation;
+pub mod scenario;

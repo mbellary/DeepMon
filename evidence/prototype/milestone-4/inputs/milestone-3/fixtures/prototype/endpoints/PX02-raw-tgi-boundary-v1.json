@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX02-raw-tgi-boundary-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "clock_domain": "fixture",
+      "family": "tgi_request_count",
+      "id": "raw",
+      "incarnation": "one",
+      "kind": "counter",
+      "time_us": 10000000,
+      "unit": "requests",
+      "value": 150
+    }
+  ]
+}

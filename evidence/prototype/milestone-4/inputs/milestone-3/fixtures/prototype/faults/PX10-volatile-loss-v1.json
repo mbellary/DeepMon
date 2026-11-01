@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX10-volatile-loss-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "admitted": true,
+      "committed": true,
+      "id": "r0",
+      "kind": "stage",
+      "logical_id": "r0",
+      "persisted": true,
+      "query_visible": true
+    },
+    {
+      "admitted": true,
+      "committed": false,
+      "id": "r1",
+      "kind": "stage",
+      "logical_id": "r1",
+      "persisted": false,
+      "query_visible": false
+    },
+    {
+      "action": "volatile_loss",
+      "after": "admitted_before_persisted",
+      "id": "loss",
+      "kind": "fault",
+      "logical_id": "r1",
+      "sequence": 2
+    }
+  ]
+}

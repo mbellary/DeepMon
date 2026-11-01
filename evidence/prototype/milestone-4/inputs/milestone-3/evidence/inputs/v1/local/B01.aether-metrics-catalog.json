@@ -1,0 +1,4153 @@
+{
+  "title": "Aether: four-layer inference observability metric catalog",
+  "research_date": "2026-11-01",
+  "scope": "Requirements inventory; deployment support unconfirmed",
+  "collection_modes": {
+    "A": "Engine endpoint: event/step-updated; host polls at a supported, unset interval. Endpoint must already be exposed and accessible; enabling optional metrics may require workload configuration.",
+    "H": "Host source: read counters/state at a supported, unset interval, or capture native events. Driver/kernel permissions and capability checks required.",
+    "I": "Profiling: supported process/library/device instrumentation; event-driven then buffered. May require injection, plugin loading, configuration or restart; not guaranteed host-only.",
+    "X": "Conditional: semantic events or integration are required; no universal native export verified. No collection interval or support assumed.",
+    "F": "External fabric integration: switch telemetry/exporter required; vendor-supported cadence unset.",
+    "D": "Derived: compute when validated inputs arrive over an explicit event/aggregation window. Inherits all input limitations."
+  },
+  "sources": {
+    "V": {
+      "title": "vLLM production metrics",
+      "url": "https://docs.vllm.ai/en/latest/usage/metrics/"
+    },
+    "VD": {
+      "title": "vLLM metric semantics",
+      "url": "https://docs.vllm.ai/en/latest/design/metrics/"
+    },
+    "VL": {
+      "title": "vLLM metric collector implementation",
+      "url": "https://github.com/vllm-project/vllm/blob/main/vllm/v1/metrics/loggers.py"
+    },
+    "VS": {
+      "title": "vLLM speculation metrics implementation",
+      "url": "https://github.com/vllm-project/vllm/blob/main/vllm/v1/spec_decode/metrics.py"
+    },
+    "SG": {
+      "title": "SGLang production metrics",
+      "url": "https://docs.sglang.io/docs/references/production_metrics"
+    },
+    "TGI": {
+      "title": "TGI metric reference",
+      "url": "https://huggingface.co/docs/text-generation-inference/reference/metrics"
+    },
+    "TR": {
+      "title": "Triton metrics",
+      "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/metrics.html"
+    },
+    "RT": {
+      "title": "TensorRT-LLM metric collector",
+      "url": "https://github.com/NVIDIA/TensorRT-LLM/blob/main/tensorrt_llm/metrics/collector.py"
+    },
+    "TB": {
+      "title": "TensorRT-LLM Triton backend",
+      "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/tensorrtllm_backend/README.html"
+    },
+    "NCCL": {
+      "title": "NCCL Inspector",
+      "url": "https://github.com/NVIDIA/nccl/blob/master/plugins/profiler/inspector/README.md"
+    },
+    "NENV": {
+      "title": "NCCL profiler configuration",
+      "url": "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html"
+    },
+    "DF": {
+      "title": "DCGM field identifiers",
+      "url": "https://docs.nvidia.com/datacenter/dcgm/latest/dcgm-api/dcgm-api-field-ids.html"
+    },
+    "DP": {
+      "title": "DCGM profiling",
+      "url": "https://docs.nvidia.com/datacenter/dcgm/latest/learn/modules/profiling.html"
+    },
+    "DH": {
+      "title": "DCGM health",
+      "url": "https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/feature-overview.html"
+    },
+    "NL": {
+      "title": "DCGM topology and links",
+      "url": "https://docs.nvidia.com/datacenter/dcgm/latest/learn/core-services/topology-and-links.html"
+    },
+    "NE": {
+      "title": "DCGM NVLink error reference",
+      "url": "https://docs.nvidia.com/datacenter/dcgm/latest/reference/command-line-reference/dcgmi/dcgmi-nvlink.html"
+    },
+    "NV": {
+      "title": "NVML device queries",
+      "url": "https://docs.nvidia.com/deploy/nvml-api/latest/api/group__nvmlDeviceQueries.html"
+    },
+    "XID": {
+      "title": "NVIDIA Xid reference",
+      "url": "https://docs.nvidia.com/deploy/xid-errors/latest/index.html"
+    },
+    "CK": {
+      "title": "CUPTI kernel activity",
+      "url": "https://docs.nvidia.com/cupti/api/structCUpti__ActivityKernel9.html"
+    },
+    "CA": {
+      "title": "CUPTI Activity API",
+      "url": "https://docs.nvidia.com/cupti/api/group__CUPTI__ACTIVITY__API.html"
+    },
+    "CU": {
+      "title": "CUPTI usage and deployment",
+      "url": "https://docs.nvidia.com/cupti/main/main.html"
+    },
+    "IB": {
+      "title": "Linux InfiniBand ABI",
+      "url": "https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux/+/8c13415c8a4383447c21ec832b20b3b283f0e01a/Documentation/ABI/stable/sysfs-class-infiniband"
+    },
+    "NIC": {
+      "title": "NVIDIA NIC telemetry",
+      "url": "https://networking-docs.nvidia.com/doca/archive/3-2-1/doca-telemetry-service-guide"
+    },
+    "ROCE": {
+      "title": "NVIDIA RDMA counters",
+      "url": "https://docs.nvidia.com/networking/display/bfswtroubleshooting/doca-services.pdf"
+    },
+    "NET": {
+      "title": "Linux interface statistics",
+      "url": "https://docs.kernel.org/networking/statistics.html"
+    },
+    "TCP": {
+      "title": "Linux protocol counters",
+      "url": "https://docs.kernel.org/networking/snmp_counter.html"
+    },
+    "CG": {
+      "title": "Linux cgroup v2",
+      "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html"
+    },
+    "PROC": {
+      "title": "Linux proc filesystem",
+      "url": "https://docs.kernel.org/filesystems/proc.html"
+    },
+    "PSI": {
+      "title": "Linux pressure stall information",
+      "url": "https://docs.kernel.org/accounting/psi.html"
+    },
+    "SCHED": {
+      "title": "Linux scheduler statistics",
+      "url": "https://docs.kernel.org/scheduler/sched-stats.html"
+    },
+    "TRACE": {
+      "title": "Linux event tracing",
+      "url": "https://www.kernel.org/doc/html/latest/trace/events.html"
+    },
+    "BLOCK": {
+      "title": "Linux block statistics",
+      "url": "https://docs.kernel.org/block/stat.html"
+    },
+    "PTP": {
+      "title": "Linux PTP clocks",
+      "url": "https://cdn.kernel.org/doc/html/latest/driver-api/ptp.html"
+    }
+  },
+  "metrics": [
+    {
+      "id": "L1-001",
+      "layer": 1,
+      "category": "Traffic",
+      "metric": "Requests received",
+      "definition": "Count requests accepted at the defined server boundary",
+      "unit_type": "requests / C",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "tgi_request_count",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Offered load; excludes traffic never reaching this boundary"
+    },
+    {
+      "id": "L1-002",
+      "layer": 1,
+      "category": "Traffic",
+      "metric": "Requests completed successfully",
+      "definition": "Count successful completions",
+      "unit_type": "requests / C",
+      "scope": "model, replica, finish reason",
+      "source_identifiers_or_inputs": "vllm:request_success; nv_inference_request_success",
+      "sources": [
+        "V",
+        "TR"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Completion throughput; preserve source success semantics"
+    },
+    {
+      "id": "L1-003",
+      "layer": 1,
+      "category": "Traffic",
+      "metric": "Requests failed",
+      "definition": "Count failures by reported reason",
+      "unit_type": "requests / C",
+      "scope": "model, replica, reason",
+      "source_identifiers_or_inputs": "nv_inference_request_failure",
+      "sources": [
+        "TR"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Separate backend, canceled and rejected reasons"
+    },
+    {
+      "id": "L1-004",
+      "layer": 1,
+      "category": "Traffic",
+      "metric": "Admission rejections",
+      "definition": "Count rejected admission attempts",
+      "unit_type": "attempts / C",
+      "scope": "model, replica, reason",
+      "source_identifiers_or_inputs": "vllm:admission_rejections",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Attempts are not automatically distinct logical requests"
+    },
+    {
+      "id": "L1-005",
+      "layer": 1,
+      "category": "Traffic",
+      "metric": "Request arrival rate",
+      "definition": "Received-request counter delta divided by elapsed time",
+      "unit_type": "requests/s / D",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "requests_received",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "sum across disjoint replicas",
+      "diagnostic_and_limits": "Demand; match interval and counter resets"
+    },
+    {
+      "id": "L1-006",
+      "layer": 1,
+      "category": "Traffic",
+      "metric": "Request completion rate",
+      "definition": "Successful-completion delta divided by elapsed time",
+      "unit_type": "requests/s / D",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "requests_completed_successfully",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "sum across disjoint replicas",
+      "diagnostic_and_limits": "Delivered request throughput"
+    },
+    {
+      "id": "L1-007",
+      "layer": 1,
+      "category": "Traffic",
+      "metric": "Request failure fraction",
+      "definition": "Failed terminal requests divided by all terminal requests",
+      "unit_type": "ratio / D",
+      "scope": "model, replica, interval",
+      "source_identifiers_or_inputs": "failed and successful terminal counts",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "ratio of summed counts",
+      "diagnostic_and_limits": "Only valid with mutually exclusive exhaustive terminal states"
+    },
+    {
+      "id": "L1-008",
+      "layer": 1,
+      "category": "Latency",
+      "metric": "Server time to first token",
+      "definition": "Elapsed server time to first output token",
+      "unit_type": "s / H",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "vllm:time_to_first_token_seconds",
+      "sources": [
+        "VD"
+      ],
+      "collection_mode": "A",
+      "aggregation": "merged histogram p50/p95/p99",
+      "diagnostic_and_limits": "Not client-observed latency"
+    },
+    {
+      "id": "L1-009",
+      "layer": 1,
+      "category": "Latency",
+      "metric": "Server request latency",
+      "definition": "Elapsed time to terminal server completion",
+      "unit_type": "s / H",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "sglang:e2e_request_latency_seconds; tgi_request_duration",
+      "sources": [
+        "SG",
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "merged histogram p50/p95/p99",
+      "diagnostic_and_limits": "Specify admission and terminal boundaries"
+    },
+    {
+      "id": "L1-010",
+      "layer": 1,
+      "category": "Latency",
+      "metric": "Stream output gap",
+      "definition": "Elapsed time between emitted output events",
+      "unit_type": "s / H",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "vllm:inter_token_latency_seconds",
+      "sources": [
+        "VD"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99, max with raw events",
+      "diagnostic_and_limits": "An output event may contain multiple tokens"
+    },
+    {
+      "id": "L1-011",
+      "layer": 1,
+      "category": "Latency",
+      "metric": "Request time per output token",
+      "definition": "Decode elapsed time divided by output tokens minus one",
+      "unit_type": "s/token / H",
+      "scope": "model, replica, request class",
+      "source_identifiers_or_inputs": "sglang:request_time_per_output_token_seconds",
+      "sources": [
+        "SG"
+      ],
+      "collection_mode": "A",
+      "aggregation": "request-weighted percentiles",
+      "diagnostic_and_limits": "Undefined for fewer than two tokens; retain native exclusion rules"
+    },
+    {
+      "id": "L1-012",
+      "layer": 1,
+      "category": "Latency",
+      "metric": "Request inference time",
+      "definition": "Elapsed time attributed to request execution",
+      "unit_type": "s / H",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "tgi_request_inference_duration",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Source-defined; do not equate with GPU busy time"
+    },
+    {
+      "id": "L1-013",
+      "layer": 1,
+      "category": "Latency",
+      "metric": "Validation time",
+      "definition": "Elapsed request-validation time",
+      "unit_type": "s / H",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "tgi_request_validation_duration",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Separates validation from scheduling"
+    },
+    {
+      "id": "L1-014",
+      "layer": 1,
+      "category": "Latency",
+      "metric": "Triton request handling time",
+      "definition": "Accumulated server request-handling duration",
+      "unit_type": "us / C",
+      "scope": "model, model version",
+      "source_identifiers_or_inputs": "nv_inference_request_duration_us",
+      "sources": [
+        "TR"
+      ],
+      "collection_mode": "A",
+      "aggregation": "delta sum / delta count",
+      "diagnostic_and_limits": "Mean only; cumulative duration cannot yield percentiles"
+    },
+    {
+      "id": "L1-015",
+      "layer": 1,
+      "category": "Tokens",
+      "metric": "Input token count per request",
+      "definition": "Prompt length for each observed request",
+      "unit_type": "tokens / H",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "vllm:request_prompt_tokens",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99, sum",
+      "diagnostic_and_limits": "Workload shape; tokenizer and multimodal semantics matter"
+    },
+    {
+      "id": "L1-016",
+      "layer": 1,
+      "category": "Tokens",
+      "metric": "Output token count per request",
+      "definition": "Generated length for each observed request",
+      "unit_type": "tokens / H",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "vllm:request_generation_tokens",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99, sum",
+      "diagnostic_and_limits": "Compare distributions with latency"
+    },
+    {
+      "id": "L1-017",
+      "layer": 1,
+      "category": "Tokens",
+      "metric": "Requested output limit",
+      "definition": "Reported generation cap per request",
+      "unit_type": "tokens / H",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "tgi_request_max_new_tokens",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Demand envelope, not actual generated work"
+    },
+    {
+      "id": "L1-018",
+      "layer": 1,
+      "category": "Tokens",
+      "metric": "Generated token total",
+      "definition": "Count generated output tokens",
+      "unit_type": "tokens / C",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "sglang:generation_tokens_total",
+      "sources": [
+        "SG"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Deduplicate logical outputs across parallel workers"
+    },
+    {
+      "id": "L1-019",
+      "layer": 1,
+      "category": "Tokens",
+      "metric": "Prefill token total",
+      "definition": "Count source-defined prompt tokens processed",
+      "unit_type": "tokens / C",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "sglang:prompt_tokens_total",
+      "sources": [
+        "SG"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "May differ from uncached computed tokens"
+    },
+    {
+      "id": "L1-020",
+      "layer": 1,
+      "category": "Tokens",
+      "metric": "Output token throughput",
+      "definition": "Generated-token delta divided by elapsed time",
+      "unit_type": "tokens/s / D",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "generated_token_total",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "sum disjoint logical counters",
+      "diagnostic_and_limits": "Primary delivered token throughput"
+    },
+    {
+      "id": "L1-021",
+      "layer": 1,
+      "category": "Tokens",
+      "metric": "Input token throughput",
+      "definition": "Prefill-token delta divided by elapsed time",
+      "unit_type": "tokens/s / D",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "prefill_token_total",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "sum disjoint logical counters",
+      "diagnostic_and_limits": "Preserve cached versus computed token distinction"
+    },
+    {
+      "id": "L1-022",
+      "layer": 1,
+      "category": "Tokens",
+      "metric": "Context limit occupancy",
+      "definition": "Current sequence tokens divided by its applicable context limit",
+      "unit_type": "ratio / D",
+      "scope": "sequence, model",
+      "source_identifiers_or_inputs": "current sequence length and validated model limit",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "distribution, maximum",
+      "diagnostic_and_limits": "Requires sequence-state events; request length alone is insufficient"
+    },
+    {
+      "id": "L1-023",
+      "layer": 1,
+      "category": "SLO",
+      "metric": "Latency SLO compliance",
+      "definition": "Eligible completed requests satisfying a defined latency objective / eligible completions",
+      "unit_type": "ratio / D",
+      "scope": "model, service, policy",
+      "source_identifiers_or_inputs": "request timing and explicit SLO policy",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "ratio of summed counts",
+      "diagnostic_and_limits": "No default threshold assumed"
+    },
+    {
+      "id": "L1-024",
+      "layer": 1,
+      "category": "SLO",
+      "metric": "Token delivery SLO compliance",
+      "definition": "Eligible measured gaps satisfying a defined delivery objective / eligible gaps",
+      "unit_type": "ratio / D",
+      "scope": "model, service, policy",
+      "source_identifiers_or_inputs": "token or output-event gaps and policy",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "ratio of summed counts",
+      "diagnostic_and_limits": "Keep token and output-event policies distinct"
+    },
+    {
+      "id": "L1-025",
+      "layer": 1,
+      "category": "SLO",
+      "metric": "Request goodput",
+      "definition": "Successful requests satisfying all selected objectives divided by elapsed time",
+      "unit_type": "requests/s / D",
+      "scope": "model, service, policy",
+      "source_identifiers_or_inputs": "joined success and timing records",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "sum disjoint requests",
+      "diagnostic_and_limits": "Requires joint request records; marginal histograms are insufficient"
+    },
+    {
+      "id": "L1-026",
+      "layer": 1,
+      "category": "SLO",
+      "metric": "Output token goodput",
+      "definition": "Output tokens from qualifying requests divided by elapsed time",
+      "unit_type": "tokens/s / D",
+      "scope": "model, service, policy",
+      "source_identifiers_or_inputs": "request qualification plus output counts",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "sum disjoint outputs",
+      "diagnostic_and_limits": "Define qualification and cancellation treatment explicitly"
+    },
+    {
+      "id": "L1-027",
+      "layer": 1,
+      "category": "SLO",
+      "metric": "Latency variability",
+      "definition": "Standard deviation or coefficient of variation of a selected latency population",
+      "unit_type": "s or ratio / D",
+      "scope": "model, replica, interval",
+      "source_identifiers_or_inputs": "raw observations or mergeable moments",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "stddev; CV when mean > 0",
+      "diagnostic_and_limits": "Cannot reconstruct from quantiles alone"
+    },
+    {
+      "id": "L1-028",
+      "layer": 1,
+      "category": "Client boundary",
+      "metric": "Client-observed first-token latency",
+      "definition": "Client request start to first token received",
+      "unit_type": "s / H",
+      "scope": "client cohort, model",
+      "source_identifiers_or_inputs": "client or gateway timing records",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Not observable universally from a bare-metal host agent"
+    },
+    {
+      "id": "L1-029",
+      "layer": 1,
+      "category": "Client boundary",
+      "metric": "Client-observed request latency",
+      "definition": "Client request start to terminal response received",
+      "unit_type": "s / H",
+      "scope": "client cohort, model",
+      "source_identifiers_or_inputs": "client or gateway timing records",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Includes transport; keep separate from server latency"
+    },
+    {
+      "id": "L1-030",
+      "layer": 1,
+      "category": "Client boundary",
+      "metric": "Timed-out or aborted requests",
+      "definition": "Count explicit timeout or abort outcomes at a named boundary",
+      "unit_type": "requests / C",
+      "scope": "model, boundary, reason",
+      "source_identifiers_or_inputs": "supported gateway/engine terminal events",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "TCP disconnect alone does not establish a semantic timeout"
+    },
+    {
+      "id": "L2-001",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Running requests",
+      "definition": "Requests participating in execution",
+      "unit_type": "requests / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "vllm:num_requests_running",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max, time-weighted mean",
+      "diagnostic_and_limits": "Engine-level value; do not sum duplicated TP exports"
+    },
+    {
+      "id": "L2-002",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Waiting requests",
+      "definition": "Requests queued for processing",
+      "unit_type": "requests / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "vllm:num_requests_waiting; tgi_queue_size",
+      "sources": [
+        "V",
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max, time-weighted mean",
+      "diagnostic_and_limits": "Use same boundary when comparing with request queue latency"
+    },
+    {
+      "id": "L2-003",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Waiting by reason",
+      "definition": "Queued requests partitioned by source-defined reason",
+      "unit_type": "requests / G",
+      "scope": "engine instance, reason",
+      "source_identifiers_or_inputs": "vllm:num_requests_waiting_by_reason",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Reason labels are version-specific"
+    },
+    {
+      "id": "L2-004",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Prefill requests",
+      "definition": "Context-phase requests reported for an iteration",
+      "unit_type": "requests / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "trtllm_num_context_requests",
+      "sources": [
+        "RT"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max, mean",
+      "diagnostic_and_limits": "TensorRT-LLM collector prefix must be verified in deployed build"
+    },
+    {
+      "id": "L2-005",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Decode requests",
+      "definition": "Generation-phase requests reported for an iteration",
+      "unit_type": "requests / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "trtllm_num_generation_requests",
+      "sources": [
+        "RT"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max, mean",
+      "diagnostic_and_limits": "Separate prefill/decode populations"
+    },
+    {
+      "id": "L2-006",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Paused requests",
+      "definition": "Source-reported paused request count",
+      "unit_type": "requests / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "trtllm_num_paused_requests",
+      "sources": [
+        "RT"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Not universally equivalent to swapped-to-host requests"
+    },
+    {
+      "id": "L2-007",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Scheduled requests",
+      "definition": "Requests selected for an iteration",
+      "unit_type": "requests / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "trtllm_num_scheduled_requests",
+      "sources": [
+        "RT"
+      ],
+      "collection_mode": "A",
+      "aggregation": "distribution, maximum",
+      "diagnostic_and_limits": "Iteration selection rather than total active requests"
+    },
+    {
+      "id": "L2-008",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Queue residence time",
+      "definition": "Time spent awaiting execution",
+      "unit_type": "s / H",
+      "scope": "model, engine instance",
+      "source_identifiers_or_inputs": "vllm:request_queue_time_seconds",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Request waiting duration; polling queue depth cannot reproduce it"
+    },
+    {
+      "id": "L2-009",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Prefill duration",
+      "definition": "Request time attributed to prefill",
+      "unit_type": "s / H",
+      "scope": "model, engine instance",
+      "source_identifiers_or_inputs": "vllm:request_prefill_time_seconds",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Source phase timing may include more than device computation"
+    },
+    {
+      "id": "L2-010",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Decode duration",
+      "definition": "Request time attributed to decode",
+      "unit_type": "s / H",
+      "scope": "model, engine instance",
+      "source_identifiers_or_inputs": "vllm:request_decode_time_seconds",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Overlaps among concurrently served requests"
+    },
+    {
+      "id": "L2-011",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Engine iteration token count",
+      "definition": "Tokens scheduled/processed in one engine step",
+      "unit_type": "tokens / H",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "vllm:iteration_tokens_total",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Native suffix says total but documented type is histogram"
+    },
+    {
+      "id": "L2-012",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Current sequence batch size",
+      "definition": "Sequences in current batch",
+      "unit_type": "sequences / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "tgi_batch_current_size",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max, mean",
+      "diagnostic_and_limits": "Keep distinct from tokens per iteration"
+    },
+    {
+      "id": "L2-013",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Next batch size",
+      "definition": "Sequences selected for next batch",
+      "unit_type": "sequences / H",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "tgi_batch_next_size",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Scheduler packing behavior"
+    },
+    {
+      "id": "L2-014",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Batch token capacity",
+      "definition": "Source-reported token capacity of current batch",
+      "unit_type": "tokens / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "tgi_batch_current_max_tokens",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Capacity is not actual tokens executed"
+    },
+    {
+      "id": "L2-015",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Batch forward duration",
+      "definition": "Time in batch model forward pass",
+      "unit_type": "s / H",
+      "scope": "engine instance, phase",
+      "source_identifiers_or_inputs": "tgi_batch_forward_duration",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Host-measured backend interval unless documented otherwise"
+    },
+    {
+      "id": "L2-016",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Batch token decode duration",
+      "definition": "Time in the source's token-decoding stage",
+      "unit_type": "s / H",
+      "scope": "engine instance, method",
+      "source_identifiers_or_inputs": "tgi_batch_decode_duration",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Do not rename as GPU autoregressive execution duration"
+    },
+    {
+      "id": "L2-017",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Batch filter duration",
+      "definition": "Time filtering batches and sending generated tokens",
+      "unit_type": "s / H",
+      "scope": "engine instance, phase",
+      "source_identifiers_or_inputs": "tgi_batch_filter_duration",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "CPU/output processing overhead"
+    },
+    {
+      "id": "L2-018",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Batch inference calls",
+      "definition": "Batch inference invocations, with success as separate outcome",
+      "unit_type": "calls / C",
+      "scope": "engine instance, phase",
+      "source_identifiers_or_inputs": "tgi_batch_inference_count; tgi_batch_inference_success",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Use outcome dimension only when populations align"
+    },
+    {
+      "id": "L2-019",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Preemption total",
+      "definition": "Engine preemption events",
+      "unit_type": "events / C",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "vllm:num_preemptions",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Reason and recovery behavior depend on engine"
+    },
+    {
+      "id": "L2-020",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Preemptions per request",
+      "definition": "Number of preemptions experienced by a request",
+      "unit_type": "events / H",
+      "scope": "model, engine instance",
+      "source_identifiers_or_inputs": "vllm:request_num_preemptions",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "max reveals repeatedly disrupted requests"
+    },
+    {
+      "id": "L2-021",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "KV-cache occupancy",
+      "definition": "Used capacity divided by allocatable capacity in one cache pool",
+      "unit_type": "ratio / G",
+      "scope": "engine instance, pool",
+      "source_identifiers_or_inputs": "vllm:kv_cache_usage_perc; sglang:token_usage",
+      "sources": [
+        "V",
+        "SG"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max, time-weighted mean",
+      "diagnostic_and_limits": "Retain source allocation semantics; not framebuffer occupancy"
+    },
+    {
+      "id": "L2-022",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "KV blocks used",
+      "definition": "Allocated or pinned blocks as defined by source",
+      "unit_type": "blocks / G",
+      "scope": "engine instance, pool",
+      "source_identifiers_or_inputs": "trtllm_kv_cache_used_blocks",
+      "sources": [
+        "RT"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Do not merge different block sizes or pinned/evictable definitions"
+    },
+    {
+      "id": "L2-023",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "KV blocks free",
+      "definition": "Available blocks reported by source",
+      "unit_type": "blocks / G",
+      "scope": "engine instance, pool",
+      "source_identifiers_or_inputs": "trtllm_kv_cache_free_blocks",
+      "sources": [
+        "RT"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, min",
+      "diagnostic_and_limits": "Immediate allocation headroom"
+    },
+    {
+      "id": "L2-024",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "KV block capacity",
+      "definition": "Maximum blocks in cache pool",
+      "unit_type": "blocks / G",
+      "scope": "engine instance, pool",
+      "source_identifiers_or_inputs": "trtllm_kv_cache_max_blocks",
+      "sources": [
+        "RT"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, change events",
+      "diagnostic_and_limits": "Cache capacity; not total HBM"
+    },
+    {
+      "id": "L2-025",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "Tokens per KV block",
+      "definition": "Configured tokens represented by one block",
+      "unit_type": "tokens/block / G",
+      "scope": "engine instance, pool",
+      "source_identifiers_or_inputs": "trtllm_kv_cache_tokens_per_block",
+      "sources": [
+        "RT"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last",
+      "diagnostic_and_limits": "Required when comparing block counts"
+    },
+    {
+      "id": "L2-026",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "Prefix cache queried tokens",
+      "definition": "Tokens considered for prefix-cache lookup",
+      "unit_type": "tokens / C",
+      "scope": "engine instance, tier",
+      "source_identifiers_or_inputs": "vllm:prefix_cache_queries",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Token denominator, not request denominator"
+    },
+    {
+      "id": "L2-027",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "Prefix cache hit tokens",
+      "definition": "Tokens satisfied by prefix cache",
+      "unit_type": "tokens / C",
+      "scope": "engine instance, tier",
+      "source_identifiers_or_inputs": "vllm:prefix_cache_hits",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Avoid adding overlapping local/external accounting"
+    },
+    {
+      "id": "L2-028",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "Prefix cache hit fraction",
+      "definition": "Hit-token delta divided by queried-token delta",
+      "unit_type": "ratio / D",
+      "scope": "engine instance, tier",
+      "source_identifiers_or_inputs": "matched prefix hits and queries",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "ratio of sums",
+      "diagnostic_and_limits": "Undefined when no queried tokens"
+    },
+    {
+      "id": "L2-029",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "Computed prefill tokens per request",
+      "definition": "New KV tokens computed excluding cache reuse",
+      "unit_type": "tokens / H",
+      "scope": "model, engine instance",
+      "source_identifiers_or_inputs": "vllm:request_prefill_kv_computed_tokens",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "sum, percentiles",
+      "diagnostic_and_limits": "Distinguishes logical input length from compute work"
+    },
+    {
+      "id": "L2-030",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "Cache block lifetime",
+      "definition": "Allocation-to-eviction interval",
+      "unit_type": "s / H",
+      "scope": "engine instance, pool",
+      "source_identifiers_or_inputs": "vllm:kv_block_lifetime_seconds",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Optional sampled cache metrics"
+    },
+    {
+      "id": "L2-031",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "Cache block idle before eviction",
+      "definition": "Idle interval preceding eviction",
+      "unit_type": "s / H",
+      "scope": "engine instance, pool",
+      "source_identifiers_or_inputs": "vllm:kv_block_idle_before_evict_seconds",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Optional sampled cache metrics"
+    },
+    {
+      "id": "L2-032",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "Cache block reuse gap",
+      "definition": "Interval between observed accesses to a block",
+      "unit_type": "s / H",
+      "scope": "engine instance, pool",
+      "source_identifiers_or_inputs": "vllm:kv_block_reuse_gap_seconds",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Sampling and finite access history affect completeness"
+    },
+    {
+      "id": "L2-033",
+      "layer": 2,
+      "category": "Offload",
+      "metric": "Host KV occupancy",
+      "definition": "Occupied fraction of the configured host cache pool",
+      "unit_type": "ratio / G",
+      "scope": "engine instance, host pool",
+      "source_identifiers_or_inputs": "vllm:hisparse_host_cache_usage_perc",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "HiSparse only; evictable blocks count as free"
+    },
+    {
+      "id": "L2-034",
+      "layer": 2,
+      "category": "Offload",
+      "metric": "Pending cache transfers",
+      "definition": "Outstanding cache page transfers",
+      "unit_type": "transfers / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "vllm:hisparse_pending_page_transfers",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Configured connector only"
+    },
+    {
+      "id": "L2-035",
+      "layer": 2,
+      "category": "Offload",
+      "metric": "Host-to-device KV bytes",
+      "definition": "Bytes restored from host KV storage",
+      "unit_type": "bytes / C",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "vllm:hisparse_host_to_device_bytes",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Configured connector only; not all PCIe traffic"
+    },
+    {
+      "id": "L2-036",
+      "layer": 2,
+      "category": "Offload",
+      "metric": "Offload blocks restored",
+      "definition": "Blocks loaded back onto GPU",
+      "unit_type": "blocks / C",
+      "scope": "engine instance, backend",
+      "source_identifiers_or_inputs": "vllm:simple_kv_offload_load_blocks_total",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "SimpleCPUOffloadConnector only"
+    },
+    {
+      "id": "L2-037",
+      "layer": 2,
+      "category": "Offload",
+      "metric": "Pending offload stores",
+      "definition": "Blocks awaiting store completion/release",
+      "unit_type": "blocks / G",
+      "scope": "engine instance, backend",
+      "source_identifiers_or_inputs": "vllm:simple_kv_offload_pending_store_blocks",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Connector-specific logical blocks"
+    },
+    {
+      "id": "L2-038",
+      "layer": 2,
+      "category": "Offload",
+      "metric": "Pinned offload blocks",
+      "definition": "Offload blocks unavailable for eviction",
+      "unit_type": "blocks / G",
+      "scope": "engine instance, backend",
+      "source_identifiers_or_inputs": "vllm:simple_kv_offload_used_blocks",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Not total warm-cache residency"
+    },
+    {
+      "id": "L2-039",
+      "layer": 2,
+      "category": "Speculation",
+      "metric": "Accepted speculative tokens by position",
+      "definition": "Accepted draft tokens grouped by draft position",
+      "unit_type": "tokens / C",
+      "scope": "engine instance, position",
+      "source_identifiers_or_inputs": "vllm:spec_decode_num_accepted_tokens_per_pos",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Speculative decoding only"
+    },
+    {
+      "id": "L2-040",
+      "layer": 2,
+      "category": "Speculation",
+      "metric": "Draft steps configured",
+      "definition": "Currently active speculative step setting",
+      "unit_type": "steps / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "sglang:spec_num_steps",
+      "sources": [
+        "SG"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last",
+      "diagnostic_and_limits": "Configuration, not actual completed work"
+    },
+    {
+      "id": "L2-041",
+      "layer": 2,
+      "category": "Speculation",
+      "metric": "Draft tokens configured",
+      "definition": "Currently active draft-token setting",
+      "unit_type": "tokens / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "sglang:spec_num_draft_tokens",
+      "sources": [
+        "SG"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last",
+      "diagnostic_and_limits": "Configuration, not accepted output"
+    },
+    {
+      "id": "L2-042",
+      "layer": 2,
+      "category": "Speculation",
+      "metric": "Draft acceptance fraction",
+      "definition": "Accepted draft-token count / proposed draft-token count",
+      "unit_type": "ratio / D",
+      "scope": "engine instance, interval",
+      "source_identifiers_or_inputs": "matched draft proposal and acceptance records",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "ratio of sums",
+      "diagnostic_and_limits": "Requires verified denominator; excludes bonus tokens"
+    },
+    {
+      "id": "L2-043",
+      "layer": 2,
+      "category": "Speculation",
+      "metric": "Accepted tokens per speculation step",
+      "definition": "Accepted draft tokens / completed speculation steps",
+      "unit_type": "tokens/step / D",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "matched accepted tokens and step records",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "ratio of sums",
+      "diagnostic_and_limits": "Requires completed-step events; configured steps are not denominator"
+    },
+    {
+      "id": "L2-044",
+      "layer": 2,
+      "category": "Runtime memory",
+      "metric": "Engine GPU memory allocated",
+      "definition": "GPU memory attributed by engine runtime",
+      "unit_type": "bytes / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "nv_trt_llm_runtime_memory_metrics{memory_type=gpu}",
+      "sources": [
+        "TB"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Allocator accounting differs from total device usage"
+    },
+    {
+      "id": "L2-045",
+      "layer": 2,
+      "category": "Runtime memory",
+      "metric": "Engine CPU memory allocated",
+      "definition": "CPU memory attributed by engine runtime",
+      "unit_type": "bytes / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "nv_trt_llm_runtime_memory_metrics{memory_type=cpu}",
+      "sources": [
+        "TB"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Not total process resident memory"
+    },
+    {
+      "id": "L2-046",
+      "layer": 2,
+      "category": "Runtime memory",
+      "metric": "Engine pinned memory allocated",
+      "definition": "Page-locked host memory allocated by engine",
+      "unit_type": "bytes / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "nv_trt_llm_runtime_memory_metrics{memory_type=pinned}",
+      "sources": [
+        "TB"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Distinct from total host memory"
+    },
+    {
+      "id": "L2-047",
+      "layer": 2,
+      "category": "Runtime memory",
+      "metric": "Triton pinned pool capacity and use",
+      "definition": "Total and used bytes in server pinned pool",
+      "unit_type": "bytes / G",
+      "scope": "server, component",
+      "source_identifiers_or_inputs": "nv_pinned_memory_pool_total_bytes; nv_pinned_memory_pool_used_bytes",
+      "sources": [
+        "TR"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Two components; server-wide rather than per model"
+    },
+    {
+      "id": "L2-048",
+      "layer": 2,
+      "category": "Response cache",
+      "metric": "Response-cache hits and misses",
+      "definition": "Response lookup outcomes",
+      "unit_type": "lookups / C",
+      "scope": "model, outcome",
+      "source_identifiers_or_inputs": "nv_cache_num_hits_per_model; nv_cache_num_misses_per_model",
+      "sources": [
+        "TR"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Whole-response cache, not prefix KV cache"
+    },
+    {
+      "id": "L2-049",
+      "layer": 2,
+      "category": "Response cache",
+      "metric": "Response-cache operation duration",
+      "definition": "Cumulative cache hit or miss processing time",
+      "unit_type": "us / C",
+      "scope": "model, outcome",
+      "source_identifiers_or_inputs": "nv_cache_hit_duration_per_model; nv_cache_miss_duration_per_model",
+      "sources": [
+        "TR"
+      ],
+      "collection_mode": "A",
+      "aggregation": "delta time / delta count",
+      "diagnostic_and_limits": "Mean only from cumulative sums"
+    },
+    {
+      "id": "L2-050",
+      "layer": 2,
+      "category": "Optional engine state",
+      "metric": "Engine sleep state",
+      "definition": "Reported awake/offload/discard state",
+      "unit_type": "state / S",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "vllm:engine_sleep_state",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, time in state",
+      "diagnostic_and_limits": "Source is labeled state gauges; preserve state dimensions"
+    },
+    {
+      "id": "L2-051",
+      "layer": 2,
+      "category": "Optional engine state",
+      "metric": "LoRA request activity information",
+      "definition": "Adapter-associated activity information reported by engine",
+      "unit_type": "info / S",
+      "scope": "engine instance, adapter",
+      "source_identifiers_or_inputs": "vllm:lora_requests_info",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last",
+      "diagnostic_and_limits": "Inspect labels and native representation; do not interpret info-gauge value as request count"
+    },
+    {
+      "id": "L2-052",
+      "layer": 2,
+      "category": "Optional engine state",
+      "metric": "Multimodal cache lookups and hits",
+      "definition": "Cached-item outcomes for multimodal preprocessing",
+      "unit_type": "items / C",
+      "scope": "engine instance, outcome",
+      "source_identifiers_or_inputs": "vllm:mm_cache_queries; vllm:mm_cache_hits",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate; hit/query ratio",
+      "diagnostic_and_limits": "Item-weighted; multimodal workloads only"
+    },
+    {
+      "id": "L2-053",
+      "layer": 2,
+      "category": "Derived execution",
+      "metric": "Batch sequence occupancy",
+      "definition": "Scheduled sequences / configured sequence capacity",
+      "unit_type": "ratio / D",
+      "scope": "engine instance, iteration",
+      "source_identifiers_or_inputs": "scheduled sequences and applicable capacity",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "distribution, mean",
+      "diagnostic_and_limits": "Not an optimization target by itself; token limits may bind first"
+    },
+    {
+      "id": "L2-054",
+      "layer": 2,
+      "category": "Derived execution",
+      "metric": "Scheduler gap",
+      "definition": "Next iteration start minus previous iteration end",
+      "unit_type": "us / H",
+      "scope": "engine instance, execution lane",
+      "source_identifiers_or_inputs": "matched iteration boundary events",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "p50/p95/p99, max",
+      "diagnostic_and_limits": "Requires verified boundaries; continuous overlap can invalidate simple subtraction"
+    },
+    {
+      "id": "L2-055",
+      "layer": 2,
+      "category": "Derived execution",
+      "metric": "Estimated FLOP throughput",
+      "definition": "Rate of engine-estimated floating-point operations",
+      "unit_type": "FLOP/s / D",
+      "scope": "GPU, engine instance",
+      "source_identifiers_or_inputs": "sglang:estimated_flops_per_gpu_total",
+      "sources": [
+        "SG"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate",
+      "diagnostic_and_limits": "Optional MFU metrics; model estimate rather than hardware measurement"
+    },
+    {
+      "id": "L2-056",
+      "layer": 2,
+      "category": "Derived execution",
+      "metric": "Estimated model-memory traffic",
+      "definition": "Rates of engine-estimated read and write bytes",
+      "unit_type": "bytes/s / D",
+      "scope": "GPU, direction",
+      "source_identifiers_or_inputs": "sglang:estimated_read_bytes_per_gpu_total; sglang:estimated_write_bytes_per_gpu_total",
+      "sources": [
+        "SG"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate by direction",
+      "diagnostic_and_limits": "Not measured HBM bandwidth"
+    },
+    {
+      "id": "L3-001",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Collective duration",
+      "definition": "Recorded duration of matched collective operation",
+      "unit_type": "us / H",
+      "scope": "communicator, rank, operation",
+      "source_identifiers_or_inputs": "coll_exec_time_us; coll_timing_source",
+      "sources": [
+        "NCCL"
+      ],
+      "collection_mode": "I",
+      "aggregation": "p50/p95/p99 by size",
+      "diagnostic_and_limits": "Keep host and GPU timing sources separate"
+    },
+    {
+      "id": "L3-002",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Collective message size",
+      "definition": "Payload size recorded for collective",
+      "unit_type": "bytes / H",
+      "scope": "communicator, rank, operation",
+      "source_identifiers_or_inputs": "coll_msg_size_bytes",
+      "sources": [
+        "NCCL"
+      ],
+      "collection_mode": "I",
+      "aggregation": "distribution",
+      "diagnostic_and_limits": "Preserve per-rank versus collective size definition"
+    },
+    {
+      "id": "L3-003",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Collective algorithm bandwidth",
+      "definition": "Source-reported algorithmic bandwidth",
+      "unit_type": "GB/s / G",
+      "scope": "communicator, rank, operation",
+      "source_identifiers_or_inputs": "coll_algobw_gbs",
+      "sources": [
+        "NCCL"
+      ],
+      "collection_mode": "I",
+      "aggregation": "distribution by message size",
+      "diagnostic_and_limits": "Not physical wire throughput"
+    },
+    {
+      "id": "L3-004",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Collective bus bandwidth",
+      "definition": "Source-normalized collective bus bandwidth",
+      "unit_type": "GB/s / G",
+      "scope": "communicator, rank, operation",
+      "source_identifiers_or_inputs": "coll_busbw_gbs",
+      "sources": [
+        "NCCL"
+      ],
+      "collection_mode": "I",
+      "aggregation": "distribution by message size",
+      "diagnostic_and_limits": "Normalization differs by collective type"
+    },
+    {
+      "id": "L3-005",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Point-to-point duration",
+      "definition": "Recorded send/receive operation duration",
+      "unit_type": "us / H",
+      "scope": "communicator, peer, operation",
+      "source_identifiers_or_inputs": "p2p_exec_time_us",
+      "sources": [
+        "NCCL"
+      ],
+      "collection_mode": "I",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Requires supported P2P profiler records"
+    },
+    {
+      "id": "L3-006",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Collective invocation rate",
+      "definition": "Observed operation count divided by elapsed time",
+      "unit_type": "operations/s / D",
+      "scope": "communicator, operation",
+      "source_identifiers_or_inputs": "matched collective records",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "count/time",
+      "diagnostic_and_limits": "Mark incomplete when profiler drops records"
+    },
+    {
+      "id": "L3-007",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Rank arrival skew",
+      "definition": "Latest minus earliest entry timestamp for one matched operation",
+      "unit_type": "us / D",
+      "scope": "communicator, sequence",
+      "source_identifiers_or_inputs": "rank entry times, clock mapping",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "distribution, max",
+      "diagnostic_and_limits": "No reliable result when clock uncertainty exceeds skew"
+    },
+    {
+      "id": "L3-008",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Rank completion skew",
+      "definition": "Latest minus earliest completion for one matched operation",
+      "unit_type": "us / D",
+      "scope": "communicator, sequence",
+      "source_identifiers_or_inputs": "rank completion times, clock mapping",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "distribution, max",
+      "diagnostic_and_limits": "Separate timing sources and missing ranks"
+    },
+    {
+      "id": "L3-009",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Rank duration imbalance",
+      "definition": "Maximum rank duration divided by median for one matched operation",
+      "unit_type": "ratio / D",
+      "scope": "communicator, sequence",
+      "source_identifiers_or_inputs": "complete matched rank durations",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "distribution, max",
+      "diagnostic_and_limits": "Median must be positive; does not identify root cause"
+    },
+    {
+      "id": "L3-010",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Communication interval coverage",
+      "definition": "Union of observed communication intervals divided by observation interval",
+      "unit_type": "ratio / D",
+      "scope": "rank, device, interval",
+      "source_identifiers_or_inputs": "complete device communication intervals",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "interval union",
+      "diagnostic_and_limits": "Avoid summing overlapping collective durations"
+    },
+    {
+      "id": "L3-011",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Compute-communication overlap",
+      "definition": "Intersection of compute and communication interval unions / communication union",
+      "unit_type": "ratio / D",
+      "scope": "rank, device, interval",
+      "source_identifiers_or_inputs": "classified device execution intervals",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "interval intersections",
+      "diagnostic_and_limits": "Requires device timing and classification; not host API timings"
+    },
+    {
+      "id": "L3-012",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Collective timeout/abort count",
+      "definition": "Explicit collective failure outcomes",
+      "unit_type": "events / C",
+      "scope": "communicator, rank, reason",
+      "source_identifiers_or_inputs": "supported library error/status records",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "No universal host-only semantic counter"
+    },
+    {
+      "id": "L3-013",
+      "layer": 3,
+      "category": "Pipeline",
+      "metric": "Pipeline stage duration",
+      "definition": "Execution duration for a matched stage/microbatch",
+      "unit_type": "us / H",
+      "scope": "replica, pipeline stage, microbatch",
+      "source_identifiers_or_inputs": "supported stage boundary events",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "No universal engine-native identifier established"
+    },
+    {
+      "id": "L3-014",
+      "layer": 3,
+      "category": "Pipeline",
+      "metric": "Pipeline stage handoff delay",
+      "definition": "Consumer-ready time minus matched producer completion",
+      "unit_type": "us / H",
+      "scope": "stage pair, microbatch",
+      "source_identifiers_or_inputs": "matched producer/consumer events",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Requires clock mapping and definition of ready"
+    },
+    {
+      "id": "L3-015",
+      "layer": 3,
+      "category": "Pipeline",
+      "metric": "Pipeline bubble fraction",
+      "definition": "Unscheduled time while stage is expected to participate / eligible time",
+      "unit_type": "ratio / D",
+      "scope": "stage, execution interval",
+      "source_identifiers_or_inputs": "stage schedule and execution intervals",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "interval unions",
+      "diagnostic_and_limits": "Needs explicit eligible-time definition; not equivalent to GPU idle"
+    },
+    {
+      "id": "L3-016",
+      "layer": 3,
+      "category": "MoE",
+      "metric": "Tokens assigned per expert",
+      "definition": "Count router assignments per expert",
+      "unit_type": "assignments / C",
+      "scope": "MoE layer, expert",
+      "source_identifiers_or_inputs": "supported router assignment records",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "distribution, rate",
+      "diagnostic_and_limits": "Top-k routing can create multiple assignments per token"
+    },
+    {
+      "id": "L3-017",
+      "layer": 3,
+      "category": "MoE",
+      "metric": "Expert assignment imbalance",
+      "definition": "Maximum assignments / mean across eligible experts",
+      "unit_type": "ratio / D",
+      "scope": "MoE layer, routing group",
+      "source_identifiers_or_inputs": "complete assignment counts including zero-load experts",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "max/mean",
+      "diagnostic_and_limits": "No assignments yields undefined ratio"
+    },
+    {
+      "id": "L3-018",
+      "layer": 3,
+      "category": "MoE",
+      "metric": "Expert execution duration",
+      "definition": "Execution interval for expert batch",
+      "unit_type": "us / H",
+      "scope": "MoE layer, expert, batch",
+      "source_identifiers_or_inputs": "supported expert execution events",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Requires expert semantics; generic kernel name may be insufficient"
+    },
+    {
+      "id": "L3-019",
+      "layer": 3,
+      "category": "MoE",
+      "metric": "Expert dispatch/combine duration",
+      "definition": "Duration of dispatch or combine stage",
+      "unit_type": "us / H",
+      "scope": "MoE layer, phase",
+      "source_identifiers_or_inputs": "supported dispatch/combine boundaries",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "May mix communication and compute; preserve phase"
+    },
+    {
+      "id": "L3-020",
+      "layer": 3,
+      "category": "MoE",
+      "metric": "Expert overflow or dropped assignments",
+      "definition": "Count explicit router capacity overflow/drop outcomes",
+      "unit_type": "assignments / C",
+      "scope": "MoE layer, expert, reason",
+      "source_identifiers_or_inputs": "supported routing outcomes",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Only applicable if implementation has this behavior"
+    },
+    {
+      "id": "L3-021",
+      "layer": 3,
+      "category": "KV transfer",
+      "metric": "KV-transfer size",
+      "definition": "Bytes recorded per connector transfer",
+      "unit_type": "bytes / H",
+      "scope": "replica pair, connector",
+      "source_identifiers_or_inputs": "vllm:nixl_bytes_transferred",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "distribution, sum",
+      "diagnostic_and_limits": "NIXL connector only; source metadata needed for peer mapping"
+    },
+    {
+      "id": "L3-022",
+      "layer": 3,
+      "category": "KV transfer",
+      "metric": "KV-transfer duration",
+      "definition": "Elapsed connector transfer duration",
+      "unit_type": "s / H",
+      "scope": "connector, replica pair",
+      "source_identifiers_or_inputs": "vllm:nixl_xfer_time_seconds",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Connector scope; not all network traffic"
+    },
+    {
+      "id": "L3-023",
+      "layer": 3,
+      "category": "KV transfer",
+      "metric": "KV-transfer posting time",
+      "definition": "Time spent posting transfer work",
+      "unit_type": "s / H",
+      "scope": "connector",
+      "source_identifiers_or_inputs": "vllm:nixl_post_time_seconds",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Separates submission overhead from transfer"
+    },
+    {
+      "id": "L3-024",
+      "layer": 3,
+      "category": "KV transfer",
+      "metric": "KV-transfer failures",
+      "definition": "Explicit failed connector transfers",
+      "unit_type": "transfers / C",
+      "scope": "connector, reason",
+      "source_identifiers_or_inputs": "vllm:nixl_num_failed_transfers",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Includes handshake/notification failures in documented source"
+    },
+    {
+      "id": "L3-025",
+      "layer": 3,
+      "category": "KV transfer",
+      "metric": "Expired KV requests",
+      "definition": "Requests whose KV lease expired",
+      "unit_type": "requests / C",
+      "scope": "prefill instance, connector",
+      "source_identifiers_or_inputs": "vllm:nixl_num_kv_expired_reqs",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Not the same population as transfer failures"
+    },
+    {
+      "id": "L3-026",
+      "layer": 3,
+      "category": "KV transfer",
+      "metric": "Late completion notifications",
+      "definition": "Completion notifications after request tracking expired",
+      "unit_type": "notifications / C",
+      "scope": "connector, remote rank",
+      "source_identifiers_or_inputs": "vllm:nixl_num_notifications_after_expiry",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "One request may produce notifications from multiple ranks"
+    },
+    {
+      "id": "L3-027",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Port transmit/receive data",
+      "definition": "Port payload data counters by direction",
+      "unit_type": "bytes / C",
+      "scope": "RDMA device, port, direction",
+      "source_identifiers_or_inputs": "port_xmit_data; port_rcv_data",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Raw IB data units require conversion; commonly four octets"
+    },
+    {
+      "id": "L3-028",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Port transmit/receive packets",
+      "definition": "Port packet counters by direction",
+      "unit_type": "packets / C",
+      "scope": "RDMA device, port, direction",
+      "source_identifiers_or_inputs": "port_xmit_packets; port_rcv_packets",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Not per-workload without additional attribution"
+    },
+    {
+      "id": "L3-029",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Port transmit wait",
+      "definition": "Source-defined intervals waiting to transmit",
+      "unit_type": "native ticks / C",
+      "scope": "RDMA device, port",
+      "source_identifiers_or_inputs": "port_xmit_wait",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "delta; convert only with verified units",
+      "diagnostic_and_limits": "Do not label raw ticks as microseconds"
+    },
+    {
+      "id": "L3-030",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Port receive errors",
+      "definition": "Received packets with reported errors",
+      "unit_type": "packets / C",
+      "scope": "RDMA device, port",
+      "source_identifiers_or_inputs": "port_rcv_errors",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Retain source counter width and reset behavior"
+    },
+    {
+      "id": "L3-031",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Port transmit discards",
+      "definition": "Packets discarded on transmit",
+      "unit_type": "packets / C",
+      "scope": "RDMA device, port",
+      "source_identifiers_or_inputs": "port_xmit_discards",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Congestion or policy context required"
+    },
+    {
+      "id": "L3-032",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Link down events",
+      "definition": "Recorded transitions into down state",
+      "unit_type": "events / C",
+      "scope": "RDMA device, port",
+      "source_identifiers_or_inputs": "link_downed",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase",
+      "diagnostic_and_limits": "Correlate with configured topology"
+    },
+    {
+      "id": "L3-033",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Link recovery events",
+      "definition": "Successful link error recoveries",
+      "unit_type": "events / C",
+      "scope": "RDMA device, port",
+      "source_identifiers_or_inputs": "link_error_recovery",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase",
+      "diagnostic_and_limits": "Recovery count, not lost packet count"
+    },
+    {
+      "id": "L3-034",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Symbol errors",
+      "definition": "Reported physical-lane symbol errors",
+      "unit_type": "errors / C",
+      "scope": "RDMA device, port",
+      "source_identifiers_or_inputs": "symbol_error",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Hardware capability dependent"
+    },
+    {
+      "id": "L3-035",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Receive physical/relay errors",
+      "definition": "Receive errors classified by physical or switch-relay cause",
+      "unit_type": "errors / C",
+      "scope": "RDMA device, port, class",
+      "source_identifiers_or_inputs": "port_rcv_remote_physical_errors; port_rcv_switch_relay_errors",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Preserve classes; no inferred packet-level cause"
+    },
+    {
+      "id": "L3-036",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Constraint errors",
+      "definition": "Transmit/receive filtering or partition constraint failures",
+      "unit_type": "errors / C",
+      "scope": "RDMA device, port, direction",
+      "source_identifiers_or_inputs": "port_xmit_constraint_errors; port_rcv_constraint_errors",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Configuration and partition membership investigation"
+    },
+    {
+      "id": "L3-037",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "PFC pause frames",
+      "definition": "Priority flow-control frames sent/received",
+      "unit_type": "frames / C",
+      "scope": "NIC, port, priority, direction",
+      "source_identifiers_or_inputs": "tx_prio[p]_pause; rx_prio[p]_pause",
+      "sources": [
+        "NIC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Driver-specific names; relevant priority mapping required"
+    },
+    {
+      "id": "L3-038",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "PFC pause duration",
+      "definition": "Source-reported paused time per priority",
+      "unit_type": "native time / C",
+      "scope": "NIC, port, priority, direction",
+      "source_identifiers_or_inputs": "priority pause-duration counter; driver-specific",
+      "sources": [
+        "NIC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "delta after verified unit conversion",
+      "diagnostic_and_limits": "Pause direction semantics must be retained"
+    },
+    {
+      "id": "L3-039",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "Priority traffic bytes",
+      "definition": "Physical-port bytes by priority and direction",
+      "unit_type": "bytes / C",
+      "scope": "NIC, port, priority, direction",
+      "source_identifiers_or_inputs": "rx_prio[p]_bytes; tx_prio[p]_bytes",
+      "sources": [
+        "NIC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Physical-port scope; not necessarily container scope"
+    },
+    {
+      "id": "L3-040",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "Receive buffer exhaustion",
+      "definition": "Adapter receives with insufficient software buffers",
+      "unit_type": "events / C",
+      "scope": "NIC, port",
+      "source_identifiers_or_inputs": "rx_out_of_buffer",
+      "sources": [
+        "NIC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Not equivalent to every type of packet drop"
+    },
+    {
+      "id": "L3-041",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "Priority buffer discards",
+      "definition": "Receive discards caused by priority buffer shortage",
+      "unit_type": "packets / C",
+      "scope": "NIC, port, priority",
+      "source_identifiers_or_inputs": "rx_prio[p]_discards",
+      "sources": [
+        "NIC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Availability depends on adapter/driver"
+    },
+    {
+      "id": "L3-042",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "Handled congestion notifications",
+      "definition": "CNP packets handled by RDMA reaction point",
+      "unit_type": "packets / C",
+      "scope": "RDMA device, port",
+      "source_identifiers_or_inputs": "rp_cnp_handled",
+      "sources": [
+        "ROCE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Congestion response; not itself a failure"
+    },
+    {
+      "id": "L3-043",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "Ignored congestion notifications",
+      "definition": "CNP packets ignored by RDMA reaction point",
+      "unit_type": "packets / C",
+      "scope": "RDMA device, port",
+      "source_identifiers_or_inputs": "rp_cnp_ignored",
+      "sources": [
+        "ROCE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Investigate congestion-control configuration"
+    },
+    {
+      "id": "L3-044",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "RNR retry events",
+      "definition": "Reported receiver-not-ready retry outcomes",
+      "unit_type": "events / C",
+      "scope": "RDMA device, supported scope",
+      "source_identifiers_or_inputs": "rnr_nak_retry_err",
+      "sources": [
+        "ROCE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Counter semantics differ from final retry exhaustion"
+    },
+    {
+      "id": "L3-045",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "Completion queue errors",
+      "definition": "Completion records with errors, separated from flush errors",
+      "unit_type": "errors / C",
+      "scope": "RDMA device, supported scope",
+      "source_identifiers_or_inputs": "resp_cqe_error; resp_cqe_flush_error",
+      "sources": [
+        "ROCE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Preserve requester/responder and error classes"
+    },
+    {
+      "id": "L3-046",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "RDMA remote access errors",
+      "definition": "Requester or responder reports remote access failure",
+      "unit_type": "errors / C",
+      "scope": "RDMA device, role",
+      "source_identifiers_or_inputs": "req_remote_access_errors; resp_remote_access_errors",
+      "sources": [
+        "ROCE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Not a congestion metric"
+    },
+    {
+      "id": "L3-047",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "RDMA local length errors",
+      "definition": "Responder reports local length violation",
+      "unit_type": "errors / C",
+      "scope": "RDMA device",
+      "source_identifiers_or_inputs": "resp_local_length_error",
+      "sources": [
+        "ROCE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Buffer/protocol correctness investigation"
+    },
+    {
+      "id": "L3-048",
+      "layer": 3,
+      "category": "TCP transport",
+      "metric": "TCP retransmissions",
+      "definition": "Segments retransmitted by kernel TCP",
+      "unit_type": "segments / C",
+      "scope": "network namespace; connection if traced",
+      "source_identifiers_or_inputs": "Tcp:RetransSegs",
+      "sources": [
+        "TCP"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Does not observe RDMA retransmissions"
+    },
+    {
+      "id": "L3-049",
+      "layer": 3,
+      "category": "TCP transport",
+      "metric": "TCP connection establishment failures",
+      "definition": "Failed active/passive establishments",
+      "unit_type": "events / C",
+      "scope": "network namespace",
+      "source_identifiers_or_inputs": "Tcp:AttemptFails",
+      "sources": [
+        "TCP"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Not equivalent to application request failure"
+    },
+    {
+      "id": "L3-050",
+      "layer": 3,
+      "category": "TCP transport",
+      "metric": "TCP resets",
+      "definition": "Resets sent by kernel TCP",
+      "unit_type": "segments / C",
+      "scope": "network namespace",
+      "source_identifiers_or_inputs": "Tcp:OutRsts",
+      "sources": [
+        "TCP"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Separate normal teardown from application impact"
+    },
+    {
+      "id": "L3-051",
+      "layer": 3,
+      "category": "TCP transport",
+      "metric": "TCP RTT",
+      "definition": "Kernel TCP smoothed round-trip estimate",
+      "unit_type": "us / G",
+      "scope": "connection, peer",
+      "source_identifiers_or_inputs": "TCP_INFO tcpi_rtt; supported socket hooks",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "distribution, last",
+      "diagnostic_and_limits": "TCP-specific estimate; not one-way fabric latency"
+    },
+    {
+      "id": "L3-052",
+      "layer": 3,
+      "category": "External switches",
+      "metric": "Switch queue occupancy",
+      "definition": "Reported switch egress/ingress queue depth",
+      "unit_type": "bytes or cells / G",
+      "scope": "switch, port, queue",
+      "source_identifiers_or_inputs": "vendor-specific switch telemetry; native ID unverified",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "F",
+      "aggregation": "last, max, distribution",
+      "diagnostic_and_limits": "Requires switch integration; not available from host alone"
+    },
+    {
+      "id": "L3-053",
+      "layer": 3,
+      "category": "External switches",
+      "metric": "Switch congestion/drop counters",
+      "definition": "Reported switch drops, ECN marks and PFC outcomes by class",
+      "unit_type": "events / C",
+      "scope": "switch, port, queue, class",
+      "source_identifiers_or_inputs": "vendor-specific switch counters; native ID unverified",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "F",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Preserve vendor semantics; do not merge unlike counters"
+    },
+    {
+      "id": "L4-001",
+      "layer": 4,
+      "category": "GPU activity",
+      "metric": "GPU busy fraction",
+      "definition": "Source-defined interval with at least one executing kernel",
+      "unit_type": "ratio / G",
+      "scope": "GPU",
+      "source_identifiers_or_inputs": "nvmlDeviceGetUtilizationRates.gpu",
+      "sources": [
+        "NV"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, time-weighted mean",
+      "diagnostic_and_limits": "Hardware sample period limits resolution"
+    },
+    {
+      "id": "L4-002",
+      "layer": 4,
+      "category": "GPU activity",
+      "metric": "SM activity",
+      "definition": "Interval activity averaged across multiprocessors",
+      "unit_type": "ratio / G",
+      "scope": "GPU or supported partition",
+      "source_identifiers_or_inputs": "DCGM profiling field 1002",
+      "sources": [
+        "DP"
+      ],
+      "collection_mode": "H",
+      "aggregation": "mean, min, max",
+      "diagnostic_and_limits": "Active warps may be waiting, not computing"
+    },
+    {
+      "id": "L4-003",
+      "layer": 4,
+      "category": "GPU activity",
+      "metric": "SM occupancy",
+      "definition": "Observed resident-warp occupancy",
+      "unit_type": "ratio / G",
+      "scope": "GPU or supported partition",
+      "source_identifiers_or_inputs": "DCGM profiling field 1003",
+      "sources": [
+        "DP"
+      ],
+      "collection_mode": "H",
+      "aggregation": "mean, min, max",
+      "diagnostic_and_limits": "Not equivalent to SM activity or achieved FLOP throughput"
+    },
+    {
+      "id": "L4-004",
+      "layer": 4,
+      "category": "GPU activity",
+      "metric": "Tensor pipeline activity",
+      "definition": "Observed tensor execution pipeline activity",
+      "unit_type": "ratio / G",
+      "scope": "GPU or supported partition",
+      "source_identifiers_or_inputs": "DCGM profiling field 1004",
+      "sources": [
+        "DP"
+      ],
+      "collection_mode": "H",
+      "aggregation": "mean, min, max",
+      "diagnostic_and_limits": "Architecture and counter compatibility dependent"
+    },
+    {
+      "id": "L4-005",
+      "layer": 4,
+      "category": "GPU activity",
+      "metric": "Device-memory activity",
+      "definition": "Cycles with memory-interface read/write activity",
+      "unit_type": "ratio / G",
+      "scope": "GPU",
+      "source_identifiers_or_inputs": "DCGM profiling field 1005",
+      "sources": [
+        "DP"
+      ],
+      "collection_mode": "H",
+      "aggregation": "mean, min, max",
+      "diagnostic_and_limits": "Not percentage of peak memory bandwidth"
+    },
+    {
+      "id": "L4-006",
+      "layer": 4,
+      "category": "GPU activity",
+      "metric": "FP64/FP32/FP16 pipeline activity",
+      "definition": "Activity by supported floating-point pipeline class",
+      "unit_type": "ratio / G",
+      "scope": "GPU, pipeline",
+      "source_identifiers_or_inputs": "DCGM profiling fields 1006/1007/1008",
+      "sources": [
+        "DP"
+      ],
+      "collection_mode": "H",
+      "aggregation": "mean by pipeline",
+      "diagnostic_and_limits": "Counter support/multiplexing is GPU-specific"
+    },
+    {
+      "id": "L4-007",
+      "layer": 4,
+      "category": "GPU memory",
+      "metric": "Framebuffer used",
+      "definition": "Reported allocated device memory",
+      "unit_type": "bytes / G",
+      "scope": "GPU or supported partition",
+      "source_identifiers_or_inputs": "nvmlDeviceGetMemoryInfo used",
+      "sources": [
+        "NV"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Not solely model weights or KV cache"
+    },
+    {
+      "id": "L4-008",
+      "layer": 4,
+      "category": "GPU memory",
+      "metric": "Framebuffer free",
+      "definition": "Reported available device memory",
+      "unit_type": "bytes / G",
+      "scope": "GPU or supported partition",
+      "source_identifiers_or_inputs": "nvmlDeviceGetMemoryInfo free",
+      "sources": [
+        "NV"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, min",
+      "diagnostic_and_limits": "Driver-reserved/accounting behavior matters"
+    },
+    {
+      "id": "L4-009",
+      "layer": 4,
+      "category": "GPU memory",
+      "metric": "Framebuffer total",
+      "definition": "Reported usable framebuffer capacity",
+      "unit_type": "bytes / G",
+      "scope": "GPU or supported partition",
+      "source_identifiers_or_inputs": "nvmlDeviceGetMemoryInfo total",
+      "sources": [
+        "NV"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last",
+      "diagnostic_and_limits": "Denominator must match used/free API version"
+    },
+    {
+      "id": "L4-010",
+      "layer": 4,
+      "category": "GPU memory",
+      "metric": "Framebuffer occupancy",
+      "definition": "Used framebuffer divided by matching total",
+      "unit_type": "ratio / D",
+      "scope": "GPU or supported partition",
+      "source_identifiers_or_inputs": "framebuffer used and total",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Not KV-cache occupancy"
+    },
+    {
+      "id": "L4-011",
+      "layer": 4,
+      "category": "GPU power/thermal",
+      "metric": "GPU power draw",
+      "definition": "Device-reported power reading",
+      "unit_type": "W / G",
+      "scope": "GPU",
+      "source_identifiers_or_inputs": "nvmlDeviceGetPowerUsage",
+      "sources": [
+        "NV"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, mean, max",
+      "diagnostic_and_limits": "Sensor update/averaging depends on hardware"
+    },
+    {
+      "id": "L4-012",
+      "layer": 4,
+      "category": "GPU power/thermal",
+      "metric": "GPU enforced power limit",
+      "definition": "Active enforced power cap",
+      "unit_type": "W / G",
+      "scope": "GPU",
+      "source_identifiers_or_inputs": "nvmlDeviceGetEnforcedPowerLimit",
+      "sources": [
+        "NV"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, changes",
+      "diagnostic_and_limits": "Compare with requested/configured cap separately"
+    },
+    {
+      "id": "L4-013",
+      "layer": 4,
+      "category": "GPU power/thermal",
+      "metric": "GPU energy consumed",
+      "definition": "Reported accumulated energy",
+      "unit_type": "J / C",
+      "scope": "GPU",
+      "source_identifiers_or_inputs": "nvmlDeviceGetTotalEnergyConsumption",
+      "sources": [
+        "NV"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase, rate",
+      "diagnostic_and_limits": "Availability and reset boundary depend on device"
+    },
+    {
+      "id": "L4-014",
+      "layer": 4,
+      "category": "GPU power/thermal",
+      "metric": "GPU and memory temperature",
+      "definition": "Reported temperature by supported sensor",
+      "unit_type": "degrees C / G",
+      "scope": "GPU, sensor",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_GPU_TEMP; DCGM_FI_DEV_MEMORY_TEMP",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Missing memory sensor is not zero temperature"
+    },
+    {
+      "id": "L4-015",
+      "layer": 4,
+      "category": "GPU power/thermal",
+      "metric": "GPU SM/memory clocks",
+      "definition": "Current reported clock frequency",
+      "unit_type": "MHz / G",
+      "scope": "GPU, clock domain",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_SM_CLOCK; DCGM_FI_DEV_MEM_CLOCK",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, min, max",
+      "diagnostic_and_limits": "Sampling may miss transient clock changes"
+    },
+    {
+      "id": "L4-016",
+      "layer": 4,
+      "category": "GPU power/thermal",
+      "metric": "Clock event reasons",
+      "definition": "Active source-defined clock-limiting reason mask",
+      "unit_type": "bitset / S",
+      "scope": "GPU, reason",
+      "source_identifiers_or_inputs": "nvmlDeviceGetCurrentClocksEventReasons",
+      "sources": [
+        "NV"
+      ],
+      "collection_mode": "H",
+      "aggregation": "state changes, time in reason",
+      "diagnostic_and_limits": "Preserve overlapping reasons; do not sum enum values"
+    },
+    {
+      "id": "L4-017",
+      "layer": 4,
+      "category": "GPU power/thermal",
+      "metric": "Performance state",
+      "definition": "Reported device performance state",
+      "unit_type": "state / S",
+      "scope": "GPU",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_GPU_PSTATE",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, time in state",
+      "diagnostic_and_limits": "State is not utilization"
+    },
+    {
+      "id": "L4-018",
+      "layer": 4,
+      "category": "GPU power/thermal",
+      "metric": "Power/thermal violation duration",
+      "definition": "Accumulated violation time by cause",
+      "unit_type": "ns / C",
+      "scope": "GPU, reason",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_POWER_VIOLATION; DCGM_FI_DEV_THERMAL_VIOLATION",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase, fraction of interval",
+      "diagnostic_and_limits": "Counter support and semantics must be checked"
+    },
+    {
+      "id": "L4-019",
+      "layer": 4,
+      "category": "GPU reliability",
+      "metric": "Xid error events",
+      "definition": "Driver-reported error events grouped by Xid code",
+      "unit_type": "events / C",
+      "scope": "GPU, Xid code",
+      "source_identifiers_or_inputs": "driver event/log stream; Xid catalog",
+      "sources": [
+        "XID"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase by code",
+      "diagnostic_and_limits": "Latest DCGM Xid field is a code, not event count"
+    },
+    {
+      "id": "L4-020",
+      "layer": 4,
+      "category": "GPU reliability",
+      "metric": "Volatile corrected/uncorrected ECC",
+      "definition": "ECC totals since source reset boundary",
+      "unit_type": "errors / C",
+      "scope": "GPU, severity, location",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_ECC_SBE_VOL_TOTAL; DCGM_FI_DEV_ECC_DBE_VOL_TOTAL",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase",
+      "diagnostic_and_limits": "Retain volatile versus persistent scope"
+    },
+    {
+      "id": "L4-021",
+      "layer": 4,
+      "category": "GPU reliability",
+      "metric": "Persistent ECC totals",
+      "definition": "Aggregate ECC counts by severity/location",
+      "unit_type": "errors / C",
+      "scope": "GPU, severity, location",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_ECC_SBE_AGG_TOTAL; DCGM_FI_DEV_ECC_DBE_AGG_TOTAL",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase, current total",
+      "diagnostic_and_limits": "Architecture-specific error granularity"
+    },
+    {
+      "id": "L4-022",
+      "layer": 4,
+      "category": "GPU reliability",
+      "metric": "Retired pages",
+      "definition": "Pages retired by error class",
+      "unit_type": "pages / C",
+      "scope": "GPU, reason",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_PAGE_RETIRED_SBE_TOTAL; DCGM_FI_DEV_PAGE_RETIRED_DBE_TOTAL",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase, current total",
+      "diagnostic_and_limits": "Legacy mechanism; generation-specific"
+    },
+    {
+      "id": "L4-023",
+      "layer": 4,
+      "category": "GPU reliability",
+      "metric": "Row remapping count",
+      "definition": "Rows remapped by correction class",
+      "unit_type": "rows / C",
+      "scope": "GPU, reason",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_ROW_REMAP_CORRECTABLE_TOTAL; DCGM_FI_DEV_ROW_REMAP_UNCORRECTABLE_TOTAL",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase, current total",
+      "diagnostic_and_limits": "Supported architectures only"
+    },
+    {
+      "id": "L4-024",
+      "layer": 4,
+      "category": "GPU reliability",
+      "metric": "Pending/failed memory repair",
+      "definition": "Source-reported retirement or remapping state",
+      "unit_type": "boolean / S",
+      "scope": "GPU, repair type",
+      "source_identifiers_or_inputs": "DCGM pending/failed repair fields",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, transitions",
+      "diagnostic_and_limits": "Do not treat missing support as healthy"
+    },
+    {
+      "id": "L4-025",
+      "layer": 4,
+      "category": "GPU reliability",
+      "metric": "Health status",
+      "definition": "Reported passive health result by subsystem",
+      "unit_type": "state / S",
+      "scope": "GPU, subsystem",
+      "source_identifiers_or_inputs": "DCGM health watch results",
+      "sources": [
+        "DH"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, transitions",
+      "diagnostic_and_limits": "Health watch configuration is required"
+    },
+    {
+      "id": "L4-026",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "PCIe transmit/receive throughput",
+      "definition": "Source-reported data rate by direction",
+      "unit_type": "bytes/s / G",
+      "scope": "GPU, direction",
+      "source_identifiers_or_inputs": "DCGM_FI_PROF_PCIE_TX_BYTES; DCGM_FI_PROF_PCIE_RX_BYTES",
+      "sources": [
+        "DP"
+      ],
+      "collection_mode": "H",
+      "aggregation": "mean, max",
+      "diagnostic_and_limits": "Verify field units despite BYTES suffix"
+    },
+    {
+      "id": "L4-027",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "PCIe replay count",
+      "definition": "Reported transaction replays",
+      "unit_type": "events / C",
+      "scope": "GPU",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_PCIE_REPLAY_TOTAL",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Recovery activity; not proof of request impact"
+    },
+    {
+      "id": "L4-028",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "PCIe negotiated generation/width",
+      "definition": "Current link generation and lane count",
+      "unit_type": "generation or lanes / G",
+      "scope": "GPU, component",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_PCIE_LINK_GEN; DCGM_FI_DEV_PCIE_LINK_WIDTH",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, changes",
+      "diagnostic_and_limits": "Compare with supported maximum under load"
+    },
+    {
+      "id": "L4-029",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "NVLink transmit/receive throughput",
+      "definition": "Source-reported traffic rate by direction",
+      "unit_type": "bytes/s / G",
+      "scope": "GPU or supported link, direction",
+      "source_identifiers_or_inputs": "DCGM NVLink profiling fields",
+      "sources": [
+        "DP"
+      ],
+      "collection_mode": "H",
+      "aggregation": "mean, max",
+      "diagnostic_and_limits": "Aggregate versus per-link scope depends on generation"
+    },
+    {
+      "id": "L4-030",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "NVLink state",
+      "definition": "Reported active/down/disabled/unsupported status",
+      "unit_type": "state / S",
+      "scope": "GPU, link",
+      "source_identifiers_or_inputs": "DCGM link-state API",
+      "sources": [
+        "NL"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, transitions",
+      "diagnostic_and_limits": "Disabled or unsupported links are not automatically faults"
+    },
+    {
+      "id": "L4-031",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "NVLink CRC errors",
+      "definition": "Reported FLIT/data CRC errors",
+      "unit_type": "errors / C",
+      "scope": "GPU, supported link, class",
+      "source_identifiers_or_inputs": "DCGM generation-specific NVLink error fields",
+      "sources": [
+        "NL"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Legacy classes are not universal on Blackwell+"
+    },
+    {
+      "id": "L4-032",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "NVLink replay/recovery errors",
+      "definition": "Reported replay or recovery counters",
+      "unit_type": "events / C",
+      "scope": "GPU, supported link, class",
+      "source_identifiers_or_inputs": "DCGM generation-specific NVLink error fields",
+      "sources": [
+        "NL"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Use generation-appropriate counter set"
+    },
+    {
+      "id": "L4-033",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "NVLink malformed/overrun/discard errors",
+      "definition": "Reported newer-generation error classes",
+      "unit_type": "errors / C",
+      "scope": "GPU, error class",
+      "source_identifiers_or_inputs": "DCGM NVLink Error Detail fields",
+      "sources": [
+        "NE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Blackwell+ support; source field availability required"
+    },
+    {
+      "id": "L4-034",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "NVLink symbol/effective BER",
+      "definition": "Reported bit error rates by supported class",
+      "unit_type": "ratio / G",
+      "scope": "GPU, class",
+      "source_identifiers_or_inputs": "DCGM generation-specific BER fields",
+      "sources": [
+        "NE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Do not sum BER across links"
+    },
+    {
+      "id": "L4-035",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "NVSwitch fatal/nonfatal health",
+      "definition": "Reported switch health outcomes",
+      "unit_type": "state / S",
+      "scope": "switch, subsystem",
+      "source_identifiers_or_inputs": "DCGM NVSwitch health results",
+      "sources": [
+        "DH"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, transitions",
+      "diagnostic_and_limits": "Requires supported switch visibility"
+    },
+    {
+      "id": "L4-036",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "CUDA host API duration",
+      "definition": "Host exit time minus entry time for observed CUDA API",
+      "unit_type": "us / H",
+      "scope": "process, thread, API",
+      "source_identifiers_or_inputs": "supported uprobes or CUPTI API activities",
+      "sources": [
+        "CU"
+      ],
+      "collection_mode": "I",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Not GPU kernel execution duration"
+    },
+    {
+      "id": "L4-037",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "GPU kernel execution duration",
+      "definition": "Device end timestamp minus start timestamp",
+      "unit_type": "us / H",
+      "scope": "GPU, context, stream, kernel",
+      "source_identifiers_or_inputs": "CUPTI kernel start/end",
+      "sources": [
+        "CK"
+      ],
+      "collection_mode": "I",
+      "aggregation": "p50/p95/p99 by kernel",
+      "diagnostic_and_limits": "Profiling integration required"
+    },
+    {
+      "id": "L4-038",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "GPU kernel queued-to-start delay",
+      "definition": "Device start minus supported queued timestamp",
+      "unit_type": "us / H",
+      "scope": "GPU, context, stream, kernel",
+      "source_identifiers_or_inputs": "CUPTI queued/start timestamps",
+      "sources": [
+        "CK"
+      ],
+      "collection_mode": "I",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Optional timestamps; not always populated"
+    },
+    {
+      "id": "L4-039",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "GPU kernel submitted-to-start delay",
+      "definition": "Device start minus supported submitted timestamp",
+      "unit_type": "us / H",
+      "scope": "GPU, context, stream, kernel",
+      "source_identifiers_or_inputs": "CUPTI submitted/start timestamps",
+      "sources": [
+        "CK"
+      ],
+      "collection_mode": "I",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Distinguish submission from host API return"
+    },
+    {
+      "id": "L4-040",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "GPU stream execution gap",
+      "definition": "Next start minus previous end on same stream",
+      "unit_type": "us / H",
+      "scope": "GPU, context, stream",
+      "source_identifiers_or_inputs": "complete kernel/activity sequence",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "I",
+      "aggregation": "distribution, max",
+      "diagnostic_and_limits": "A stream gap does not prove device-wide idle"
+    },
+    {
+      "id": "L4-041",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "Observed device idle fraction",
+      "definition": "Interval not covered by any captured device activity / interval",
+      "unit_type": "ratio / D",
+      "scope": "GPU, context coverage",
+      "source_identifiers_or_inputs": "union of complete kernel/copy activity intervals",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "I",
+      "aggregation": "interval union",
+      "diagnostic_and_limits": "Only label device-wide when all contexts/engines are covered"
+    },
+    {
+      "id": "L4-042",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "Kernel launch rate",
+      "definition": "Observed kernel count divided by elapsed time",
+      "unit_type": "launches/s / D",
+      "scope": "GPU, process, kernel",
+      "source_identifiers_or_inputs": "CUPTI kernel records",
+      "sources": [
+        "CK"
+      ],
+      "collection_mode": "I",
+      "aggregation": "count/time",
+      "diagnostic_and_limits": "CUDA Graphs and missing records affect coverage"
+    },
+    {
+      "id": "L4-043",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "Memory-copy duration",
+      "definition": "Device copy end minus start",
+      "unit_type": "us / H",
+      "scope": "GPU, direction, stream",
+      "source_identifiers_or_inputs": "CUPTI memcpy start/end",
+      "sources": [
+        "CA"
+      ],
+      "collection_mode": "I",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Classify H2D/D2H/D2D/P2P separately"
+    },
+    {
+      "id": "L4-044",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "Memory-copy bytes",
+      "definition": "Bytes recorded for copy operation",
+      "unit_type": "bytes / C",
+      "scope": "GPU, direction",
+      "source_identifiers_or_inputs": "CUPTI memcpy bytes",
+      "sources": [
+        "CA"
+      ],
+      "collection_mode": "I",
+      "aggregation": "increase, rate",
+      "diagnostic_and_limits": "Counts explicit copies; excludes kernel HBM traffic"
+    },
+    {
+      "id": "L4-045",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "Memory-copy effective bandwidth",
+      "definition": "Recorded copy bytes divided by device copy duration",
+      "unit_type": "bytes/s / D",
+      "scope": "GPU, direction, copy class",
+      "source_identifiers_or_inputs": "matched copy byte and timing records",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "I",
+      "aggregation": "size-stratified distribution",
+      "diagnostic_and_limits": "Do not equate per-copy rate with sustained link utilization"
+    },
+    {
+      "id": "L4-046",
+      "layer": 4,
+      "category": "Device tracing",
+      "metric": "CUDA synchronization API duration",
+      "definition": "Host duration of synchronization API",
+      "unit_type": "us / H",
+      "scope": "process, thread, API",
+      "source_identifiers_or_inputs": "CUPTI runtime/driver API records",
+      "sources": [
+        "CU"
+      ],
+      "collection_mode": "I",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "May include waiting for prior work; not pure barrier cost"
+    },
+    {
+      "id": "L4-047",
+      "layer": 4,
+      "category": "Host CPU",
+      "metric": "CPU time by mode",
+      "definition": "Accumulated CPU accounting by execution mode",
+      "unit_type": "s / C",
+      "scope": "host, CPU, mode",
+      "source_identifiers_or_inputs": "/proc/stat cpu fields",
+      "sources": [
+        "PROC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate by mode",
+      "diagnostic_and_limits": "iowait is not precise per-task blocked time"
+    },
+    {
+      "id": "L4-048",
+      "layer": 4,
+      "category": "Host CPU",
+      "metric": "Process CPU time",
+      "definition": "Accumulated user/system CPU time",
+      "unit_type": "s / C",
+      "scope": "process identity",
+      "source_identifiers_or_inputs": "/proc/PID/stat utime/stime",
+      "sources": [
+        "PROC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate",
+      "diagnostic_and_limits": "Normalize clock ticks; identity includes start time"
+    },
+    {
+      "id": "L4-049",
+      "layer": 4,
+      "category": "Host CPU",
+      "metric": "Host runnable and blocked tasks",
+      "definition": "Current runnable/blocked task counts",
+      "unit_type": "tasks / G",
+      "scope": "host, state",
+      "source_identifiers_or_inputs": "/proc/stat procs_running/procs_blocked",
+      "sources": [
+        "PROC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Snapshot counts; not historical scheduler latency"
+    },
+    {
+      "id": "L4-050",
+      "layer": 4,
+      "category": "Host CPU",
+      "metric": "Context switches",
+      "definition": "Host or process context-switch counts",
+      "unit_type": "switches / C",
+      "scope": "host or process, class",
+      "source_identifiers_or_inputs": "/proc/stat ctxt; /proc/PID/status",
+      "sources": [
+        "PROC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate",
+      "diagnostic_and_limits": "Host/process counters have different scopes"
+    },
+    {
+      "id": "L4-051",
+      "layer": 4,
+      "category": "Host CPU",
+      "metric": "Thread runqueue wait",
+      "definition": "Time runnable but awaiting CPU",
+      "unit_type": "ns / C",
+      "scope": "thread or CPU",
+      "source_identifiers_or_inputs": "/proc/PID/schedstat; /proc/schedstat",
+      "sources": [
+        "SCHED"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase, mean per timeslice",
+      "diagnostic_and_limits": "CONFIG_SCHEDSTATS and format/version dependent"
+    },
+    {
+      "id": "L4-052",
+      "layer": 4,
+      "category": "Host CPU",
+      "metric": "CPU scheduling latency",
+      "definition": "Runnable transition to scheduled execution",
+      "unit_type": "us / H",
+      "scope": "process, thread, CPU",
+      "source_identifiers_or_inputs": "sched wakeup/switch event correlation",
+      "sources": [
+        "TRACE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "p50/p95/p99, max",
+      "diagnostic_and_limits": "Custom eBPF derivation; include preempted runnable tasks"
+    },
+    {
+      "id": "L4-053",
+      "layer": 4,
+      "category": "Host CPU",
+      "metric": "Off-CPU duration",
+      "definition": "Deschedule-to-reschedule interval",
+      "unit_type": "us / H",
+      "scope": "thread, prior state",
+      "source_identifiers_or_inputs": "sched_switch event pairs",
+      "sources": [
+        "TRACE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Includes sleeping and waiting; not all time is contention"
+    },
+    {
+      "id": "L4-054",
+      "layer": 4,
+      "category": "Host CPU",
+      "metric": "Cgroup CPU usage",
+      "definition": "Accumulated cgroup CPU time",
+      "unit_type": "us / C",
+      "scope": "cgroup",
+      "source_identifiers_or_inputs": "cpu.stat usage_usec/user_usec/system_usec",
+      "sources": [
+        "CG"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate",
+      "diagnostic_and_limits": "Do not add parent and descendant totals"
+    },
+    {
+      "id": "L4-055",
+      "layer": 4,
+      "category": "Host CPU",
+      "metric": "Cgroup CPU throttling",
+      "definition": "Quota-throttled periods and duration",
+      "unit_type": "periods or us / C",
+      "scope": "cgroup, component",
+      "source_identifiers_or_inputs": "cpu.stat nr_throttled/throttled_usec",
+      "sources": [
+        "CG"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase, rate",
+      "diagnostic_and_limits": "Quota enforcement; not all scheduler waiting"
+    },
+    {
+      "id": "L4-056",
+      "layer": 4,
+      "category": "Host pressure",
+      "metric": "CPU pressure",
+      "definition": "Source-reported runnable resource stall time",
+      "unit_type": "us / C; ratio / G",
+      "scope": "host or cgroup",
+      "source_identifiers_or_inputs": "cpu.pressure some/full where supported",
+      "sources": [
+        "PSI"
+      ],
+      "collection_mode": "H",
+      "aggregation": "delta total / elapsed; native averages",
+      "diagnostic_and_limits": "Keep some/full separate; host CPU full availability differs"
+    },
+    {
+      "id": "L4-057",
+      "layer": 4,
+      "category": "Host pressure",
+      "metric": "Memory pressure",
+      "definition": "Time tasks are stalled on memory pressure",
+      "unit_type": "us / C; ratio / G",
+      "scope": "host or cgroup",
+      "source_identifiers_or_inputs": "memory.pressure some/full",
+      "sources": [
+        "PSI"
+      ],
+      "collection_mode": "H",
+      "aggregation": "delta total / elapsed; native averages",
+      "diagnostic_and_limits": "Not equivalent to memory occupancy"
+    },
+    {
+      "id": "L4-058",
+      "layer": 4,
+      "category": "Host pressure",
+      "metric": "I/O pressure",
+      "definition": "Time tasks are stalled on I/O resources",
+      "unit_type": "us / C; ratio / G",
+      "scope": "host or cgroup",
+      "source_identifiers_or_inputs": "io.pressure some/full",
+      "sources": [
+        "PSI"
+      ],
+      "collection_mode": "H",
+      "aggregation": "delta total / elapsed; native averages",
+      "diagnostic_and_limits": "Not a device latency histogram"
+    },
+    {
+      "id": "L4-059",
+      "layer": 4,
+      "category": "Host memory",
+      "metric": "Host memory available",
+      "definition": "Kernel estimate of memory available without swapping",
+      "unit_type": "bytes / G",
+      "scope": "host",
+      "source_identifiers_or_inputs": "/proc/meminfo MemAvailable",
+      "sources": [
+        "PROC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, min",
+      "diagnostic_and_limits": "Prefer explicit kernel estimate over total-minus-free"
+    },
+    {
+      "id": "L4-060",
+      "layer": 4,
+      "category": "Host memory",
+      "metric": "Process resident memory",
+      "definition": "Resident process memory",
+      "unit_type": "bytes / G",
+      "scope": "process identity",
+      "source_identifiers_or_inputs": "/proc/PID/status VmRSS",
+      "sources": [
+        "PROC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Shared pages may be counted in multiple processes"
+    },
+    {
+      "id": "L4-061",
+      "layer": 4,
+      "category": "Host memory",
+      "metric": "Cgroup memory usage",
+      "definition": "Memory charged to cgroup",
+      "unit_type": "bytes / G",
+      "scope": "cgroup",
+      "source_identifiers_or_inputs": "memory.current",
+      "sources": [
+        "CG"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Includes more than anonymous process RSS"
+    },
+    {
+      "id": "L4-062",
+      "layer": 4,
+      "category": "Host memory",
+      "metric": "Cgroup memory limit events",
+      "definition": "Reported low/high/max/oom/oom_kill events by class",
+      "unit_type": "events / C",
+      "scope": "cgroup, reason",
+      "source_identifiers_or_inputs": "memory.events",
+      "sources": [
+        "CG"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase",
+      "diagnostic_and_limits": "Preserve hierarchy versus memory.events.local"
+    },
+    {
+      "id": "L4-063",
+      "layer": 4,
+      "category": "Host memory",
+      "metric": "Cgroup swap usage",
+      "definition": "Swap charged to cgroup",
+      "unit_type": "bytes / G",
+      "scope": "cgroup",
+      "source_identifiers_or_inputs": "memory.swap.current",
+      "sources": [
+        "CG"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Not KV offload accounting"
+    },
+    {
+      "id": "L4-064",
+      "layer": 4,
+      "category": "Host memory",
+      "metric": "Minor/major page faults",
+      "definition": "Process page-fault counts by class",
+      "unit_type": "faults / C",
+      "scope": "process identity, class",
+      "source_identifiers_or_inputs": "/proc/PID/stat minflt/majflt",
+      "sources": [
+        "PROC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Major faults imply storage work; not always swap"
+    },
+    {
+      "id": "L4-065",
+      "layer": 4,
+      "category": "Host memory",
+      "metric": "NUMA memory placement",
+      "definition": "Cgroup pages/bytes accounted by NUMA node and category",
+      "unit_type": "native pages or bytes / G",
+      "scope": "cgroup, NUMA node, category",
+      "source_identifiers_or_inputs": "memory.numa_stat",
+      "sources": [
+        "CG"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, distribution",
+      "diagnostic_and_limits": "Placement does not directly measure remote access latency"
+    },
+    {
+      "id": "L4-066",
+      "layer": 4,
+      "category": "Host storage",
+      "metric": "Block read/write bytes",
+      "definition": "Completed block I/O data by direction",
+      "unit_type": "bytes / C",
+      "scope": "block device, direction",
+      "source_identifiers_or_inputs": "/sys/block/DEV/stat sectors read/written",
+      "sources": [
+        "BLOCK"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Convert documented sectors; layered devices can double-count"
+    },
+    {
+      "id": "L4-067",
+      "layer": 4,
+      "category": "Host storage",
+      "metric": "Block I/O operations",
+      "definition": "Completed reads/writes by direction",
+      "unit_type": "operations / C",
+      "scope": "block device, direction",
+      "source_identifiers_or_inputs": "/sys/block/DEV/stat completed operations",
+      "sources": [
+        "BLOCK"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate",
+      "diagnostic_and_limits": "Distinguish operations from merged requests"
+    },
+    {
+      "id": "L4-068",
+      "layer": 4,
+      "category": "Host storage",
+      "metric": "Block I/O service time",
+      "definition": "Accumulated read/write completion time",
+      "unit_type": "ms / C",
+      "scope": "block device, direction",
+      "source_identifiers_or_inputs": "/sys/block/DEV/stat read/write ticks",
+      "sources": [
+        "BLOCK"
+      ],
+      "collection_mode": "H",
+      "aggregation": "delta time / delta completed operations",
+      "diagnostic_and_limits": "Mean only; overlapping operations accumulate time"
+    },
+    {
+      "id": "L4-069",
+      "layer": 4,
+      "category": "Host storage",
+      "metric": "In-flight block I/O",
+      "definition": "Currently issued incomplete I/O operations",
+      "unit_type": "operations / G",
+      "scope": "block device",
+      "source_identifiers_or_inputs": "/sys/block/DEV/stat in_flight",
+      "sources": [
+        "BLOCK"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Snapshot may miss brief queue buildup"
+    },
+    {
+      "id": "L4-070",
+      "layer": 4,
+      "category": "Host storage",
+      "metric": "Cgroup I/O traffic",
+      "definition": "Bytes and operations charged by direction",
+      "unit_type": "bytes or operations / C",
+      "scope": "cgroup, device, component",
+      "source_identifiers_or_inputs": "io.stat rbytes/wbytes/rios/wios",
+      "sources": [
+        "CG"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Do not add parent and descendant totals"
+    },
+    {
+      "id": "L4-071",
+      "layer": 4,
+      "category": "Host networking",
+      "metric": "Interface transmitted/received bytes",
+      "definition": "Interface data counters by direction",
+      "unit_type": "bytes / C",
+      "scope": "interface, direction",
+      "source_identifiers_or_inputs": "rtnl_link_stats64 tx_bytes/rx_bytes",
+      "sources": [
+        "NET"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Boundary differs from physical-port wire bytes"
+    },
+    {
+      "id": "L4-072",
+      "layer": 4,
+      "category": "Host networking",
+      "metric": "Interface transmitted/received packets",
+      "definition": "Interface packet counters by direction",
+      "unit_type": "packets / C",
+      "scope": "interface, direction",
+      "source_identifiers_or_inputs": "rtnl_link_stats64 tx_packets/rx_packets",
+      "sources": [
+        "NET"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Offload and interface layering affect interpretation"
+    },
+    {
+      "id": "L4-073",
+      "layer": 4,
+      "category": "Host networking",
+      "metric": "Interface errors and drops",
+      "definition": "Reported errors/drops by direction and class",
+      "unit_type": "events / C",
+      "scope": "interface, reason",
+      "source_identifiers_or_inputs": "rtnl_link_stats64 rx/tx errors and dropped",
+      "sources": [
+        "NET"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Do not sum overlapping aggregate/detail counters"
+    },
+    {
+      "id": "L4-074",
+      "layer": 4,
+      "category": "Host networking",
+      "metric": "NIC link state and speed",
+      "definition": "Reported operational state and negotiated speed",
+      "unit_type": "state or bit/s / S,G",
+      "scope": "interface",
+      "source_identifiers_or_inputs": "netlink/ethtool supported link data",
+      "sources": [
+        "NET"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, transitions",
+      "diagnostic_and_limits": "Unknown speed is not zero-speed traffic"
+    },
+    {
+      "id": "L4-075",
+      "layer": 4,
+      "category": "Lifecycle",
+      "metric": "Process/container restarts",
+      "definition": "Observed lifecycle transitions counted by identity",
+      "unit_type": "events / C",
+      "scope": "host, workload identity",
+      "source_identifiers_or_inputs": "runtime lifecycle events plus process start identities",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "H",
+      "aggregation": "increase, rate",
+      "diagnostic_and_limits": "Requires discovery history; PID reuse must be handled"
+    },
+    {
+      "id": "L4-076",
+      "layer": 4,
+      "category": "Lifecycle",
+      "metric": "Expected versus observed rank membership",
+      "definition": "Observed participating ranks and missing members of a known replica",
+      "unit_type": "ranks / G",
+      "scope": "replica, communicator",
+      "source_identifiers_or_inputs": "verified expected topology and live member identities",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "last, changes",
+      "diagnostic_and_limits": "Expected count must come from configuration or library metadata"
+    },
+    {
+      "id": "L4-077",
+      "layer": 4,
+      "category": "Derived infrastructure",
+      "metric": "Parallel-group clock dispersion",
+      "definition": "Maximum minus minimum clock within matched comparable devices",
+      "unit_type": "MHz / D",
+      "scope": "replica, clock domain",
+      "source_identifiers_or_inputs": "aligned current clocks and verified membership",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "range, distribution",
+      "diagnostic_and_limits": "Compare equivalent hardware and workload phase"
+    },
+    {
+      "id": "L4-078",
+      "layer": 4,
+      "category": "Derived infrastructure",
+      "metric": "Observed GPU activity imbalance",
+      "definition": "Dispersion of matched interval activity across a defined group",
+      "unit_type": "ratio / D",
+      "scope": "replica, parallel group",
+      "source_identifiers_or_inputs": "aligned device activity and membership",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "range, CV",
+      "diagnostic_and_limits": "Diagnostic correlation; does not establish a straggler cause"
+    },
+    {
+      "id": "L4-079",
+      "layer": 4,
+      "category": "Derived infrastructure",
+      "metric": "Output tokens per GPU-second",
+      "definition": "Logical output tokens / allocated GPU-seconds in same interval",
+      "unit_type": "tokens/GPU-s / D",
+      "scope": "replica, hardware class",
+      "source_identifiers_or_inputs": "logical outputs and verified allocation timeline",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "ratio of sums",
+      "diagnostic_and_limits": "Include all assigned parallel ranks; cannot infer allocation from activity"
+    },
+    {
+      "id": "L4-080",
+      "layer": 4,
+      "category": "Derived infrastructure",
+      "metric": "Energy per output token",
+      "definition": "Matched GPU energy increase / logical output tokens",
+      "unit_type": "J/token / D",
+      "scope": "replica, boundary",
+      "source_identifiers_or_inputs": "energy counters and logical outputs",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "ratio of sums",
+      "diagnostic_and_limits": "Undefined with zero outputs; GPU-only unless other power is measured"
+    },
+    {
+      "id": "L4-081",
+      "layer": 4,
+      "category": "Derived infrastructure",
+      "metric": "Measured FLOP or bandwidth efficiency",
+      "definition": "Measured or estimated throughput / matching documented theoretical limit",
+      "unit_type": "ratio / D",
+      "scope": "GPU, datatype, operation class",
+      "source_identifiers_or_inputs": "explicit throughput source and verified peak specification",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "ratio with matching precision",
+      "diagnostic_and_limits": "Keep estimated and hardware-measured sources separate; no default peak assumed"
+    },
+    {
+      "id": "L1-031",
+      "layer": 1,
+      "category": "Traffic",
+      "metric": "Corrupted generation requests",
+      "definition": "Requests with source-reported NaNs in logits",
+      "unit_type": "requests / C",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "vllm:corrupted_requests",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Numerical failure signal; not a model-quality score"
+    },
+    {
+      "id": "L1-032",
+      "layer": 1,
+      "category": "Tokens",
+      "metric": "Requested completion multiplicity",
+      "definition": "Number of completions requested per input",
+      "unit_type": "completions / H",
+      "scope": "model, replica",
+      "source_identifiers_or_inputs": "vllm:request_params_n",
+      "sources": [
+        "VL"
+      ],
+      "collection_mode": "A",
+      "aggregation": "distribution",
+      "diagnostic_and_limits": "One API request may produce several outputs"
+    },
+    {
+      "id": "L1-033",
+      "layer": 1,
+      "category": "Tokens",
+      "metric": "Cached prompt tokens by tier",
+      "definition": "Count logical prompt tokens supplied from cache by tier",
+      "unit_type": "tokens / C",
+      "scope": "model, replica, tier",
+      "source_identifiers_or_inputs": "vllm:prompt_tokens_cached_by_source",
+      "sources": [
+        "VL"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Keep logical cached tokens separate from transfers and local reuse"
+    },
+    {
+      "id": "L1-034",
+      "layer": 1,
+      "category": "Traffic",
+      "metric": "Inference item count",
+      "definition": "Number of inference items including request batches",
+      "unit_type": "items / C",
+      "scope": "model, version",
+      "source_identifiers_or_inputs": "nv_inference_count",
+      "sources": [
+        "TR"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Distinct from API requests and LLM tokens"
+    },
+    {
+      "id": "L2-057",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Backend execution count",
+      "definition": "Number of batch executions by backend",
+      "unit_type": "executions / C",
+      "scope": "model, version",
+      "source_identifiers_or_inputs": "nv_inference_exec_count",
+      "sources": [
+        "TR"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "One execution may serve several requests"
+    },
+    {
+      "id": "L2-058",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Backend input/inference/output cumulative duration",
+      "definition": "Accumulated time by backend processing stage",
+      "unit_type": "us / C",
+      "scope": "model, version, stage",
+      "source_identifiers_or_inputs": "nv_inference_compute_input_duration_us; nv_inference_compute_infer_duration_us; nv_inference_compute_output_duration_us",
+      "sources": [
+        "TR"
+      ],
+      "collection_mode": "A",
+      "aggregation": "delta time / delta stage count",
+      "diagnostic_and_limits": "Preserve stage boundaries and cache exclusions; no percentiles from sums"
+    },
+    {
+      "id": "L2-059",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Iteration duration",
+      "definition": "Latest source-reported engine iteration latency",
+      "unit_type": "s / G",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "TensorRT-LLM collector suffix iteration_latency_seconds",
+      "sources": [
+        "RT"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, distribution only with every iteration",
+      "diagnostic_and_limits": "Polling a latest-value gauge misses intermediate iterations"
+    },
+    {
+      "id": "L2-060",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "External prefix-cache queries and hits",
+      "definition": "Tokens looked up and hit in an external cache",
+      "unit_type": "tokens / C",
+      "scope": "engine instance, outcome",
+      "source_identifiers_or_inputs": "vllm:external_prefix_cache_queries; vllm:external_prefix_cache_hits",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, ratio of matching deltas",
+      "diagnostic_and_limits": "Connector-dependent; avoid overlap with tier totals"
+    },
+    {
+      "id": "L2-061",
+      "layer": 2,
+      "category": "KV cache",
+      "metric": "Hot-buffer hits and misses",
+      "definition": "Device hot-buffer lookup outcomes",
+      "unit_type": "lookups / C",
+      "scope": "engine instance, outcome",
+      "source_identifiers_or_inputs": "vllm:hisparse_cache_hits; vllm:hisparse_cache_misses",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, matching hit fraction",
+      "diagnostic_and_limits": "HiSparse-only; not whole prefix-cache hit ratio"
+    },
+    {
+      "id": "L2-062",
+      "layer": 2,
+      "category": "Offload",
+      "metric": "Offload store decisions",
+      "definition": "Eager-mode store admissions by outcome",
+      "unit_type": "decisions / C",
+      "scope": "engine instance, outcome",
+      "source_identifiers_or_inputs": "vllm:simple_kv_offload_save_outcomes_total",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Lazy-mode stores not classified by this family"
+    },
+    {
+      "id": "L2-063",
+      "layer": 2,
+      "category": "Speculation",
+      "metric": "Draft proposal count",
+      "definition": "Completed speculative draft opportunities",
+      "unit_type": "drafts / C",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "vllm:spec_decode_num_drafts",
+      "sources": [
+        "VS"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Conditional on enabled speculation; counter export may append total"
+    },
+    {
+      "id": "L2-064",
+      "layer": 2,
+      "category": "Speculation",
+      "metric": "Proposed draft tokens",
+      "definition": "Number of draft token proposals",
+      "unit_type": "tokens / C",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "vllm:spec_decode_num_draft_tokens",
+      "sources": [
+        "VS"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Do not count as delivered output"
+    },
+    {
+      "id": "L2-065",
+      "layer": 2,
+      "category": "Speculation",
+      "metric": "Accepted draft tokens",
+      "definition": "Number of accepted draft tokens",
+      "unit_type": "tokens / C",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "vllm:spec_decode_num_accepted_tokens",
+      "sources": [
+        "VS"
+      ],
+      "collection_mode": "A",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Keep bonus tokens separate"
+    },
+    {
+      "id": "L2-066",
+      "layer": 2,
+      "category": "Speculation",
+      "metric": "Mean acceptance length including bonus",
+      "definition": "One plus accepted draft-token delta divided by draft delta",
+      "unit_type": "tokens/draft / D",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "matched speculative counters",
+      "sources": [
+        "VS"
+      ],
+      "collection_mode": "D",
+      "aggregation": "ratio over interval plus one",
+      "diagnostic_and_limits": "Source convention includes bonus; differs from accepted draft tokens per step"
+    },
+    {
+      "id": "L2-067",
+      "layer": 2,
+      "category": "Runtime failures",
+      "metric": "GPU allocation failures",
+      "definition": "Count explicit failed allocation outcomes",
+      "unit_type": "events / C",
+      "scope": "engine instance, allocator, reason",
+      "source_identifiers_or_inputs": "supported allocator failure events; no universal export verified",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Not inferable solely from low free memory"
+    },
+    {
+      "id": "L2-068",
+      "layer": 2,
+      "category": "Runtime failures",
+      "metric": "Model load and warmup duration",
+      "definition": "Observed start-to-ready interval by lifecycle phase",
+      "unit_type": "s / H",
+      "scope": "model, replica, phase",
+      "source_identifiers_or_inputs": "supported lifecycle phase events",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "X",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Includes startup only when exact boundaries are available"
+    },
+    {
+      "id": "L2-069",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Backend pending requests",
+      "definition": "Requests enqueued but not yet executing in backend",
+      "unit_type": "requests / G",
+      "scope": "model, version",
+      "source_identifiers_or_inputs": "nv_inference_pending_request_count",
+      "sources": [
+        "TR"
+      ],
+      "collection_mode": "A",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Different queue boundary from engine waiting-request gauges"
+    },
+    {
+      "id": "L2-070",
+      "layer": 2,
+      "category": "Scheduling",
+      "metric": "Batch inference duration",
+      "definition": "Elapsed source-defined batch inference interval",
+      "unit_type": "s / H",
+      "scope": "engine instance",
+      "source_identifiers_or_inputs": "tgi_batch_inference_duration",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "p50/p95/p99",
+      "diagnostic_and_limits": "Not interchangeable with individual forward/decode/filter components"
+    },
+    {
+      "id": "L2-071",
+      "layer": 2,
+      "category": "Speculation",
+      "metric": "Skipped speculative tokens per request",
+      "definition": "Source-reported speculated/skipped token quantity",
+      "unit_type": "tokens / H",
+      "scope": "model, engine instance",
+      "source_identifiers_or_inputs": "tgi_request_skipped_tokens",
+      "sources": [
+        "TGI"
+      ],
+      "collection_mode": "A",
+      "aggregation": "distribution",
+      "diagnostic_and_limits": "Preserve source meaning; not universally accepted draft-token count"
+    },
+    {
+      "id": "L3-054",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Local link integrity and buffer overrun errors",
+      "definition": "Port error counts separated by class",
+      "unit_type": "errors / C",
+      "scope": "RDMA device, port, class",
+      "source_identifiers_or_inputs": "local_link_integrity_errors; excessive_buffer_overrun_errors",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Availability and saturation depend on hardware"
+    },
+    {
+      "id": "L3-055",
+      "layer": 3,
+      "category": "InfiniBand",
+      "metric": "Management VL drops",
+      "definition": "Packets dropped on management virtual lane",
+      "unit_type": "packets / C",
+      "scope": "RDMA device, port",
+      "source_identifiers_or_inputs": "VL15_dropped",
+      "sources": [
+        "IB"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Management-plane indicator, not user collective packet loss"
+    },
+    {
+      "id": "L3-056",
+      "layer": 3,
+      "category": "Ethernet/RoCE",
+      "metric": "RDMA invalid request errors",
+      "definition": "Requester reports remote invalid request",
+      "unit_type": "errors / C",
+      "scope": "RDMA device, role",
+      "source_identifiers_or_inputs": "req_remote_invalid_request",
+      "sources": [
+        "ROCE"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Protocol/access issue rather than bandwidth saturation"
+    },
+    {
+      "id": "L3-057",
+      "layer": 3,
+      "category": "Collectives",
+      "metric": "Collective sequence completeness",
+      "definition": "Observed matched ranks / expected ranks for operation",
+      "unit_type": "ratio / D",
+      "scope": "communicator, sequence",
+      "source_identifiers_or_inputs": "verified membership and captured rank records",
+      "sources": [
+        "OWN"
+      ],
+      "collection_mode": "D",
+      "aggregation": "per-operation ratio",
+      "diagnostic_and_limits": "Missing records and failed ranks require separate diagnosis"
+    },
+    {
+      "id": "L3-058",
+      "layer": 3,
+      "category": "KV transfer",
+      "metric": "KV-transfer descriptor count",
+      "definition": "Descriptors recorded per connector operation",
+      "unit_type": "descriptors / H",
+      "scope": "connector",
+      "source_identifiers_or_inputs": "vllm:nixl_num_descriptors",
+      "sources": [
+        "V"
+      ],
+      "collection_mode": "A",
+      "aggregation": "distribution",
+      "diagnostic_and_limits": "NIXL only; descriptor count is not transfer bytes"
+    },
+    {
+      "id": "L4-082",
+      "layer": 4,
+      "category": "Host memory",
+      "metric": "Host swap input/output",
+      "definition": "Pages moved into/out of swap",
+      "unit_type": "pages / C",
+      "scope": "host, direction",
+      "source_identifiers_or_inputs": "/proc/vmstat pswpin/pswpout",
+      "sources": [
+        "PROC"
+      ],
+      "collection_mode": "H",
+      "aggregation": "rate, increase",
+      "diagnostic_and_limits": "Convert with actual page size when reporting bytes"
+    },
+    {
+      "id": "L4-083",
+      "layer": 4,
+      "category": "GPU interconnect",
+      "metric": "PCIe maximum supported generation/width",
+      "definition": "Supported maximum link capability",
+      "unit_type": "generation or lanes / G",
+      "scope": "GPU, component",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_PCIE_MAX_LINK_GEN; DCGM_FI_DEV_PCIE_MAX_LINK_WIDTH",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last",
+      "diagnostic_and_limits": "Capability is a comparison baseline, not current bandwidth"
+    },
+    {
+      "id": "L4-084",
+      "layer": 4,
+      "category": "GPU reliability",
+      "metric": "Remap spare capacity state",
+      "definition": "Source-reported remaining memory-row spare state",
+      "unit_type": "state / S",
+      "scope": "GPU, bank class",
+      "source_identifiers_or_inputs": "DCGM bank-remap availability fields",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, transitions",
+      "diagnostic_and_limits": "Architecture-specific; capacity classes are not linear percentages"
+    },
+    {
+      "id": "L4-085",
+      "layer": 4,
+      "category": "GPU topology health",
+      "metric": "GPU fabric readiness",
+      "definition": "Reported fabric initialization/health state",
+      "unit_type": "state / S",
+      "scope": "GPU, fabric",
+      "source_identifiers_or_inputs": "DCGM fabric health/probe status",
+      "sources": [
+        "DH"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, transitions",
+      "diagnostic_and_limits": "Requires platform-specific fabric service support"
+    },
+    {
+      "id": "L4-086",
+      "layer": 4,
+      "category": "GPU topology health",
+      "metric": "IMEX domain status",
+      "definition": "Reported inter-node memory-exchange state",
+      "unit_type": "state / S",
+      "scope": "domain, host",
+      "source_identifiers_or_inputs": "DCGM IMEX status fields",
+      "sources": [
+        "DH"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, transitions",
+      "diagnostic_and_limits": "Relevant only when IMEX is deployed"
+    },
+    {
+      "id": "L4-087",
+      "layer": 4,
+      "category": "GPU power/thermal",
+      "metric": "Fan speed",
+      "definition": "Reported fan duty/relative speed",
+      "unit_type": "percent / G",
+      "scope": "GPU, fan",
+      "source_identifiers_or_inputs": "DCGM_FI_DEV_FAN_SPEED",
+      "sources": [
+        "DF"
+      ],
+      "collection_mode": "H",
+      "aggregation": "last, max",
+      "diagnostic_and_limits": "Passive-cooled server GPUs may not expose local fans"
+    }
+  ]
+}

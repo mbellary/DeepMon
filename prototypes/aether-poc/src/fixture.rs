@@ -219,3 +219,68 @@ pub fn select_endpoint(bundle: &ValidatedBundle, variant_id: &str) -> Result<End
         bytes,
     })
 }
+
+fn read_role(bundle: &ValidatedBundle, variant_id: &str, role: &str) -> Result<(Vec<u8>, String)> {
+    let variant = bundle
+        .manifest
+        .fixtures
+        .iter()
+        .flat_map(|g| &g.variants)
+        .find(|v| v.id == variant_id)
+        .ok_or_else(|| PrototypeError::new("variant_unknown", "no such variant"))?;
+    let artifacts: Vec<_> = variant
+        .artifacts
+        .iter()
+        .filter(|a| a.role == role)
+        .collect();
+    if artifacts.len() != 1 {
+        return Err(PrototypeError::new(
+            "artifact_unavailable",
+            "expected one artifact of requested role",
+        ));
+    }
+    let a = artifacts[0];
+    let base = confined(&bundle.root, Path::new("fixtures/prototype"))?;
+    let bytes = bounded_read(&confined(&base, Path::new(&a.path))?, a.bytes)?;
+    if bytes.len() as u64 != a.bytes || sha256(&bytes) != a.sha256 {
+        return Err(PrototypeError::new(
+            "artifact_changed",
+            "artifact size/hash mismatch",
+        ));
+    }
+    Ok((bytes, a.sha256.clone()))
+}
+pub fn load_scenario_input(
+    bundle: &ValidatedBundle,
+    variant_id: &str,
+) -> Result<crate::metric_input::ScenarioInput> {
+    let (bytes, hash) = read_role(bundle, variant_id, "input")?;
+    let mut input: crate::metric_input::ScenarioInput = serde_json::from_slice(&bytes)
+        .map_err(|_| PrototypeError::new("input_invalid", "invalid input envelope"))?;
+    if input.variant_id != variant_id {
+        return Err(PrototypeError::new("input_invalid", "variant mismatch"));
+    }
+    input.validate()?;
+    input.sha256 = hash;
+    Ok(input)
+}
+pub fn load_expected(
+    bundle: &ValidatedBundle,
+    variant_id: &str,
+) -> Result<crate::metric_input::ExpectedAssertions> {
+    let (bytes, hash) = read_role(bundle, variant_id, "expected")?;
+    let mut expected: crate::metric_input::ExpectedAssertions = serde_json::from_slice(&bytes)
+        .map_err(|_| PrototypeError::new("oracle_invalid", "invalid expected envelope"))?;
+    if expected.schema_version != 1
+        || !expected.synthetic
+        || expected.variant_id != variant_id
+        || expected.assertions.len() > 32
+    {
+        return Err(PrototypeError::new(
+            "oracle_invalid",
+            "invalid expected identity/limits",
+        ));
+    }
+    expected.sha256 = hash;
+    Ok(expected)
+}

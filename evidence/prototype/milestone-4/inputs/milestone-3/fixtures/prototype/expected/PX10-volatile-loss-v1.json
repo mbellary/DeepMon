@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX10-volatile-loss-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "committed_ids",
+      "target": "snapshot",
+      "expected_value": [
+        "r0"
+      ],
+      "unit": "record_ids",
+      "state": "known",
+      "record_ids": [
+        "r0",
+        "r1"
+      ],
+      "reason": "Volatile r1 can be lost; no universal zero-loss claim."
+    },
+    {
+      "kind": "state",
+      "target": "lost_ids",
+      "expected_value": [
+        "r1"
+      ],
+      "unit": "record_ids",
+      "state": "reported_only",
+      "record_ids": [
+        "r1",
+        "loss"
+      ],
+      "reason": "Loss is explicitly accounted for."
+    }
+  ],
+  "proof": null
+}

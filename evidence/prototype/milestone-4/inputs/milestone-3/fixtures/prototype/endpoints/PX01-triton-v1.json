@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX01-triton-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "clock_domain": "fixture",
+      "family": "nv_pinned_memory_pool_used_bytes",
+      "id": "snapshot",
+      "invented_fields": [
+        "values",
+        "model_alias",
+        "fixture_bucket_boundaries"
+      ],
+      "invented_labels": [],
+      "kind": "endpoint_snapshot",
+      "metric_type": "gauge",
+      "native_labels": [],
+      "producer": "triton",
+      "scope": "server_all_models",
+      "source_input_ids": [
+        "E08"
+      ],
+      "time_us": 0,
+      "unit": "bytes"
+    }
+  ]
+}

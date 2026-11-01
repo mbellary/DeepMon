@@ -3,7 +3,7 @@
 
 This ExecPlan is a living document. Keep `Progress`, `Surprises & Discoveries`, `Decision Log`, and `Outcomes & Retrospective` current at every stopping point. Maintain it according to repository-root `PLANS.md`, which preserves the user's uploaded planning instructions. The workspace is `/home/mbellary/work/projects/DeepMon`.
 
-Milestones 1–3 are accepted for specification/traceability, fixture construction and the synthetic Rust harness respectively. Evidence is in `evidence/prototype/milestone-1.md`, `milestone-2.md` and `milestone-3.md`. The user authorized M3 execution; its detailed plan records all seven completed tasks. Milestones 4–8 remain pending. Next is M4 native endpoint parsing and selected calculations. All twelve PX semantic experiments remain not_run; no real engine/hardware acquisition or production work has occurred.
+Milestones 1–4 are accepted within their specification, fixture, harness and synthetic functional scopes. Actual evidence is in `evidence/prototype/milestone-1.md` through `milestone-4.md`. The user authorized M4 execution; its eight detailed tasks are complete. The new functional ledger records executed Rust functions and independent comparisons; historical planning fields remain intact. Runtime acceptance is blocked by unagreed budgets and real capabilities remain unverified. M5–M8 implementation remains pending; next is M5 simulated metadata enrichment and lifecycle handling.
 
 ## Purpose / Big Picture
 
@@ -43,7 +43,10 @@ Times use Asia/Kolkata, UTC+05:30. Entries marked verified record an inspection 
 - [x] (2026-11-01 22:41 IST, Milestone 3 planning) Created `milestone-execution-plans/milestone-03-execplan.md` with M3.1–M3.7, exact Rust CLI/interfaces, bounded loopback serving, deterministic byte-roundtrip acceptance, input/oracle separation, regression/evidence requirements and synchronized tracking. Existing fixture construction and accepted artifact checks pass. No harness implementation is claimed.
 - [x] (2026-11-01 22:46 IST, Milestone 3 plan validation) Verified required plan sections/format, current links and seven pending implementation tasks. Rust evidence/traceability/fixture checks, accepted M2/original baseline checksums and whitespace checks pass. All 250/58 IDs remain, with zero executed experiments; no engine implementation is claimed.
 - [x] (2026-11-01 22:58 IST, Milestone 3 accepted) Completed M3.1–M3.7: separate locked Rust harness, complete listing/validation, bounded loopback server/client and deterministic 398-byte roundtrip. Passed 29 new tests plus 70 regressions, strict Clippy/format/checks and accepted-input preservation. Actual socket checks used approved execution after sandbox denial. Evidence: `evidence/prototype/milestone-3.md`; all PX semantic experiments remain not_run. Next is M4.
-- [ ] Milestone 4: prototype native metric parsing and selected calculations against the fixture endpoints; preserve source meanings and unsupported cases.
+- [x] (2026-11-01 23:09 IST, Milestone 4 planning) Created `milestone-execution-plans/milestone-04-execplan.md` with eight tasks, seven-group/23-variant assertion accounting, native parsing, calculations/unknowns, policy/privacy checks, independent verification, M3 preservation and separate functional-versus-runtime tracking. Current fixture/traceability/M3 hash prerequisites pass; implementation is not claimed.
+- [x] (2026-11-01 23:10 IST, Milestone 4 plan validation) Verified required sections/format, links, eight pending tasks and manifest-backed seven-group/23-variant references. Existing Rust evidence/traceability/fixture checks and accepted M3/M2/original hashes pass; no M4 implementation is claimed.
+- [x] (2026-11-01 23:34 IST, Milestone 4 accepted) Completed M4.1–M4.8: independent native parser/loopback acquisition, justified calculations, policy/privacy/unknown states and full per-assertion functional tracking. Passed 30 new tests plus all 99 regressions, strict static/integrity checks and five deterministic CLI pairs. Accounted for 49 assertions: 24 matches, two expected rejections, one proof, three in-scope deferrals and 19 later-stage assertions not run. Preserved M3 predecessor and original requirements/sources/fixtures/budgets. Evidence: `evidence/prototype/milestone-4.md`; M5 is next, runtime acceptance remains blocked.
+- [x] (2026-11-01 23:36 IST, Milestone 4 final verification) Verified plan/index links, completed task states, whitespace, 187 indexed predecessor file hashes and sanitized emitted JSON/logs/ledger. Current M4 artifact hashes are recorded separately from historical acceptance lists.
 - [ ] Milestone 5: prototype metadata enrichment using simulated identities and lifecycle changes; prevent duplicate counts and incorrect remote-worker attribution.
 - [ ] Milestone 6: prototype bounded buffering, a local recovery journal, Arrow/Parquet output and DataFusion queries with simulated storage faults.
 - [ ] Milestone 7: prototype timing/correlation logic using synthetic event replay and an in-process demonstration alert.
@@ -52,6 +55,14 @@ Times use Asia/Kolkata, UTC+05:30. Entries marked verified record an inspection 
 
 ## Surprises & Discoveries
 
+
+Observation: exact count-token validation and complete predecessor dependencies matter even when positive fixtures are small.
+
+Evidence: M4 now rejects large fractional counters before floating conversion can round them into apparently exact counts. Archived scope/budget planning inputs and the construction log let full fixture validation pass against the M3 predecessor. Final results are 129 passing tests, five identical CLI pairs and all 49 assertions accounted for without a whole-group/runtime pass.
+
+Observation: the rate fixture's endpoint artifact contains one sample, and shared PX groups include behavior assigned to later milestones.
+
+Evidence: PX02's .prom file exports 100; its JSON supplies both timed counters for the five-requests/second calculation. M4 must distinguish actual endpoint parsing from supplied-record arithmetic. PX04/PX05 identity/composition joins remain M5; PX12 queue execution remains M6. Per-assertion functional tracking prevents a partial match from becoming a whole-group/runtime pass.
 
 Observation: a real loopback demonstration needs socket permission, and timeout/connection-close details affect bounded local behavior.
 
@@ -192,6 +203,18 @@ Decision: accept the authorized M3 harness implementation and retain M4–M8 as 
 Rationale: complete fixture listing/validation, actual bounded HTTP requests, deterministic reports, 29 new tests plus 70 regressions and preserved accepted-input hashes satisfy its scope. All twelve semantic experiments remain unexecuted, budgets unagreed and real capabilities unverified. The user requested completion and a next-milestone suggestion, not automatic M4 execution.
 Date/Author: 2026-11-01 22:58 IST / Codex, applying user direction.
 
+Decision: use `milestone-execution-plans/milestone-04-execplan.md` for M4.1–M4.8 tracking and deliver planning only in this turn.
+Rationale: the user requested a detailed plan and synchronized progress. Preserve the accepted M3 predecessor before editing its live source. Future M4 functional execution/comparisons get a new ledger, while frozen planning records and unagreed budgets remain unchanged. Functional correctness does not grant PX runtime acceptance.
+Date/Author: 2026-11-01 23:09 IST / Codex, applying user direction.
+
+Decision: account for seven M4-related groups/23 variants at assertion level, with explicit M5/M6/M7 deferrals and no fabricated token-rate/cache-hit inputs.
+Rationale: accepted fixtures provide native exports, source-success counters, logical overlap, memory occupancy, missing evidence and policy states. Their supplied data must not be relabeled as real polling, token counters, cache-hit populations, identity joins or queue execution. Requirements and all source eligibility remain unchanged; absent inputs stay visible as unprototyped.
+Date/Author: 2026-11-01 23:09 IST / Codex.
+
+Decision: accept the authorized M4 implementation for functional prototype correctness and retain M5–M8 as pending.
+Rationale: actual parser acquisition, exact negative errors, independent calculations/unknowns, policy/privacy handling, full assertion accounting and 129 passing tests satisfy its defined scope. The new ledger reports current executed functions, while historical records remain preserved and budgets unagreed. The user requested completion plus a next-milestone suggestion, not automatic M5 execution.
+Date/Author: 2026-11-01 23:34 IST / Codex, applying user direction.
+
 ## Outcomes & Retrospective
 
 
@@ -201,7 +224,9 @@ Rust evidence/traceability/fixture commands pass, along with 70 integration test
 
 M3 is now complete: its independent Rust package/lock, bounded loopback server/client, complete fixture listing/validation and deterministic roundtrip exist. Four new unit and 25 integration tests plus all 70 prior validation integration tests pass, with strict Clippy/format/checks and preserved accepted bytes. Two CLI reports match 398 received bytes/hash exactly. Evidence is `evidence/prototype/milestone-3.md`. Real socket checks required approved execution after sandbox denial; no network test was replaced or skipped.
 
-All twelve PX semantic experiments remain unexecuted; no real source schema, device capability, physical timing, inference overhead or production durability has been verified. Proposed budgets remain unagreed. M3's seven detailed tasks are complete; M4 native endpoint parsing and selected calculations is next. Milestones 4–8 remain pending; production architecture remains unscoped.
+M4's eight tasks are now complete for synthetic functional correctness. The package adds native parsing, supplied-record calculations, explicit missing/policy states and independent verification. All 30 new metric tests plus 99 regressions pass. Five CLI pairs produce identical reports. The separate `docs/prototype-metric-execution-status.json` retains all 49 original assertions with 24 matches, two expected rejections, one proof, three considered-group deferrals and 19 later-stage assertions not run. Actual evidence is `evidence/prototype/milestone-4.md`; M3 bytes verify against its original checksum list in the preserved predecessor root, including fixture validation.
+
+Current function execution is no longer described as universally not_run: the new ledger records what actually ran without modifying accepted historical planning fields. Whole-PX runtime acceptance remains blocked by unagreed budgets, readiness false and real verification not_run. No real schema, device capability, physical timing, inference overhead or production durability has been verified. M5 enrichment/lifecycle handling is next; M5–M8 implementation remains pending and production architecture remains unscoped.
 
 ## Context and Orientation
 
@@ -271,13 +296,17 @@ Acceptance is complete fixture listing/validation, rejection of bad manifests/ha
 ### Milestone 4: prototype endpoint parsing and selected calculations
 
 
+Use [the detailed Milestone 4 execution plan](milestone-execution-plans/milestone-04-execplan.md) for M4.1–M4.8, exact scenario/variant/assertion coverage, CLI/interfaces, predecessor preservation, comparisons and evidence. All eight tasks are complete for the defined functional scope; actual results are in `evidence/prototype/milestone-4.md`. M3's accepted bytes were preserved before changes and its original checksum list verifies in that root. Original requirements, source mappings, fixtures, budgets and M1/M2 records remain unchanged. Keep both living plans/index current at future stopping points.
+
 Implement fixture endpoint parsing in `src/endpoint.rs` and calculations in `src/derive.rs`. Preserve original series and native labels before adding experimental normalized views. Consult metric type information before interpreting suffixes. Keep vLLM/SGLang backend observations distinct from Dynamo frontend/router/component observations. Unknown families are retained or reported explicitly, not silently turned into supported canonical measurements.
 
-Calculate output-token rates from one defined counting boundary. Handle counter reset and source incarnation. Use an explicit synthetic completion policy when a fixture contains multiple finish reasons. Calculate cache ratios only with matching token/block/request denominators. Where an SLO, meaning a latency/service objective, is used in a test, declare its threshold and population in that fixture. Do not reconstruct original request events, exact variance or joint goodput from insufficient histogram data.
+Use the accepted seven-group/23-variant input set with explicit per-assertion scope. Implement native parsing, source-success rates/reset handling, supplied logical-count selection, matching-unit memory occupancy, aggregate/freshness insufficiency and simulated visibility/privacy/action policy. Identity/composition resolution remains M5, queue behavior M6 and event correlation M7; list these assertions as deferred. Keep runtime computation separate from independent oracle comparison and proof-only counterexamples. Endpoint-bearing parsing uses actual owned-loopback bytes; the rate calculation uses the supplied JSON snapshots, not a fabricated second HTTP capture.
+
+The output-token-rate and cache-hit-ratio requirements remain unchanged but lack the necessary token counters/hit-denominator fixture inputs here; record them as not_prototyped rather than relabel request counts or memory occupancy. Future token-rate cases must define one counting boundary, completion population and units; future cache ratios require matching token/block/request denominators. An SLO is a latency/service objective and needs an explicit threshold/population. Do not reconstruct original request events, exact variance or joint goodput from insufficient histograms; an unrepresented threshold may yield unavailable exact qualification rather than an invented estimate.
 
 PX02's positive source-success rate case must return five successful requests per second for the Milestone 2 snapshots. PX04's duplicated framework/backend view of ten logical requests must retain ten within the selected counting boundary, not twenty. A separate token-rate case would require explicit token counters, population, units and expected answers; do not relabel these request observations as tokens. A counter reset must not produce a negative rate. A threshold not represented exactly by histogram buckets must produce a bound/estimate with that label or an unavailable result, never an invented exact answer.
 
-Acceptance consists of these assertions and a report showing which native fixture observations were read, which derived results were justified, and which requested values remain unknown. This demonstrates parser/calculation behavior only, not actual vLLM/SGLang/Dynamo deployment support.
+Acceptance is the assigned functional assertions, precise negative errors, unknown states, redaction, regressions and preservation checks, with actual evidence in `evidence/prototype/milestone-4.md`. Add `docs/prototype-metric-semantics.md` and a separate `docs/prototype-metric-execution-status.json` for current per-assertion function execution/comparison and explicit deferrals across all twelve groups. Historical not_run records remain intact; the new ledger truthfully records actual function checks without a whole-group/runtime pass. Budget acceptance remains blocked/unagreed, readiness false and real verification not_run. This demonstrates finite synthetic parser/calculation behavior only, not deployment compatibility.
 
 ### Milestone 5: prototype enrichment and lifecycle handling
 
@@ -399,6 +428,8 @@ These Rust validation commands and 30 integration tests are now implemented and 
 ## Validation and Acceptance
 
 
+M4 implementation acceptance is now supported by `evidence/prototype/milestone-4.md`: actual native-parser/calculation/policy comparisons, precise negative/unknown/deferred accounting, 129 passing tests, five deterministic CLI pairs, unchanged original inputs and a verified M3 predecessor. The new ledger records current executed functions independently of preserved historical fields. This is scoped functional acceptance; runtime budgets remain unagreed, readiness false and real capabilities unverified.
+
 Milestone 3 acceptance is now supported by `evidence/prototype/milestone-3.md`: a separate locked Rust package, complete read-only listing/validation, bounded real loopback requests, deterministic byte identity reports, 29 new passing failure/lifecycle/client tests, 70 regressions and preserved inputs. All seven detailed tasks are complete. No semantic experiment, real source or budget agreement is accepted by harness transport checks.
 
 Milestone 2 plan-authoring acceptance is a complete PLANS.md-compliant detailed plan, valid prerequisite links, synchronized master/index progress, explicit future fixture/validator outputs and unchanged M1/v1 artifacts. That authoring check alone did not complete M2.1–M2.7. Their execution acceptance is now supported by the twelve-group bundle, 70 passing Rust integration tests, unchanged-input checks and `evidence/prototype/milestone-2.md`. Actual fixture acceptance additionally requires the defined bundle/oracles/ledger, preserved predecessor, Rust fixture checks and negative tests, regressions and an evidence report. No construction check can mark a telemetry experiment or deployed capability verified.
@@ -487,10 +518,10 @@ These are implemented M3 interfaces, replacing the original single-path loader s
 
 In `src/endpoint.rs`, expose:
 
-    pub fn parse_metric_fixture(text: &str, source: &FixtureSource)
+    pub fn parse_metric_fixture(text: &str, source: &SourceContext)
         -> Result<Vec<NativeObservation>, PrototypeError>;
 
-`FixtureSource` identifies the synthetic publisher and declared schema. `NativeObservation` preserves name, metric type, labels, unit and fixture timing without inventing unsupported identity. A finite fixture can use a vector; this is not a production buffering decision. A local HTTP helper can serve that same text for an end-to-end adapter exercise.
+`SourceContext` identifies the explicit synthetic publisher, scope, population, unit provenance and declared schema. `NativeObservation` preserves family/sample names, metric type, labels and fixture timing without inventing identity. A separate safe projection redacts sensitive fields before output. M4's detailed plan specifies independent run/verify APIs and derived-result types; the runtime receives no oracle proof/assertions. A finite fixture can use a vector; this is not a production buffering decision. Owned loopback acquisition exercises the actual parser without live endpoints.
 
 In `src/identity.rs`, expose:
 
@@ -555,3 +586,11 @@ Use Rust dependencies needed for these experiments. M3 locks fixture/configurati
 2026-11-01 22:46 IST: completed M3 plan-authoring verification and mirrored results in its detailed plan. Plan structure/links/pending tasks and existing Rust prerequisite/integrity checks pass. M3.1–M3.7 implementation and all later milestones remain pending.
 
 2026-11-01 22:58 IST: completed and accepted M3 implementation. Added independent Rust harness/lock, complete fixture listing/validation, bounded owned loopback HTTP and deterministic reports, plus dependency/handoff docs and actual evidence. Passed 29 new tests and 70 regressions, strict Clippy/format/checks and unchanged-input verification. Approved socket access was used after sandbox denial. Master/detail/index synchronized; M4 is next, while all PX semantic execution/real capability/budget states remain unverified.
+
+2026-11-01 23:09 IST: created the detailed M4 execution plan with eight pending tasks and synchronized master/index. Defined exact native parsing/calculation/missing/policy coverage, seven-group/23-variant per-assertion accounting, independent oracles, M3 predecessor preservation and truthful functional evidence distinct from blocked runtime acceptance. Clarified absent token-rate/cache-hit inputs without changing requirements or sources. Existing fixture/traceability/M3 artifact checks pass; no M4 implementation is delivered by planning.
+
+2026-11-01 23:10 IST: completed M4 plan-authoring verification and mirrored its results in the detailed plan. Required sections/links/task state/variant coverage and current integrity/traceability/fixture checks pass; all eight M4 implementation tasks remain pending.
+
+2026-11-01 23:34 IST: executed and accepted M4.1–M4.8 for synthetic functional correctness. Added native parser/owned-loopback acquisition, justified calculations, explicit unknown/policy/privacy states, independent verification and complete 49-assertion execution tracking. Passed 30 new tests plus 99 regressions, strict checks, five deterministic CLI pairs and preservation checks. M3 predecessor source hashes/fixture validation pass; original requirements/source/fixture/budget bytes remain unchanged. Master/detail/index synchronized. M5 is next; runtime acceptance remains blocked and real capabilities unverified.
+
+2026-11-01 23:36 IST: completed final plan/link/task-state/whitespace checks, verified all 187 archived predecessor input hashes and checked emitted runtime JSON/logs/ledger for the synthetic sensitive marker (none found). New current-source artifact hashes remain separate from unchanged historical acceptance; M5 remains pending.

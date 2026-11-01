@@ -451,6 +451,14 @@ pub fn run_endpoint_roundtrip(input: EndpointInput) -> Result<ScenarioReport> {
     })
 }
 
+/// Parse received bytes independently of construction/oracle checking.
+pub fn parse_metric_fixture(
+    text: &str,
+    source: &crate::observation::SourceContext,
+) -> Result<Vec<crate::observation::NativeObservation>> {
+    crate::metric_text::parse(text, source)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

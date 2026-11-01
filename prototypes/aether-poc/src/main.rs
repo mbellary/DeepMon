@@ -8,7 +8,12 @@ use std::io::Write;
 fn emit(value: &impl serde::Serialize) -> Result<()> {
     let stdout = std::io::stdout();
     let mut out = stdout.lock();
-    serde_json::to_writer(&mut out, value).map_err(|e| PrototypeError::new("report_error", e))?;
+    let json = serde_json::to_string(value)
+        .map_err(|_| PrototypeError::new("report_error", "serialization failed"))?;
+    out.write_all(
+        json.replace(aether_poc::observation::MARKER, "[REDACTED]")
+            .as_bytes(),
+    )?;
     writeln!(out)?;
     out.flush()?;
     Ok(())
@@ -25,9 +30,38 @@ fn run() -> Result<()> {
         Action::Help => unreachable!(),
         Action::Validate => emit(&FixtureListing::new(&bundle, false)),
         Action::List => emit(&FixtureListing::new(&bundle, true)),
-        Action::Run { variant } => emit(&endpoint::run_endpoint_roundtrip(
-            fixture::select_endpoint(&bundle, &variant)?,
+        Action::Run { variant, scenario } if scenario == "endpoint-roundtrip" => emit(
+            &endpoint::run_endpoint_roundtrip(fixture::select_endpoint(&bundle, &variant)?)?,
+        ),
+        Action::Run { variant, scenario } => emit(&aether_poc::scenario::run_metric_scenario(
+            &bundle,
+            scenario.parse()?,
+            &variant,
         )?),
+        Action::Verify { variant, scenario } => {
+            let report = aether_poc::scenario::verify_metric_scenario(&bundle, scenario, &variant)?;
+            emit(&report)?;
+            if report.passed {
+                Ok(())
+            } else {
+                Err(PrototypeError::new(
+                    "verification_mismatch",
+                    "required functional check failed",
+                ))
+            }
+        }
+        Action::VerifyMilestone => {
+            let report = aether_poc::scenario::verify_milestone(&bundle)?;
+            emit(&report)?;
+            if report["functional_checks_passed"] == true {
+                Ok(())
+            } else {
+                Err(PrototypeError::new(
+                    "verification_mismatch",
+                    "required milestone check failed",
+                ))
+            }
+        }
         Action::Serve { variant, config } => {
             let server = endpoint::spawn_fixture_server(
                 fixture::select_endpoint(&bundle, &variant)?,
@@ -52,7 +86,11 @@ fn run() -> Result<()> {
 }
 fn main() {
     if let Err(e) = run() {
-        eprintln!("{e}");
+        eprintln!(
+            "{}",
+            e.to_string()
+                .replace(aether_poc::observation::MARKER, "[REDACTED]")
+        );
         std::process::exit(if e.code == "usage" { 2 } else { 1 });
     }
 }

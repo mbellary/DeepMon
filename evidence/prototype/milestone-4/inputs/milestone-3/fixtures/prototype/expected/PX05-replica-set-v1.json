@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX05-replica-set-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "replica_count",
+      "target": "replica-A",
+      "expected_value": 100,
+      "unit": "requests",
+      "state": "known",
+      "record_ids": [
+        "replica-count",
+        "members"
+      ],
+      "reason": "One replica observation references a two-member set; it is not copied per GPU."
+    },
+    {
+      "kind": "occupancy",
+      "target": "gpu-A",
+      "expected_value": 0.5,
+      "unit": "ratio",
+      "state": "known",
+      "record_ids": [
+        "mA"
+      ],
+      "reason": "10/20 = 0.5."
+    },
+    {
+      "kind": "occupancy",
+      "target": "gpu-B",
+      "expected_value": 0.5,
+      "unit": "ratio",
+      "state": "known",
+      "record_ids": [
+        "mB"
+      ],
+      "reason": "20/40 = 0.5."
+    }
+  ],
+  "proof": null
+}
