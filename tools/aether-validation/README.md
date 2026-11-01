@@ -17,3 +17,14 @@ The `generate` command creates the fifteen planning files from the frozen baseli
 Results use exit code 0 for a valid specification, 1 for validation failure, and 2 for invalid command usage. A passing check is not a passing experiment. Unit/integration tests use temporary copies and never change frozen inputs or real planning records.
 
 Dependencies are exact in Cargo.toml and resolved in Cargo.lock. SHA-1 is used only to compare upstream Git blob identities; SHA-256 protects evidence content. No network client, device interface, process-injection facility or production engine dependency is included.
+
+Milestone 2 adds two separate commands:
+
+    cargo run --locked --offline --manifest-path tools/aether-validation/Cargo.toml -- author-fixtures --root .
+    cargo run --locked --offline --manifest-path tools/aether-validation/Cargo.toml -- fixtures --root .
+
+`author-fixtures` constructs invented payloads and literal oracles; `fixtures` reads and validates their packaging, source links, clocks, identities, declared malformed text and simple oracle arithmetic. Neither executes the twelve engine experiments. The payload grammar and phase limits are documented in `docs/prototype-fixture-format.md`.
+
+Authoring refuses differing files, including an already advanced construction-validation ledger. After actual construction evidence is recorded, use `fixtures` for repeatable read-only checks; do not rerun authoring to erase evidence or notes. The fixture-status ledger is separate from accepted Milestone 1 tracking.
+
+Milestone 1's original code/input bytes are preserved under `evidence/prototype/milestone-2/inputs/milestone-1/`. Its original checksum list verifies there; shared live code has intentionally evolved and is identified by the Milestone 2 artifact index. The frozen source-evidence v1 bundle and original requirement/planning records are unchanged.

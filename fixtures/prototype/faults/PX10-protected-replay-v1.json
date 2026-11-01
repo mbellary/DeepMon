@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX10-protected-replay-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "admitted": true,
+      "committed": true,
+      "id": "r0",
+      "kind": "stage",
+      "logical_id": "r0",
+      "persisted": true,
+      "query_visible": true
+    },
+    {
+      "admitted": true,
+      "committed": true,
+      "id": "r1",
+      "kind": "stage",
+      "logical_id": "r1",
+      "persisted": true,
+      "query_visible": true
+    },
+    {
+      "action": "duplicate_retry",
+      "after": "persisted_before_commit",
+      "id": "retry",
+      "kind": "fault",
+      "logical_id": "r0",
+      "sequence": 3
+    }
+  ]
+}

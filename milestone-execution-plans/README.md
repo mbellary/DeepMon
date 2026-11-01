@@ -6,7 +6,8 @@ Use `milestone-NN-execplan.md`, with a two-digit milestone number. Add a link he
 
 | Milestone | Plan | Current status |
 |---|---|---|
-| 1 — Prototype scope and complete requirement tracking | [Milestone 1 execution plan](milestone-01-execplan.md) | Complete — specification/traceability accepted; [evidence](../evidence/prototype/milestone-1.md); Milestone 2 next |
+| 1 — Prototype scope and complete requirement tracking | [Milestone 1 execution plan](milestone-01-execplan.md) | Complete — specification/traceability accepted; [evidence](../evidence/prototype/milestone-1.md) |
+| 2 — Reproducible synthetic fixtures and expected answers | [Milestone 2 execution plan](milestone-02-execplan.md) | Complete — fixture construction accepted; [evidence](../evidence/prototype/milestone-2.md); Milestone 3 next |
 
 Update the per-milestone plan's Progress, Surprises & Discoveries, Decision Log, Outcomes & Retrospective and Revision Notes at each stopping point. Mirror significant status changes and the next unfinished task in the master plan. A plan being ready is different from the milestone being complete. Mark a milestone complete only after its outputs and acceptance checks exist and pass.
 

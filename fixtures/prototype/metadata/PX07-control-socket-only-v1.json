@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX07-control-socket-only-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "id": "control",
+      "is_payload_path": null,
+      "kind": "link",
+      "protocol": "tcp",
+      "socket": "symbolic-control-peer"
+    }
+  ]
+}

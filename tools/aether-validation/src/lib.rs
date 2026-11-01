@@ -1,5 +1,8 @@
 //! Local research-integrity and planning validation; no collector or engine code.
 mod evidence;
+mod fixture_data;
+mod fixture_prom;
+mod fixtures;
 mod generate;
 mod trace;
 
@@ -13,6 +16,8 @@ use std::{
 };
 
 pub use evidence::{EvidenceSummary, check_evidence};
+pub use fixture_data::author_fixtures;
+pub use fixtures::{FixtureSummary, check_fixtures};
 pub use generate::generate_records;
 pub use trace::{TraceabilitySummary, check_traceability};
 

@@ -1,0 +1,15 @@
+docs/prototype-scope.md: OK
+docs/prototype-experiments.json: OK
+docs/prototype-status.json: OK
+docs/prototype-budgets/PX01.json: OK
+docs/prototype-budgets/PX02.json: OK
+docs/prototype-budgets/PX03.json: OK
+docs/prototype-budgets/PX04.json: OK
+docs/prototype-budgets/PX05.json: OK
+docs/prototype-budgets/PX06.json: OK
+docs/prototype-budgets/PX07.json: OK
+docs/prototype-budgets/PX08.json: OK
+docs/prototype-budgets/PX09.json: OK
+docs/prototype-budgets/PX10.json: OK
+docs/prototype-budgets/PX11.json: OK
+docs/prototype-budgets/PX12.json: OK

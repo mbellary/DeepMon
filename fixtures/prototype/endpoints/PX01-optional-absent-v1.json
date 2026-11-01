@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX01-optional-absent-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "family_present": false,
+      "id": "optional",
+      "kind": "gauge",
+      "statistics_active": "unknown",
+      "unit": "capability_state",
+      "value": 0
+    }
+  ]
+}

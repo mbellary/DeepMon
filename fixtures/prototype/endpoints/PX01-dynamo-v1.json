@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX01-dynamo-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "clock_domain": "fixture",
+      "family": "dynamo_frontend_request_duration_seconds",
+      "id": "snapshot",
+      "invented_fields": [
+        "values",
+        "model_alias",
+        "fixture_bucket_boundaries"
+      ],
+      "invented_labels": [],
+      "kind": "endpoint_snapshot",
+      "metric_type": "histogram",
+      "native_labels": [
+        "model"
+      ],
+      "producer": "dynamo_frontend",
+      "scope": "frontend",
+      "source_input_ids": [
+        "E05"
+      ],
+      "time_us": 0,
+      "unit": "seconds"
+    }
+  ]
+}

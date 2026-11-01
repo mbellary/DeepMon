@@ -184,7 +184,10 @@ fn cases() -> Vec<Case> {
     ]
 }
 
-fn write_outputs(root: &Path, outputs: Vec<(String, Vec<u8>)>) -> ValidationResult<usize> {
+pub(crate) fn write_outputs(
+    root: &Path,
+    outputs: Vec<(String, Vec<u8>)>,
+) -> ValidationResult<usize> {
     let base = root.canonicalize().map_err(|e| error("root", e))?;
     // Inspect all destinations before any write: preserve existing/manual content.
     for (relative, bytes) in &outputs {

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX01-sglang-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "clock_domain": "fixture",
+      "family": "sglang:e2e_request_latency_seconds",
+      "id": "snapshot",
+      "invented_fields": [
+        "values",
+        "model_alias",
+        "fixture_bucket_boundaries"
+      ],
+      "invented_labels": [],
+      "kind": "endpoint_snapshot",
+      "metric_type": "histogram",
+      "native_labels": [
+        "model_name"
+      ],
+      "producer": "sglang",
+      "scope": "engine",
+      "source_input_ids": [
+        "E03",
+        "E04"
+      ],
+      "time_us": 0,
+      "unit": "seconds"
+    }
+  ]
+}

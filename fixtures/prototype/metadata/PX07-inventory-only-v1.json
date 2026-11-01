@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX07-inventory-only-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "entity": "fixture-netns/ifindex7",
+      "evidence": "invented_explicit_membership",
+      "id": "nic",
+      "incarnation": "link-one",
+      "kind": "identity",
+      "valid_from_us": 0,
+      "valid_to_us": 20000000
+    },
+    {
+      "capabilities": [
+        "ethernet",
+        "rdma"
+      ],
+      "configured_preference": "roce",
+      "driver": "synthetic-driver",
+      "id": "capability",
+      "kind": "link",
+      "loaded_cuda_nccl": null,
+      "model": "symbolic-NIC",
+      "operation_path": null
+    },
+    {
+      "id": "bytes",
+      "kind": "gauge",
+      "scope": "fixture-netns/ifindex7",
+      "unit": "bytes",
+      "value": 1024
+    }
+  ]
+}

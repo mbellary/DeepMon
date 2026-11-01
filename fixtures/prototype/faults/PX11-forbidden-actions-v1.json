@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX11-forbidden-actions-v1",
+  "clocks": [
+    {
+      "domain": "fixture",
+      "unit": "microseconds",
+      "uncertainty_us": 0,
+      "offset_bounds_us": [
+        0,
+        0
+      ]
+    }
+  ],
+  "records": [
+    {
+      "agreement": null,
+      "attempted_actions": [
+        "enable_metric",
+        "escalate_privilege",
+        "restart_workload"
+      ],
+      "id": "actions",
+      "kind": "policy",
+      "required_limit": null,
+      "runtime_readiness": false
+    }
+  ]
+}

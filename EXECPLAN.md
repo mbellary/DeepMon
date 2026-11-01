@@ -3,7 +3,7 @@
 
 This ExecPlan is a living document. Keep `Progress`, `Surprises & Discoveries`, `Decision Log`, and `Outcomes & Retrospective` current at every stopping point. Maintain it according to repository-root `PLANS.md`, which preserves the user's uploaded planning instructions. The workspace is `/home/mbellary/work/projects/DeepMon`.
 
-The user authorized Milestone 1 execution in Rust and requested the next implementation milestone afterward. Milestone 1 is now complete for scope/specification/traceability acceptance, with evidence at `evidence/prototype/milestone-1.md`. Its detailed plan is `milestone-execution-plans/milestone-01-execplan.md`. Milestones 2–8 remain pending; next is reproducible synthetic fixture creation. There is no existing cluster, and no real engine/hardware or production deployment was accessed.
+The user authorized Milestone 2 execution and requested the next implementation milestone. Milestones 1 and 2 are now accepted for specification/traceability and synthetic fixture construction respectively, with evidence in `evidence/prototype/milestone-1.md` and `evidence/prototype/milestone-2.md`. Milestones 3–8 remain pending. Next is the separate Rust engine prototype harness and loopback fixture server; no real engine/hardware acquisition or production work has occurred.
 
 ## Purpose / Big Picture
 
@@ -37,8 +37,10 @@ Times use Asia/Kolkata, UTC+05:30. Entries marked verified record an inspection 
 - [x] (2026-11-01 21:15 IST, milestone-plan validation) Checked master/detail structure, references, original IDs and pending-task consistency; baseline/frozen evidence hashes remain unchanged and the existing integrity checker passes. Milestone 1 execution outputs remain pending.
 - [x] (2026-11-01 21:24 IST, Rust-only plan revision) Updated the master and detailed milestone plans to use a Rust validation-tool crate, native evidence/traceability commands, Rust record-generation helpers and tests. No port or milestone execution was performed; the historical verifier and frozen records remain intact.
 - [x] (2026-11-01 21:39 IST, Milestone 1 accepted) Completed M1.1–M1.7 in Rust: scope, twelve experiment specifications/budget proposals, complete 250-metric/58-association tracking and locked evidence/generation/traceability tooling. Selected 23 metrics and 42 associations; all other requirements retained. Integrity/traceability, 30 Rust integration tests, Clippy, format and unchanged-input checks pass. Evidence: `evidence/prototype/milestone-1.md`. Detailed plan/index synchronized; next is Milestone 2, not yet started.
-- [ ] Milestone 2: create labeled synthetic endpoint, metadata, event and failure fixtures, with known expected results and documented source references.
-- [ ] Milestone 3: create the isolated Rust engine prototype harness and fixture server. Only the separate Milestone 1 Rust validation tool exists.
+- [x] (2026-11-01 21:51 IST, Milestone 2 planning) Created `milestone-execution-plans/milestone-02-execplan.md` under PLANS.md with M2.1–M2.7, bundle/record/oracle formats, twelve-group fixture coverage, Rust validation and tests, predecessor preservation, separate fixture-status tracking and acceptance/handoff. No execution tasks are marked complete.
+- [x] (2026-11-01 21:52 IST, Milestone 2 plan validation) Checked required plan sections/format, links, twelve fixture-group IDs and master/detail pending states. Existing Rust evidence/traceability checks pass; M1 artifacts and original baseline hashes remain unchanged. Fixture execution is not claimed.
+- [x] (2026-11-01 22:13 IST, Milestone 2 accepted) Completed M2.1–M2.7: twelve groups, 36 variants, 82 indexed payload files, independent expected answers, format/status records, verified M1 predecessor and Rust fixture validation/authoring. All 70 integration tests (40 new plus 30 regressions), Clippy, formatting, source/traceability and preservation checks pass. Evidence: `evidence/prototype/milestone-2.md`. Runtime experiments remain unexecuted; next is Milestone 3.
+- [ ] Milestone 3: create the isolated Rust engine prototype harness and fixture server. Milestones 1–2 delivered validation tooling and fixture files; no engine harness exists.
 - [ ] Milestone 4: prototype native metric parsing and selected calculations against the fixture endpoints; preserve source meanings and unsupported cases.
 - [ ] Milestone 5: prototype metadata enrichment using simulated identities and lifecycle changes; prevent duplicate counts and incorrect remote-worker attribution.
 - [ ] Milestone 6: prototype bounded buffering, a local recovery journal, Arrow/Parquet output and DataFusion queries with simulated storage faults.
@@ -48,6 +50,18 @@ Times use Asia/Kolkata, UTC+05:30. Entries marked verified record an inspection 
 
 ## Surprises & Discoveries
 
+
+Observation: Milestone 2 can pass construction validation while engine behavior remains untested.
+
+Evidence: twelve groups/36 variants/82 payload files and their links/oracles pass Rust checks and 70 integration tests. The separate fixture ledger records construction evidence, while accepted M1 tracking retains all 250/58 IDs, experiment execution not_run and runtime readiness false. No source route, owner agreement or real qualification was changed.
+
+Observation: extending the shared validation tool changes files named in the accepted Milestone 1 artifact hash list.
+
+Evidence: Milestone 2's detailed plan preserves a verified predecessor snapshot before code changes and records new current-tool hashes separately. The original M1 hashes, planning files and frozen v1 evidence must not be regenerated. Fixture-authoring status is tracked separately so unexecuted experiments remain not_run.
+
+Observation: PX02's counting unit is successful requests per second, not tokens per second.
+
+Evidence: the accepted registry uses a Triton success count of 100 to 150 over ten virtual seconds. The Milestone 4 illustrative sentence is corrected below to match that source population; product requirements and source mappings remain unchanged.
 
 Observation: Milestone 1 acceptance does not require or establish runtime experiment acceptance.
 
@@ -59,7 +73,7 @@ Evidence: the revised M1.1 creates a small crate and dependency lock under `tool
 
 Observation: a milestone plan being complete is different from the milestone outputs passing acceptance.
 
-Evidence: Milestone 1 now has a detailed execution plan, but its scope/status/experiment/budget files and traceability checker are still future outputs. The per-milestone Progress section records those tasks independently of plan authoring; the master retains Milestone 1 as incomplete.
+Evidence: at Milestone 1 plan creation those outputs were future work; they were later implemented and accepted with thirty Rust integration tests. Milestone 2's current plan authoring follows the same distinction: its fixture artifacts and validator remain pending.
 
 Observation: no existing cluster is available, so a real deployment cannot be inferred as the first validation environment.
 
@@ -148,19 +162,27 @@ Decision: accept Milestone 1's Rust specification/traceability deliverables and 
 Rationale: scope/status/registry/twelve budget records now exist; the Rust verifier/generator/validator and 30 integration tests pass without Python. Frozen evidence and research requirements are unchanged. The user requested completion followed by a next-milestone suggestion, not automatic execution of Milestone 2.
 Date/Author: 2026-11-01 21:39 IST / Codex.
 
+Decision: use `milestone-execution-plans/milestone-02-execplan.md` for detailed fixture execution progress, with a separate fixture-authoring ledger and preserved Milestone 1 predecessor snapshot.
+Rationale: the user requested a detailed plan and updates to both plans. Existing source/tracking evidence must remain reproducible; fixture-validation success must not be confused with engine experiment execution or real capability verification. Rust-only implementation continues.
+Date/Author: 2026-11-01 21:51 IST / Codex, applying user direction.
+
+Decision: accept Milestone 2 construction/validation deliverables and retain Milestones 3–8 as pending.
+Rationale: the user authorized execution followed by a next-milestone suggestion. The Rust fixture commands, independent data/oracles and 70 passing tests provide the planned evidence. Verified predecessor bytes preserve M1 reproducibility; neither authored expectations nor construction checks count as engine execution.
+Date/Author: 2026-11-01 22:13 IST / Codex, applying user direction.
+
 ## Outcomes & Retrospective
 
 
-Milestone 1 is complete for its defined scope. The locked Rust validation package verifies frozen evidence, generates planning records without overwriting manual changes, and checks complete original requirements, dependencies, selection links and honest execution/budget states. `docs/prototype-scope.md`, `docs/prototype-experiments.json`, `docs/prototype-status.json` and twelve proposed budget records exist. Tracking includes all 250 metrics and 58 associations; 23 and 42 are selected for planned fixtures, while 227 and 16 remain not_prototyped.
+Milestones 1 and 2 are complete within the prototype preparation scope. Milestone 1 retains all 250 metrics and 58 associations, with 23/42 selected for twelve experiments. Milestone 2 delivers the actual invented fixture bundle: twelve groups, 36 variants and 82 indexed payload files, plus format notes, independent expected answers and a separate construction-status ledger.
 
-The evidence verifier passes ten source inputs and 24 artifacts; traceability passes with no missing/duplicate IDs. All 30 Rust integration tests, strict Clippy, format checks and input-preservation checks pass. Evidence, exact commands, logs and file hashes are recorded in `evidence/prototype/milestone-1.md`. No Python runtime was required. The master, detailed plan and folder index now track the accepted state.
+Rust evidence/traceability/fixture commands pass, along with 70 integration tests, strict Clippy, formatting and preservation checks. M1's accepted source/input bytes are preserved under `evidence/prototype/milestone-2/inputs/milestone-1/`; current M2 code/data hashes and logs are in `evidence/prototype/milestone-2.md`. Original requirements, source routes, M1 planning records and frozen v1 sources remain unchanged. No Python was required and no new dependency was added.
 
-No telemetry experiment has run, no real schema or capability has been verified, no runtime budget has been agreed and no engine fixture/harness/collector was implemented. Current source routes remain E:88/R:35/H:100/I:26/U:1; L1-001/L1-005 and other semantic limits remain visible. Production architecture is unscoped. Milestones 2–8 remain pending. The next implementation milestone is Milestone 2: create reproducible synthetic fixtures and expected answers from the experiment registry.
+All twelve engine experiments remain unexecuted; no real source schema, device capability, physical timing, inference overhead or production durability has been verified. Proposed budgets remain unagreed. The next implementation milestone is Milestone 3: the isolated Rust prototype harness and loopback fixture server that consume this bundle. Milestones 3–8 remain pending; production architecture remains unscoped.
 
 ## Context and Orientation
 
 
-The repository is `/home/mbellary/work/projects/DeepMon`. `README.md` currently contains the heading `DeepMon`. Product research uses the name Aether. The current deliverables are `aether-metrics-catalog.md` and `.json`, `engine-native-metrics-baseline.md`, `metadata-enrichment-matrix.md`, and `metric-to-source-coverage-matrix.md` and `.json`. `source-mapping-recheck.md` records the completed scope-error audit and remaining source-validation limits. `zero-application-change-collection-contract.md` defines the initial source/action boundary, and `collection-acceptance-budget-template.json` records the unset run-specific limits and decision process. `validation-evidence-baseline.md` explains the pinned source bundle, historical-U ledger and first synthetic environment. `scripts/check-evidence-inputs.py` is the historical evidence verifier. The revised executable path replaces it with `aether-validate evidence` from `tools/aether-validation/`, implemented in Rust in the completed M1.1; no Python subprocess is permitted. `milestone-execution-plans/README.md` indexes per-milestone plans; `milestone-execution-plans/milestone-01-execplan.md` contains the detailed Milestone 1 sequence, schemas, commands, acceptance and task checklist. `PLANS.md` contains the plan-writing rules. `EXECPLAN.md` is this plan. Before milestone execution no Rust package existed. Milestone 1 now adds the isolated validation package and Cargo.lock under `tools/aether-validation/`; the engine package at `prototypes/aether-poc/` remains future Milestone 3 work. Inspect the checkout before future execution; do not overwrite new user work if this changes.
+The repository is `/home/mbellary/work/projects/DeepMon`. `README.md` currently contains the heading `DeepMon`. Product research uses the name Aether. The current deliverables are `aether-metrics-catalog.md` and `.json`, `engine-native-metrics-baseline.md`, `metadata-enrichment-matrix.md`, and `metric-to-source-coverage-matrix.md` and `.json`. `source-mapping-recheck.md` records the completed scope-error audit and remaining source-validation limits. `zero-application-change-collection-contract.md` defines the initial source/action boundary, and `collection-acceptance-budget-template.json` records the unset run-specific limits and decision process. `validation-evidence-baseline.md` explains the pinned source bundle, historical-U ledger and first synthetic environment. `scripts/check-evidence-inputs.py` is the historical evidence verifier. The revised executable path replaces it with `aether-validate evidence` from `tools/aether-validation/`, implemented in Rust in the completed M1.1; no Python subprocess is permitted. `milestone-execution-plans/README.md` indexes per-milestone plans; `milestone-execution-plans/milestone-01-execplan.md` contains accepted Milestone 1 tracking; `milestone-execution-plans/milestone-02-execplan.md` records accepted fixture tasks, interfaces, commands and handoff; `fixtures/prototype/manifest.json`, `docs/prototype-fixture-format.md` and `docs/prototype-fixture-status.json` are the delivered construction artifacts. `PLANS.md` contains the plan-writing rules. `EXECPLAN.md` is this plan. Before milestone execution no Rust package existed. Milestone 1 now adds the isolated validation package and Cargo.lock under `tools/aether-validation/`; the engine package at `prototypes/aether-poc/` remains future Milestone 3 work. Inspect the checkout before future execution; do not overwrite new user work if this changes.
 
 The four metric layers describe request/generation behavior, serving-engine/cache behavior, distributed execution/fabric behavior, and host/GPU infrastructure. Requirement IDs such as `L1-001` are stable references into the 250-family catalog. Association IDs `M01` through `M58` describe context relationships such as process-to-container or replica-to-GPU. All must remain represented in the prototype tracking file, even when not tested.
 
@@ -195,6 +217,10 @@ Acceptance is a reviewer-readable experiment list and a status file with exactly
 ### Milestone 2: create reproducible synthetic fixtures
 
 
+Use [the detailed Milestone 2 execution plan](milestone-execution-plans/milestone-02-execplan.md) for M2.1–M2.7 progress and evidence. Its M2.1–M2.7 tasks are implemented and accepted; actual results are in `evidence/prototype/milestone-2.md`. Besides the bundle below, it specifies `docs/prototype-fixture-format.md`, a separate `docs/prototype-fixture-status.json`, a Rust `aether-validate fixtures` command/tests and `evidence/prototype/milestone-2.md`. Preserve a verifiable predecessor copy of accepted M1 tool/input files before changing shared code; do not rewrite M1 hashes, accepted planning records or the frozen v1 bundle.
+
+The separate ledger records authored/validated fixture state while original experiment execution stays not_run and runtime budgets remain proposed/unagreed. Parent groups must match all twelve PX registry entries, with independently written positive and negative oracles; variants are not new product requirements. Update detailed/master/index status at every stopping point, and mark Milestone 2 complete only when actual artifact and Rust construction checks pass. Engine/harness behavior remains later work.
+
 Create `fixtures/prototype/manifest.json` and fixture directories for `endpoints`, `metadata`, `events`, `faults` and `expected`. The manifest records fixture ID, `synthetic=true`, source-document/build reference where available, invented fields, virtual timestamps, related L/M IDs, expected result and limits of the evidence. Virtual timestamps are supplied by the fixture so tests do not depend on wall-clock sleep.
 
 For endpoints, provide vLLM-like, SGLang-like and Dynamo-like text exports with counters, gauges and histograms. They are format/meaning experiments, not genuine compatibility certificates. Include missing optional families, reset counters, malformed text, model aliases, source labels and backend/framework counts for the same logical output. Include a histogram whose name ends in `_total` to prevent blind suffix stripping. Do not claim a fixture matches an exact release when its documentation/build reference is unpinned or inconsistent.
@@ -223,7 +249,7 @@ Implement fixture endpoint parsing in `src/endpoint.rs` and calculations in `src
 
 Calculate output-token rates from one defined counting boundary. Handle counter reset and source incarnation. Use an explicit synthetic completion policy when a fixture contains multiple finish reasons. Calculate cache ratios only with matching token/block/request denominators. Where an SLO, meaning a latency/service objective, is used in a test, declare its threshold and population in that fixture. Do not reconstruct original request events, exact variance or joint goodput from insufficient histogram data.
 
-The positive rate case must return five tokens per second for the fixture described in Milestone 2. A duplicate framework/backend case must not return ten for the same logical outputs. A counter reset must not produce a negative rate. A threshold not represented exactly by histogram buckets must produce a bound/estimate with that label or an unavailable result, never an invented exact answer.
+PX02's positive source-success rate case must return five successful requests per second for the Milestone 2 snapshots. PX04's duplicated framework/backend view of ten logical requests must retain ten within the selected counting boundary, not twenty. A separate token-rate case would require explicit token counters, population, units and expected answers; do not relabel these request observations as tokens. A counter reset must not produce a negative rate. A threshold not represented exactly by histogram buckets must produce a bound/estimate with that label or an unavailable result, never an invented exact answer.
 
 Acceptance consists of these assertions and a report showing which native fixture observations were read, which derived results were justified, and which requested values remain unknown. This demonstrates parser/calculation behavior only, not actual vLLM/SGLang/Dynamo deployment support.
 
@@ -274,7 +300,7 @@ Acceptance is a novice following the local instructions to run the demonstration
 ## Concrete Steps
 
 
-For Milestone 1, follow `milestone-execution-plans/milestone-01-execplan.md` in order. Its commands distinguish current evidence-integrity checks from the future traceability checker; do not claim the future commands have run before their files exist. Keep the per-milestone and master Progress sections synchronized.
+For accepted Milestone 1 behavior, consult `milestone-execution-plans/milestone-01-execplan.md`. For the next fixture work, follow `milestone-execution-plans/milestone-02-execplan.md` in order; its fixtures command is now implemented and accepted, distinct from future engine experiment commands. Its commands distinguish current evidence-integrity checks from the future traceability checker; do not claim the future commands have run before their files exist. Keep the per-milestone and master Progress sections synchronized.
 
 Before creating experiment artifacts, implement the Rust evidence command and tool lockfile in M1.1, then run from `/home/mbellary/work/projects/DeepMon`:
 
@@ -346,6 +372,8 @@ These Rust validation commands and 30 integration tests are now implemented and 
 ## Validation and Acceptance
 
 
+Milestone 2 plan-authoring acceptance is a complete PLANS.md-compliant detailed plan, valid prerequisite links, synchronized master/index progress, explicit future fixture/validator outputs and unchanged M1/v1 artifacts. That authoring check alone did not complete M2.1–M2.7. Their execution acceptance is now supported by the twelve-group bundle, 70 passing Rust integration tests, unchanged-input checks and `evidence/prototype/milestone-2.md`. Actual fixture acceptance additionally requires the defined bundle/oracles/ledger, preserved predecessor, Rust fixture checks and negative tests, regressions and an evidence report. No construction check can mark a telemetry experiment or deployed capability verified.
+
 The original milestone-plan authoring acceptance required a detailed Milestone 1 plan and shared folder index that comply with `PLANS.md`, consistent master/detail progress, working links to existing prerequisites, explicit future deliverables and no changes to the baseline/evidence inputs. That authoring check alone did not complete Milestone 1. Actual execution acceptance is now supported by `evidence/prototype/milestone-1.md`: all outputs exist, integrity/traceability pass, thirty Rust integration tests pass and baseline hashes remain unchanged.
 
 Previously completed research preparation includes verified source snapshot/content hashes, a complete 26-row reconciliation ledger, unchanged route totals and an actual local environment fingerprint with real validation explicitly pending. The collection contract, budget template, source-matrix links and plan must continue to agree on initial profiles, allowed actions and unset budgets. The 250-family requirements catalog and 58-association matrix remain byte-for-byte unchanged. All milestone execution remains limited to prototypes and synthetic fixtures. Rust validation tooling is implemented; no inference-engine implementation or deployed compatibility is claimed. Required living sections and progress tracking remain present.
@@ -398,6 +426,12 @@ The research baseline remains:
     milestone_1_execution_acceptance=passed
     validation_tool_implemented=true
     telemetry_experiments_executed=0
+    milestone_2_plan=milestone-execution-plans/milestone-02-execplan.md
+    milestone_2_planning=complete
+    milestone_2_execution_acceptance=passed
+    fixture_groups_authored=12
+    fixture_variants_authored=36
+    fixture_payload_files=82
     prototype_implemented=false
 
 The prototype does not need to simulate every requirement to be useful. It must account for every requirement without calling untested work complete. Keep the 18 previously proposed collection-health companion families separate from the original 250; testing some companion behavior does not silently change the catalog count.
@@ -478,3 +512,9 @@ Use Rust dependencies needed for these experiments: structured fixture/configura
 2026-11-01 21:24 IST: applied the user's Rust-only preference to milestone tooling as well as the engine. M1.1 now creates an isolated Rust validation crate/lockfile and ports evidence verification before tracing/planning checks. All executable Python commands were removed from the master/detail plans; historical evidence is retained and no Rust implementation or tests are claimed complete.
 
 2026-11-01 21:39 IST: completed and accepted Milestone 1 execution in Rust. Retained all 250 metrics/58 associations and source routes, selected 23 metrics/42 associations for twelve future cases, delivered locked validation tooling and fifteen planning outputs, and recorded 30 passing integration tests plus Clippy/format/integrity checks. Evidence is `evidence/prototype/milestone-1.md`. Detailed plan/index updated. Milestone 2 fixture authoring is the next implementation milestone; no later milestone or runtime capability is marked complete.
+
+2026-11-01 21:51 IST: created the detailed Milestone 2 fixture ExecPlan under PLANS.md, added its folder-index entry and synchronized master tracking. Defined twelve-group coverage, fixture/variant formats, independent expected answers, Rust construction validation, predecessor preservation and separate fixture-authoring state. Corrected the old rate-example unit to requests/second in line with PX02, without changing requirements or mappings. Only planning/prerequisite inspection is complete; Milestone 2 execution and Milestones 3–8 remain pending.
+
+2026-11-01 21:52 IST: completed Milestone 2 plan-authoring validation and synchronized the detailed/master progress records. Existing evidence and M1 delivered artifacts remain intact. All M2 execution tasks remain pending; no fixture, runtime result or validator implementation is delivered by this update.
+
+2026-11-01 22:13 IST: executed and accepted Milestone 2. Delivered twelve groups/36 variants/82 payloads, independent oracles, format/status records and Rust construction checks; preserved M1 predecessor bytes and all original research/planning inputs. Passed 70 tests, Clippy, formatting, evidence/traceability and integrity checks. Detailed plan/index and evidence synchronized. Milestone 3 isolated Rust harness/loopback server is next and has not started; all runtime/real capability/budget claims remain unverified.

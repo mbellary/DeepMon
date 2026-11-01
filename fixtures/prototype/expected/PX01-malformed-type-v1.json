@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "variant_id": "PX01-malformed-type-v1",
+  "experiment_execution_status": "not_run",
+  "assertions": [
+    {
+      "kind": "rejection",
+      "target": "payload",
+      "expected_value": "TYPE_INVALID",
+      "unit": "error_code",
+      "state": "rejected",
+      "record_ids": [
+        "snapshot"
+      ],
+      "reason": "The bounded fixture parser must reject the actual invalid TYPE declaration."
+    }
+  ],
+  "proof": null
+}
