@@ -1,0 +1,372 @@
+{
+  "bundle_id": "aether-source-evidence-v1",
+  "manifest_version": 1,
+  "created_at_utc": "2026-11-01T15:31:27.310320+00:00",
+  "evidence_scope": "upstream source/documentation and frozen local baseline; no authentic endpoint export or capability capture",
+  "source_metadata": "evidence/inputs/v1/source-metadata.json",
+  "source_inputs": [
+    {
+      "id": "E01",
+      "source_key": "V",
+      "repository": "vllm-project/vllm",
+      "commit": "8530a778f78dc7cd9a31e108ebc035c4b27ceb3c",
+      "commit_date": "2026-11-01T15:03:44Z",
+      "upstream_path": "docs/usage/metrics.md",
+      "blob_sha1": "ef75ce11c1fc2a73dfc599cc22e94bc977ae8a39",
+      "url": "https://github.com/vllm-project/vllm/blob/8530a778f78dc7cd9a31e108ebc035c4b27ceb3c/docs/usage/metrics.md",
+      "snapshot": "evidence/inputs/v1/E01.source.txt",
+      "evidence_kind": "upstream_documentation_or_source_not_deployed_export",
+      "captured_at": "2026-11-01",
+      "deployment_verification": "not_run",
+      "schema_compatibility": "not_certified",
+      "sha256": "e9ccdc8256873f4273c7e0e66ebafea93a04fe3dd98e628f445d8ab7032c3e3e",
+      "bytes": 6156
+    },
+    {
+      "id": "E02",
+      "source_key": "V",
+      "repository": "vllm-project/vllm",
+      "commit": "8530a778f78dc7cd9a31e108ebc035c4b27ceb3c",
+      "commit_date": "2026-11-01T15:03:44Z",
+      "upstream_path": "vllm/v1/metrics/loggers.py",
+      "blob_sha1": "65acc49ac0e03bd3fe5fdc8bd4e2b8f929f3d094",
+      "url": "https://github.com/vllm-project/vllm/blob/8530a778f78dc7cd9a31e108ebc035c4b27ceb3c/vllm/v1/metrics/loggers.py",
+      "snapshot": "evidence/inputs/v1/E02.source.txt",
+      "evidence_kind": "upstream_documentation_or_source_not_deployed_export",
+      "captured_at": "2026-11-01",
+      "deployment_verification": "not_run",
+      "schema_compatibility": "not_certified",
+      "sha256": "a17291f044251f1586457b6bd1542f98660724dd07a426d61ce852186b95b9e1",
+      "bytes": 59481
+    },
+    {
+      "id": "E03",
+      "source_key": "SG",
+      "repository": "sgl-project/sglang",
+      "commit": "e2982985110fb432fd8ddba5f0147a5004fd03ab",
+      "commit_date": "2026-11-01T14:21:05Z",
+      "upstream_path": "docs/docs/references/production_metrics.mdx",
+      "blob_sha1": "edf96a17dec4d60c828183319d83bf043077735f",
+      "url": "https://github.com/sgl-project/sglang/blob/e2982985110fb432fd8ddba5f0147a5004fd03ab/docs/docs/references/production_metrics.mdx",
+      "snapshot": "evidence/inputs/v1/E03.source.txt",
+      "evidence_kind": "upstream_documentation_or_source_not_deployed_export",
+      "captured_at": "2026-11-01",
+      "deployment_verification": "not_run",
+      "schema_compatibility": "not_certified",
+      "sha256": "a05a65699c4597d4a0b9aac6aaecfda0f97cb5d1077312fd1d689f32cab03acf",
+      "bytes": 17064
+    },
+    {
+      "id": "E04",
+      "source_key": "SG",
+      "repository": "sgl-project/sglang",
+      "commit": "e2982985110fb432fd8ddba5f0147a5004fd03ab",
+      "commit_date": "2026-11-01T14:21:05Z",
+      "upstream_path": "python/sglang/srt/observability/metrics_collector.py",
+      "blob_sha1": "f5844af1d72d1a7a766f825139c721b93050bbeb",
+      "url": "https://github.com/sgl-project/sglang/blob/e2982985110fb432fd8ddba5f0147a5004fd03ab/python/sglang/srt/observability/metrics_collector.py",
+      "snapshot": "evidence/inputs/v1/E04.source.txt",
+      "evidence_kind": "upstream_documentation_or_source_not_deployed_export",
+      "captured_at": "2026-11-01",
+      "deployment_verification": "not_run",
+      "schema_compatibility": "not_certified",
+      "sha256": "6dd66821fa46ac3edb51b1e0e8b7860d5cf9bda7c9ce198d1fcc9b502281d25f",
+      "bytes": 118714
+    },
+    {
+      "id": "E05",
+      "source_key": "D",
+      "repository": "ai-dynamo/dynamo",
+      "commit": "6bcaabcb39cbf98ef048a6ef3145825b18118f3e",
+      "commit_date": "2026-11-01T12:11:59Z",
+      "upstream_path": "docs/fern/pages/reference/observability/metrics-catalog.mdx",
+      "blob_sha1": "7aeadfd41e6bc13321f361436498859525fd070d",
+      "url": "https://github.com/ai-dynamo/dynamo/blob/6bcaabcb39cbf98ef048a6ef3145825b18118f3e/docs/fern/pages/reference/observability/metrics-catalog.mdx",
+      "snapshot": "evidence/inputs/v1/E05.source.txt",
+      "evidence_kind": "upstream_documentation_or_source_not_deployed_export",
+      "captured_at": "2026-11-01",
+      "deployment_verification": "not_run",
+      "schema_compatibility": "not_certified",
+      "sha256": "cea1574860e708d9f3435767e89d963c4b011425741f707d434a7da8626f8102",
+      "bytes": 84080
+    },
+    {
+      "id": "E06",
+      "source_key": "TGI",
+      "repository": "huggingface/text-generation-inference",
+      "commit": "b4adbf2f6e2e721280bd0ea5f91d70f7d033f5ed",
+      "commit_date": "2026-03-21T11:34:22Z",
+      "upstream_path": "docs/source/reference/metrics.md",
+      "blob_sha1": "d34d38eab7d94563cb54949c28c6ad044305a672",
+      "url": "https://github.com/huggingface/text-generation-inference/blob/b4adbf2f6e2e721280bd0ea5f91d70f7d033f5ed/docs/source/reference/metrics.md",
+      "snapshot": "evidence/inputs/v1/E06.source.txt",
+      "evidence_kind": "upstream_documentation_or_source_not_deployed_export",
+      "captured_at": "2026-11-01",
+      "deployment_verification": "not_run",
+      "schema_compatibility": "not_certified",
+      "sha256": "34ac4da8dbeb2627dc5f530c4ecc05a1a18490b3d3762fabd097dc63c39e1d37",
+      "bytes": 3935
+    },
+    {
+      "id": "E07",
+      "source_key": "TGI",
+      "repository": "huggingface/text-generation-inference",
+      "commit": "b4adbf2f6e2e721280bd0ea5f91d70f7d033f5ed",
+      "commit_date": "2026-03-21T11:34:22Z",
+      "upstream_path": "router/src/server.rs",
+      "blob_sha1": "7f0bf74ebe0939aa0347cb9431ccdd6d409ba169",
+      "url": "https://github.com/huggingface/text-generation-inference/blob/b4adbf2f6e2e721280bd0ea5f91d70f7d033f5ed/router/src/server.rs",
+      "snapshot": "evidence/inputs/v1/E07.source.txt",
+      "evidence_kind": "upstream_documentation_or_source_not_deployed_export",
+      "captured_at": "2026-11-01",
+      "deployment_verification": "not_run",
+      "schema_compatibility": "not_certified",
+      "sha256": "2dee1391936c9bac1280538efba2497cb39c84263de8c796f356541ff485fadc",
+      "bytes": 90743
+    },
+    {
+      "id": "E08",
+      "source_key": "TR",
+      "repository": "triton-inference-server/server",
+      "commit": "44b22e89d167bb25d016e59fda7d42da9bb36a3f",
+      "commit_date": "2026-10-28T20:28:06Z",
+      "upstream_path": "docs/user_guide/metrics.md",
+      "blob_sha1": "3d41872f42de9a6dcef43e8517e0642ce0362e9d",
+      "url": "https://github.com/triton-inference-server/server/blob/44b22e89d167bb25d016e59fda7d42da9bb36a3f/docs/user_guide/metrics.md",
+      "snapshot": "evidence/inputs/v1/E08.source.txt",
+      "evidence_kind": "upstream_documentation_or_source_not_deployed_export",
+      "captured_at": "2026-11-01",
+      "deployment_verification": "not_run",
+      "schema_compatibility": "not_certified",
+      "sha256": "4c300d6f69a2ade1dcde5dce9ed5f22cb61a58596f7445cd9db13011c256ab23",
+      "bytes": 26593
+    },
+    {
+      "id": "E09",
+      "source_key": "RT",
+      "repository": "NVIDIA/TensorRT-LLM",
+      "commit": "5d86481f60bdb137c1a2ecd283125f8d944c3635",
+      "commit_date": "2026-11-01T06:20:12Z",
+      "upstream_path": "tensorrt_llm/metrics/collector.py",
+      "blob_sha1": "d96309c4ebcd7198342c874fd650d199cbe63444",
+      "url": "https://github.com/NVIDIA/TensorRT-LLM/blob/5d86481f60bdb137c1a2ecd283125f8d944c3635/tensorrt_llm/metrics/collector.py",
+      "snapshot": "evidence/inputs/v1/E09.source.txt",
+      "evidence_kind": "upstream_documentation_or_source_not_deployed_export",
+      "captured_at": "2026-11-01",
+      "deployment_verification": "not_run",
+      "schema_compatibility": "not_certified",
+      "sha256": "773d665a541e36eb1145c255f38e8a33808b1e14997706a74d50d30679498603",
+      "bytes": 63358
+    },
+    {
+      "id": "E10",
+      "source_key": "TB",
+      "repository": "triton-inference-server/tensorrtllm_backend",
+      "commit": "4a2a42a9f66e287c0eeb2dd12ade7fccef787506",
+      "commit_date": "2026-10-06T21:48:19Z",
+      "upstream_path": "README.md",
+      "blob_sha1": "5cbcbec2cd86020afa0c6d90cdb7dac38d052546",
+      "url": "https://github.com/triton-inference-server/tensorrtllm_backend/blob/4a2a42a9f66e287c0eeb2dd12ade7fccef787506/README.md",
+      "snapshot": "evidence/inputs/v1/E10.source.txt",
+      "evidence_kind": "upstream_documentation_or_source_not_deployed_export",
+      "captured_at": "2026-11-01",
+      "deployment_verification": "not_run",
+      "schema_compatibility": "not_certified",
+      "sha256": "ea90b7ab6b9c14dc49ba91f4d701f49147960a02e65e83e5164be2235de845a8",
+      "bytes": 27066
+    }
+  ],
+  "local_inputs": [
+    {
+      "id": "B01",
+      "original_path": "aether-metrics-catalog.json",
+      "snapshot": "evidence/inputs/v1/local/B01.aether-metrics-catalog.json",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    },
+    {
+      "id": "B02",
+      "original_path": "metadata-enrichment-matrix.md",
+      "snapshot": "evidence/inputs/v1/local/B02.metadata-enrichment-matrix.md",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    },
+    {
+      "id": "B03",
+      "original_path": "metric-to-source-coverage-matrix.json",
+      "snapshot": "evidence/inputs/v1/local/B03.metric-to-source-coverage-matrix.json",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    },
+    {
+      "id": "B04",
+      "original_path": "engine-native-metrics-baseline.md",
+      "snapshot": "evidence/inputs/v1/local/B04.engine-native-metrics-baseline.md",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    },
+    {
+      "id": "B05",
+      "original_path": "zero-application-change-collection-contract.md",
+      "snapshot": "evidence/inputs/v1/local/B05.zero-application-change-collection-contract.md",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    },
+    {
+      "id": "B06",
+      "original_path": "collection-acceptance-budget-template.json",
+      "snapshot": "evidence/inputs/v1/local/B06.collection-acceptance-budget-template.json",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    },
+    {
+      "id": "B07",
+      "original_path": "PLANS.md",
+      "snapshot": "evidence/inputs/v1/local/B07.PLANS.md",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    },
+    {
+      "id": "B08",
+      "original_path": "source-mapping-recheck.md",
+      "snapshot": "evidence/inputs/v1/local/B08.source-mapping-recheck.md",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    },
+    {
+      "id": "B09",
+      "original_path": "aether-metrics-catalog.md",
+      "snapshot": "evidence/inputs/v1/local/B09.aether-metrics-catalog.md",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    },
+    {
+      "id": "B10",
+      "original_path": "metric-to-source-coverage-matrix.md",
+      "snapshot": "evidence/inputs/v1/local/B10.metric-to-source-coverage-matrix.md",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    },
+    {
+      "id": "B11",
+      "original_path": "validation-evidence-baseline.md",
+      "snapshot": "evidence/inputs/v1/local/B11.validation-evidence-baseline.md",
+      "role": "frozen local research/policy baseline, not deployed evidence"
+    }
+  ],
+  "reconciliation": "evidence/reconciliation-v1.json",
+  "environment": "validation/first-environment-v1.json",
+  "artifacts": [
+    {
+      "path": "evidence/inputs/v1/E01.source.txt",
+      "bytes": 6156,
+      "sha256": "e9ccdc8256873f4273c7e0e66ebafea93a04fe3dd98e628f445d8ab7032c3e3e"
+    },
+    {
+      "path": "evidence/inputs/v1/E02.source.txt",
+      "bytes": 59481,
+      "sha256": "a17291f044251f1586457b6bd1542f98660724dd07a426d61ce852186b95b9e1"
+    },
+    {
+      "path": "evidence/inputs/v1/E03.source.txt",
+      "bytes": 17064,
+      "sha256": "a05a65699c4597d4a0b9aac6aaecfda0f97cb5d1077312fd1d689f32cab03acf"
+    },
+    {
+      "path": "evidence/inputs/v1/E04.source.txt",
+      "bytes": 118714,
+      "sha256": "6dd66821fa46ac3edb51b1e0e8b7860d5cf9bda7c9ce198d1fcc9b502281d25f"
+    },
+    {
+      "path": "evidence/inputs/v1/E05.source.txt",
+      "bytes": 84080,
+      "sha256": "cea1574860e708d9f3435767e89d963c4b011425741f707d434a7da8626f8102"
+    },
+    {
+      "path": "evidence/inputs/v1/E06.source.txt",
+      "bytes": 3935,
+      "sha256": "34ac4da8dbeb2627dc5f530c4ecc05a1a18490b3d3762fabd097dc63c39e1d37"
+    },
+    {
+      "path": "evidence/inputs/v1/E07.source.txt",
+      "bytes": 90743,
+      "sha256": "2dee1391936c9bac1280538efba2497cb39c84263de8c796f356541ff485fadc"
+    },
+    {
+      "path": "evidence/inputs/v1/E08.source.txt",
+      "bytes": 26593,
+      "sha256": "4c300d6f69a2ade1dcde5dce9ed5f22cb61a58596f7445cd9db13011c256ab23"
+    },
+    {
+      "path": "evidence/inputs/v1/E09.source.txt",
+      "bytes": 63358,
+      "sha256": "773d665a541e36eb1145c255f38e8a33808b1e14997706a74d50d30679498603"
+    },
+    {
+      "path": "evidence/inputs/v1/E10.source.txt",
+      "bytes": 27066,
+      "sha256": "ea90b7ab6b9c14dc49ba91f4d701f49147960a02e65e83e5164be2235de845a8"
+    },
+    {
+      "path": "evidence/inputs/v1/source-metadata.json",
+      "bytes": 8517,
+      "sha256": "1208403e41ae30fee71a1dcde28fc8c15a3a25403c7b91480fc61b84c5397753"
+    },
+    {
+      "path": "evidence/reconciliation-v1.json",
+      "bytes": 25917,
+      "sha256": "5f4702de054710e0d3438535e13e68274912aa0819815e8191b78d3817b63d66"
+    },
+    {
+      "path": "validation/first-environment-v1.json",
+      "bytes": 3521,
+      "sha256": "8665c3faea21e857a0a5c838b7152a2fc69ffc88630f3f36e5a0bdcb186ccd81"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B01.aether-metrics-catalog.json",
+      "bytes": 140181,
+      "sha256": "7f734f6ae6985570c74f49026cd8cf5644522b71589f531d4811c544b53dc26b"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B02.metadata-enrichment-matrix.md",
+      "bytes": 33832,
+      "sha256": "f6140be6ddefbd056fabb974276a23d92a8a92c79b134898421166abb04253ec"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B03.metric-to-source-coverage-matrix.json",
+      "bytes": 307077,
+      "sha256": "a3e3079f4b35be3af9688b8956da5cb03d4fbd1f474cb263f5d2f389e0cda4f3"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B04.engine-native-metrics-baseline.md",
+      "bytes": 34533,
+      "sha256": "d619b56193a53545cf6ba00dd621822eefd7bb961ecf2d3fd4b481a0da9cc955"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B05.zero-application-change-collection-contract.md",
+      "bytes": 25454,
+      "sha256": "64c2b3458c4a9eefe9a232154b9506622de3c5d63abcf83463a6313ecc1632f8"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B06.collection-acceptance-budget-template.json",
+      "bytes": 11962,
+      "sha256": "8f31bfef5c7c32a4827d9bc61f3c057d7add97bdc2c1f725b7629b6be4f8da26"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B07.PLANS.md",
+      "bytes": 14558,
+      "sha256": "ff86af903ee20aaf9ff60b5931a1cf703a8f1b5d9ed11f695040dba9d73b00b0"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B08.source-mapping-recheck.md",
+      "bytes": 13100,
+      "sha256": "3f0c0aedf8e0d319e20aa9063b589c109737fa226e79e41c90a213b2c30f2647"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B09.aether-metrics-catalog.md",
+      "bytes": 96222,
+      "sha256": "15cc69d3de588bb4a1b89db8f960041183154aa7ec9b9eee50b43818be7d4c05"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B10.metric-to-source-coverage-matrix.md",
+      "bytes": 96018,
+      "sha256": "2afb171c54485a506e863557122a2a933dd16ca2a508e7d4cebf1fa8bdee0301"
+    },
+    {
+      "path": "evidence/inputs/v1/local/B11.validation-evidence-baseline.md",
+      "bytes": 11790,
+      "sha256": "998926fadc5d718785cfa308de69c2453cbdc7d6ca0bd40f11844ad0c9623783"
+    }
+  ],
+  "update_rule": "Do not overwrite v1 snapshots or silently regenerate checksums. New inputs or environment revisions need a new version and rationale. Living workspace documents may evolve; the frozen input copies retain this baseline."
+}
