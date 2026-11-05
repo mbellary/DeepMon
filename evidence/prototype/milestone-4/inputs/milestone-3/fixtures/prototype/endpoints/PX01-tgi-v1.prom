@@ -1,3 +1,0 @@
-# HELP tgi_batch_current_size Synthetic test values; not a captured export
-# TYPE tgi_batch_current_size gauge
-tgi_batch_current_size 2

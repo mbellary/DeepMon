@@ -1,3 +1,0 @@
-# HELP nv_inference_request_success Synthetic test values; not a captured export
-# TYPE nv_inference_request_success counter
-nv_inference_request_success{model="fixture-model",version="1"} 100

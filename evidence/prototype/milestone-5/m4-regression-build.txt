@@ -1,3 +1,0 @@
-   Compiling aether-poc v0.1.0 (/home/mbellary/work/projects/DeepMon/prototypes/aether-poc)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.29s
-     Running `prototypes/aether-poc/target/debug/aether-poc verify-milestone --root . --milestone 4`

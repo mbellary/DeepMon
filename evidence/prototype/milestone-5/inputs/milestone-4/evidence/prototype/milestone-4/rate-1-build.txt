@@ -1,2 +1,0 @@
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s
-     Running `prototypes/aether-poc/target/debug/aether-poc run-scenario --scenario counter-rate --variant PX02-success-rate-v1 --root .`

@@ -1,3 +1,0 @@
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s
-     Running `prototypes/aether-poc/target/debug/examples/record_metric_evidence`
-functional_assertions_indexed=49 runtime_acceptance_readiness=false

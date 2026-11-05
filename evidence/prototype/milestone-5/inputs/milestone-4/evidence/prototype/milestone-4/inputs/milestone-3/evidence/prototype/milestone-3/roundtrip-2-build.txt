@@ -1,2 +1,0 @@
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running `prototypes/aether-poc/target/debug/aether-poc run-scenario --root . --scenario endpoint-roundtrip --variant PX01-vllm-v1`

@@ -1,2 +1,0 @@
-    Checking aether-validation v0.1.0 (/home/mbellary/work/projects/DeepMon/tools/aether-validation)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.73s

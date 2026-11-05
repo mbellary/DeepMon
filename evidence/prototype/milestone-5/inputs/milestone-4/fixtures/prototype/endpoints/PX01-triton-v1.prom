@@ -1,3 +1,0 @@
-# HELP nv_pinned_memory_pool_used_bytes Synthetic test values; not a captured export
-# TYPE nv_pinned_memory_pool_used_bytes gauge
-nv_pinned_memory_pool_used_bytes 2

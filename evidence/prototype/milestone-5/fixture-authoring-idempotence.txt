@@ -1,4 +1,0 @@
-   Compiling aether-poc v0.1.0 (/home/mbellary/work/projects/DeepMon/prototypes/aether-poc)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.06s
-     Running `prototypes/aether-poc/target/debug/examples/author_enrichment_fixtures`
-enrichment_fixture_files_written=0

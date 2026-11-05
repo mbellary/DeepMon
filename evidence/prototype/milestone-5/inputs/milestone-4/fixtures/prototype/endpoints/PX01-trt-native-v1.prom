@@ -1,3 +1,0 @@
-# HELP trtllm_kv_cache_used_blocks Synthetic test values; not a captured export
-# TYPE trtllm_kv_cache_used_blocks gauge
-trtllm_kv_cache_used_blocks 2

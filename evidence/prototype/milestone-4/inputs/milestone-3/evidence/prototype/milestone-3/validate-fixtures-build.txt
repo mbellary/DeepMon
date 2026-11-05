@@ -1,2 +1,0 @@
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s
-     Running `prototypes/aether-poc/target/debug/aether-poc validate-fixtures --root .`

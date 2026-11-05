@@ -1,2 +1,0 @@
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
-     Running `prototypes/aether-poc/target/debug/aether-poc run-scenario --scenario native-parse --variant PX01-vllm-v1 --root .`

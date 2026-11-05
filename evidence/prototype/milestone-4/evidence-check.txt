@@ -1,5 +1,0 @@
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.03s
-     Running `tools/aether-validation/target/debug/aether-validate evidence --root .`
-PASS: 10 pinned upstream inputs; 24 artifact checksums; 26/26 historical U rows reconciled.
-Documentation routes: E=88 R=35 H=100 I=26 U=1; L1-001 remains U and L1-005 inherits its semantic gap.
-Deployed schemas/capabilities: NOT VERIFIED.

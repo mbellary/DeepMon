@@ -1,3 +1,0 @@
-# HELP nv_trt_llm_runtime_memory_metrics Synthetic test values; not a captured export
-# TYPE nv_trt_llm_runtime_memory_metrics gauge
-nv_trt_llm_runtime_memory_metrics{memory_type="gpu",model="fixture-model",version="1"} 2
